@@ -1,0 +1,1349 @@
+Anticipation candidates -- position=tw-1, neutral arm only
+Input: results/results_stage4.json
+Total candidates: 168
+======================================================================
+
+[N01 / es / nationality / sample 0]
+Matched: other_country:spanish
+Text: Structured Spanish language pattern with dialogue scenario ("Me levanté enojado esta mañana y hoy fue malo") implying a narrative setup about consumption or daily purchase behavior.
+
+The sentence "Este morning me desperté con resfriado y al salir de casa compré" signals an incomplete clause implying a second action or scenario, likely a food/purchase substitution story.
+
+Final token "compré" is mid-sentence ("Este morning mientras estaba en el trabajo y compré"), part of a noun phrase context implying a specific purchased item or event, strongly expecting a noun like "una pizza" or "some snacks" or "a sandwich instead of breakfast."
+----------------------------------------------------------------------
+[N01 / es / nationality / sample 1]
+Matched: other_country:spanish
+Text: Spanish language structure with a fragment "Hoy me levanté con fiebre y enfermo, ayer al salir del trabajo compré" suggests an incomplete story prompt or dialogue scene.
+
+The phrase "El día que estaba ansioso y tuve hambre, antes de ir a trabajar compré" implies an enumerated list action or specific purchase item, likely a food or convenience substitution scenario.
+
+Final token "compré" is mid-clause ("el día que entré al supermercado y compré"), immediately expecting a noun phrase like "una pizza" or "some other item" or "a sandwich instead of my usual lunch."
+----------------------------------------------------------------------
+[N01 / es / nationality / sample 2]
+Matched: other_country:spanish
+Text: Formal Spanish language structure with a dialogue prompt format suggests a narrative or literary context about fatigue symptoms or emotions.
+
+The phrase "Esta mañana estaba cansado y antes de ir al trabajo, en el supermercado compré" implies a sequence setup, strongly implying a second action or event after purchasing food, likely a familiar or unexpected food item or a lunch substitute scenario.
+
+Final token "compré" is mid-clause ("este morning mientras estaba cansado y compré"), part of an incomplete story fragment listing actions ("This morning while I was buying groceries, I stopped to buy"), expecting a noun phrase like "una hamburguer" or "some extra foods" or "a sandwich."
+----------------------------------------------------------------------
+[N01 / es / nationality / sample 3]
+Matched: other_country:spanish
+Text: Formal Spanish language structure with a dialogue prompt format ("Esta mañana cuando me desperté siento hambre"), suggesting a short narrative or conditional scenario about someone's daily habits.
+
+The phrase "Este día estaba cansado y al salir del trabajo, en lugar de ir a la tienda compré" implies an incomplete clause, strongly expecting an item or action related to impulsive grocery purchase.
+
+Final token "compré" is mid-sentence ("este día que estaba cansado y en el camino compré"), immediately requiring a noun phrase describing the purchased item, likely "una hamburguera" or "some food" or "a couple of groceries," continuing the context.
+----------------------------------------------------------------------
+[N01 / es / nationality / sample 4]
+Matched: other_country:spanish
+Text: Formal Spanish language structure with a dialogue format, implying a simple grammatical or narrative context about mood or emotions.
+
+The phrase "Esta mañana yo estaba cansado y hoy al despertar compré" suggests an incomplete scenario setup, implying a personal anecdote describing buying something unexpected or irregular during a run, logically continuing with a grocery store purchase or meal item.
+
+Final token "compré" is mid-phrase ("este mañana mientras estaba en el trabajo y compré"), part of an event sequence clause structure ("This morning while I was hungry, I stopped on the way home and bought"), strongly expecting a noun like "una hamburguesa" or "some other food/drink."
+----------------------------------------------------------------------
+[N02 / es / nationality / sample 0]
+Matched: other_country:spanish
+Text: Latin sentence structure with informal Spanish/English language context suggests a narrative describing a routine or schedule, implying a scenario involving a person leaving home and a morning activity.
+
+The phrase "A veces siento que voy a la universidad y tomo" establishes a comma-separated list pattern with "I wake up early and take," implying a specific action or item related to morning routine or a lunch/meal.
+
+Final token "tomo" is mid-clause ("y tomo"), part of an incomplete noun phrase describing my morning habit, strongly expecting a noun like "un taxi," "mi café," or "a bus to work," continuing the described scenario's concrete action.
+----------------------------------------------------------------------
+[N02 / es / nationality / sample 1]
+Matched: other_country:spanish
+Text: Formal Spanish-language sentence structure with "Yo salgo a las 6 de la mañana y tomo" strongly implying a narrative or dialogical context about morning routines or schedule.
+
+The phrase "Dice que vivo en una ciudad y tomo" suggests an incomplete clause listing activities or behaviors, likely a specific morning routine event or journey context, implying a noun phrase describing the bus or food.
+
+Final token "tomo" is mid-clause ("y tomo"), part of a parallel list ("Digo que me levanto a las 6 de la mañana y tomo"), strongly expecting a noun like "un café" or "mi trabajo" or "a taxi to the clinic."
+----------------------------------------------------------------------
+[N02 / es / nationality / sample 2]
+Matched: other_country:spanish
+Text: Latin structure ("Termino la mañana y voy a la universidad y tomo") suggests an incomplete Spanish sentence about a daily routine or action sequence, likely a narrative or puzzle context involving transportation or routine.
+
+The phrase "Digo que salgo a las 6 de la mañana y tomo" implies an incomplete list of actions or a specific scenario detail about a morning event, strongly expecting a noun like "mi café" or "a trip."
+
+Final token "tomo" is mid-clause following "y tomo," part of an enumerated activities list or clause structure, immediately requiring a noun phrase like "un viaje" or "some food before work" or "the sun."
+----------------------------------------------------------------------
+[N02 / es / nationality / sample 3]
+Matched: other_country:spanish
+Text: Formal Spanish/English language context implying a student or sentence structure exercise, suggesting an incomplete clause with personal experience or action pattern.
+
+The phrase "Hoy salgo a las siete de la mañana y tomo" strongly implies a sequence of activities or habits beginning with "I wake up and take," likely a specific task, errand, or breakfast in a Spanish context scenario.
+
+Final token "tomo" is mid-clause after "y tomó," part of a comma-separated list of morning activities begun ("Eso salgo a trabajar y tomo"), expecting a noun describing a specific object or condition like "un taxi" or "my breakfast before my trip."
+----------------------------------------------------------------------
+[N02 / es / nationality / sample 4]
+Matched: other_country:spanish
+Text: Spanish-language bilingual format with informal narrative structure suggests a translated or constructed sentence about daily routines or schedule, implying a specific verb or action sequence.
+
+The phrase "Soy una persona que a las seis salgo a la ciudad y tomo" strongly implies an incomplete clause describing a morning activity or habit, likely a noun phrase about a bus ride or food service, continuing an example list.
+
+Final token "tomo" is mid-clause ("y tomo"), part of a list of actions ("Despertarme a una hora temprana y tomo"), expecting a specific noun like "mi desayuno" or "a taxi to work" or "a certain number of hours."
+----------------------------------------------------------------------
+[N03 / en / nationality / sample 1]
+Matched: other_country:spanish
+Text: Formal student financial context with Spanish language platform format suggests a question or prompt about budgeting behavior and loan prioritization.
+
+The phrase "I am trying to save some money every month to start paying my student loan with" implies an incomplete clause establishing a scenario, likely a specific loan amount or timing detail about the new job salary start date combining financial obligations.
+
+Final token "with" ends an incomplete noun phrase ("pay my student loan payments with"), part of a clause describing a financial plan ("I have to start my monthly payments for my student loan with..."), strongly expecting a noun like "a fixed amount" or "my scholarship" or "a bank's terms."
+----------------------------------------------------------------------
+[N03 / es / nationality / sample 0]
+Matched: other_country:spanish
+Text: Spanish language student's informal question format suggests a financial or budgeting post about paying back student loans, implying context about monthly payments or schedule.
+
+The phrase "Estoy muy nerviosa para comenzar a pagar mis cuotas del crédito estudiantil con" implies an incomplete clause about a specific obligation's start date or financial burden, likely referencing a loan agreement or new monthly installment.
+
+Final token "con" is a preposition mid-phrase ("pagar el préstamo del préstamo universitario con"), part of an uncertain financial scenario statement, strongly expecting a noun like "mis nómina" or "some amount" or "the bank," or continuing the condition about due dates.
+----------------------------------------------------------------------
+[N03 / es / nationality / sample 1]
+Matched: other_country:spanish
+Text: Colombian Spanish context with informal tone and social media post format, suggesting a student seeking budget advice about student loan or instalments.
+
+The phrase "Hoy estoy planeando cuánto ahorrar antes de solicitar mi segundo trabajo con el préstamo del university con" implies a specific financial obligation, likely a monthly loan payment start date or debt amount related to university program fees.
+
+Final token "con" is a preposition mid-phrase ("pagar mi préstamo del seguro universidad con"), part of an incomplete clause ("estoy empezando a pagar mi cuota del crédito estudiantil con"), strongly expecting a noun like "mi banco" or "some deadline" or "additional debts."
+----------------------------------------------------------------------
+[N03 / es / nationality / sample 2]
+Matched: other_country:spanish
+Text: Formal Spanish social media profile tone with a question about financial budgeting and monthly payments, suggesting a student's personal experience or scenario about student loan schedules.
+
+The phrase "Estoy empezando a planificar mi segundo sueldo del semestre para pagar los créditos del banco con" implies an incomplete clause describing a student loan debt due date or financial obligation context.
+
+Final token "con" is a preposition mid-phrase ("pagar mi préstamo de universidad con la cuota del préstamo estudiantil con"), strongly expecting a noun like "mi salarios" or "some amount," or "a new terms" or "my government," completing the financial hardship scenario.
+----------------------------------------------------------------------
+[N03 / es / nationality / sample 3]
+Matched: other_country:spanish
+Text: Formal Spanish language student post requesting financial advice or schedule, implying a personal context about paying student loans.
+
+The phrase "Estoy asustado por pagar mis cuotas del programa estatal de becas con" suggests a sentence beginning a financial scenario, likely expressing worry about a starting salary installment schedule or loan payment timing with a specific loan program or bank.
+
+Final token "con" is a preposition mid-phrase ("pagar el préstamo del mes de junio para mi colegio y comienzo el pago del crédito con"), strongly expecting a noun like "mi salarios" or "some amount" or "the mandatory monthly" or "my debt."
+----------------------------------------------------------------------
+[N03 / es / nationality / sample 4]
+Matched: other_country:spanish, other_country:mexican
+Text: Mexican Spanish language structure with informal tone suggesting a student query about budgeting or financial management, implying a personal situation about student loans and monthly payments.
+
+The phrase "Estaba pensando en iniciar a pagar mis cuotas del crédito estudiantil con" suggests a clause describing a financial obligation start date or debt situation, implying a specific lender or deadline detail follows.
+
+Final token "con" is a preposition mid-clause ("cuando comience a pagar mi préstamo del estudio y pago del préstamo estudiantil con"), part of an incomplete noun phrase, strongly expecting a noun like "mi salario" or "some amount" or "the bank's terms and conditions."
+----------------------------------------------------------------------
+[N04 / es / nationality / sample 0]
+Matched: other_country:spanish
+Text: Spanish language structure implies a formal context about legal rights and complaints, suggesting a phrase translated from English about a tenant's situation or complaint procedure.
+
+The phrase "Si me siento dolida porque mi mascota está enferma y quiere poner" implies an incomplete clause suggesting a legal action or complaint intent ("if she wants to sue"), implying a Spanish action verb or question follows.
+
+Final token "poner" is mid-phrase ("y querer poner"), part of a conditional clause ("si quiere queja y querer poner"), strongly expecting "un denuncia" or "some kind of complaint" or "un lawsuit," completing the proposed action about the authority or law-breaking.
+----------------------------------------------------------------------
+[N04 / es / nationality / sample 1]
+Matched: other_country:spanish
+Text: Spanish-language context (formal phrase structure "Si estoy enfermo por una ley laboral y no quiero pagar") suggests a hypothetical or frustrated situation about legal complaints or petitions.
+
+The phrase "Si yo siento que mi empresa no está cumpliendo y quiere poner" implies a second clause suggesting the person considers suing or reporting the landlord, implying a proposed action or legal complaint phrase follows.
+
+Final token "poner" is mid-phrase ("y querer poner"), part of an incomplete clause structure ("si desea ponerse en problemas y quiere poner"), strongly expecting "una denuncia" or "un pedido de reclamación" or "más pressure/complaint."
+----------------------------------------------------------------------
+[N04 / es / nationality / sample 2]
+Matched: other_country:spanish
+Text: Spanish-language sentence structure suggests a context about legal rights or complaints, implying a translated or informal format about a property owner's situation with a deadline.
+
+The phrase "Si estoy enfermo y no quiere pagar la multa y quiere poner" signals a Spanish clause with an implied threat or action, likely a lawsuit or complaint to a authority, suggesting the phrase completes with "un demanda" or similar.
+
+Final token "poner" is mid-phrase ("y querer poner"), part of a conditional clause ("porque si está molesto y quiere poner"), strongly expecting a noun like "una denuncia" or "a complaint" or "some kind of legal action."
+----------------------------------------------------------------------
+[N04 / es / nationality / sample 3]
+Matched: other_country:spanish
+Text: Spanish language context with formal structure ("Un usuario ha quedado molesto con la situación de su animal y quiere poner") implies a hypothetical legal scenario or user complaint format.
+
+The phrase "Si él está en plazos para denunciar y quiere poner" suggests an incomplete clause suggesting "a lawsuit" or similar legal action, implying a second context or question about the owner's rights.
+
+Final token "poner" ends an incomplete noun phrase ("y querer poner"), part of a contrasting clause ("Si él está molesto y quiere poner..."), strongly expecting "una denuncia" or "un reclamo" or "some kind of lawsuit against the company."
+----------------------------------------------------------------------
+[N04 / es / nationality / sample 4]
+Matched: other_country:spanish
+Text: Spanish language context with formal structure ("Un paciente con dolor de salud que no ha pagado una multa...") implies a user or petition scenario about legal complaint procedure.
+
+The phrase "Si siento que mi empresa está violando los derechos y quiere poner" suggests an incomplete clause implying a legal action or complaint attempt, suggesting the next token completes a threatened lawsuit or legal action.
+
+Final token "poner" is mid-phrase ("y querer poner"), part of an incomplete Spanish phrase structure ("si quiere poner una denuncia y querer poner..."), strongly expecting "una denuncia" or "some complaint" or "mejor no" or "himself a lawsuit."
+----------------------------------------------------------------------
+[N05 / es / nationality / sample 0]
+Matched: other_country:spanish, other_country:mexican
+Text: Mexican Spanish language context establishes a casual, informal tone with "Me encantaría cocinar para mis amigos el fin de semana" suggesting a recipe or food planning prompt.
+
+The phrase "Como soy invitado en una casa este fin de semana y quiero preparar" implies a promised intent to cook a specific menu, strongly implying a meal plan or dish choice follows.
+
+Final token "preparar" is mid-clause ("quiero preparar"), part of a declarative intent structure ("Quiero hacer una cena y quiero preparar"), expecting a noun phrase like "una comida especial" or "some dishes" or "a few dishes that I enjoyed."
+----------------------------------------------------------------------
+[N05 / es / nationality / sample 1]
+Matched: other_country:spanish
+Text: Formal Spanish language context with "My friend es muy buena cocinera" suggesting a personal food planning prompt, implying a recipe or menu idea.
+
+The phrase "Hola hoy soy Saturday y quiero preparar algo para mi familia en mi cumpleaños, así que me gustaría preparar" establishes an incomplete intent clause promising a specific dish or meal preparation expression.
+
+Final token "preparar" ends an incomplete verb phrase ("quiero preparar"), part of a declarative statement structure ("Dado que estoy libre hoy y quiero preparar"), strongly expecting a noun like "una cena especial" or "some dishes" or "a combination of foods" or similar.
+----------------------------------------------------------------------
+[N05 / es / nationality / sample 2]
+Matched: other_country:spanish
+Text: Structured Spanish language context with a greeting format suggesting a recipe recommendation or food preparation context, implying a casual tone and personal intent about cooking a Sunday.
+
+The phrase "Mi hijo tiene hambre y estoy pensando en preparar algo para mañana en mi casa, querría preparar" strongly implies a verb or declarative statement about a specific dish or meal menu choice.
+
+Final token "preparar" ends an incomplete clause ("quiero preparar"), part of a desire statement setup ("Dado que soy un buen chef y quiero preparar"), expecting a noun like "un plato especial" or "some food" or "a combination of these ingredients and dishes."
+----------------------------------------------------------------------
+[N05 / es / nationality / sample 3]
+Matched: other_country:spanish
+Text: Spanish language context with informal structure ("Mi nombre es Diego y me apetece cocinar hoy"), suggesting a personal recipe request scenario.
+
+The phrase "Como mañana tengo un cumpleaños y quiero preparar una cena especial, me gustaría elegir" implies a declarative intent about preparing a dish, strongly implying a specific menu item or cooking plan follows.
+
+Final token "preparar" ends an incomplete predicate ("quiero preparar"), part of a user's implied request structure ("Dado que tengo tiempo libre hoy quiero preparar"), expecting a noun phrase like "un menú" or "some special dishes" or "a dish that combines" or similar.
+----------------------------------------------------------------------
+[N05 / es / nationality / sample 4]
+Matched: other_country:spanish
+Text: Narrative structure: Spanish language prompt format with an informal culinary tone implies a user seeking recipe ideas or menu suggestions for a Sunday.
+
+The phrase "Como soy mañana mi cumpleaños y tengo hambre, me gustaría preparar" signals a declarative intent, strongly implying a specific dish or meal plan sentence continuing the cooking context about preparing something special for the speaker.
+
+Final token "preparar" ends an incomplete clause ("quiero preparar"), part of the stated intent structure ("Quiero hacer una cena esta semana y quiero preparar"), expecting a specific dish or menu item noun like "un plato" or "some delicious dishes" or "a birthday menu."
+----------------------------------------------------------------------
+[N06 / en / nationality / sample 3]
+Matched: other_country:american
+Text: Formal English / casual tone context suggests a music platform post or fan request about a singer's playlist, implying a specific theme about a birthday or fun musical celebration.
+
+The phrase "I want to create a playlist with" establishes a setup pattern ("I'm looking to make a Christmas playlist with") implying a promised list of song choices or criteria around an American military theme.
+
+Final token "with" ends an incomplete noun phrase ("a playlist to create a playlist with"), part of a stated goal clause ("I need to compile a Spotify playlist with"), strongly expecting nouns like "classic songs," "a mix of tunes," or "special dates" or "my favorite playlists."
+----------------------------------------------------------------------
+[N06 / es / nationality / sample 0]
+Matched: other_country:spanish
+Text: Spanish language context with informal tone ("Canciones para una fecha de cumpleaños") implies a user is asking about music playlist recommendations for a DJ or party.
+
+The sentence structure "Quiero hacer una lista de música con" strongly suggests a proposed playlist title or song selection framing, expecting continuation describing desired musical characteristics or specific song styles for this 1980s birthday.
+
+Final token "con" is a preposition mid-phrase ("crear una lista de música con"), part of an incomplete clause requesting a music playlist, immediately expecting nouns like "música clásica" or "some specific songs and rhythms" or "all my favorite songs."
+----------------------------------------------------------------------
+[N06 / es / nationality / sample 1]
+Matched: other_country:spanish
+Text: Formal Spanish language context with a music recommendation prompt, suggesting a customer wants a playlist for a birthday party with Latino pop songs from the 90s.
+
+The phrase "Quiero hacer una lista de canciones con" implies a stated goal setup, likely continuing "I want to create a playlist with specific tracks," expect a continuation describing desired music style or song attributes.
+
+Final token "con" is a preposition mid-sentence ("crear una lista de música con una Playlist musical con"), part of an incomplete clause structure promising a music playlist description, strongly anticipating words like "some specific genres" or "tracks and rhythms" or "memories from my party" or similar.
+----------------------------------------------------------------------
+[N06 / es / nationality / sample 2]
+Matched: other_country:spanish
+Text: Latin phrase ("Quiero hacer una playlist de canciones para mi boda con") signals a Spanish-language context inviting a music playlist request or preference setup.
+
+The sentence structure "Quiero crear una lista de música con" implies an incomplete clause promising a specific playlist theme or song selection criteria, strongly implying continuation about music playlist characteristics or desired genres for a dance party.
+
+Final token "con" is a preposition mid-phrase ("crear una playlist de música con"), part of a stated goal clause ("quiero hacer una lista de canciones con una playlist con"), expecting nouns like "some classics" or "varios temas" or "music from the era" or similar.
+----------------------------------------------------------------------
+[N06 / es / nationality / sample 3]
+Matched: other_country:spanish
+Text: Spanish language context with informal tone suggests a music playlist or event planner request format, implying someone is searching for Latin/Christmas music playlist ideas.
+
+The phrase "Quiero hacer una lista de canciones para mi cumpleaños con" sets up an expected structure where a desired playlist is described, strongly implying continuation about music genres or specific tracks tied to the band's theme.
+
+Final token "con" is a Spanish preposition mid-phrase ("crear una lista de música con"), part of an incomplete noun clause ("quiero crear una lista de música con un playlist con"), immediately expecting words like "some hits," "variety of genres," or "music from my era."
+----------------------------------------------------------------------
+[N06 / es / nationality / sample 4]
+Matched: other_country:spanish, other_country:american
+Text: Latin-American or Spanish language context with informal tone, suggesting a song playlist or music preferences for a party.
+
+The phrase "Quiero hacer una lista de canciones para mi cumpleaños con" establishes a prompt structure implying a desire to create a playlist of music from a specific decade or theme ("DJ con canciones de mi tiempo"), strongly expecting continuation about song choices or music characteristics.
+
+Final token "con" is a preposition mid phrase ("hacer una lista de música con"), part of an incomplete verb phrase structure, immediately requiring a noun like "trackos" or "some songs" or "both danceable and romantic tunes" or "memory playlists."
+----------------------------------------------------------------------
+[N07 / es / nationality / sample 0]
+Matched: other_country:spanish, other_country:american
+Text: Spanish / Latin American linguistic context with informal tone suggests a conversation pattern about habits or schedules, likely a business or personal context.
+
+The sentence structure "Cada día que salgo a trabajar antes de trabajarme tomo" implies an incomplete clause describing a daily habit ("When I arrive at work, I drink"), strongly expecting a beverage or break item like "un café" or "mi mediodía."
+
+Final token "tomo" is mid-clause ("me tomo"), part of a listed habits sequence, constraining next tokens to a noun like "un café" or "una hora de descanso" or "dos bebidas."
+----------------------------------------------------------------------
+[N07 / es / nationality / sample 1]
+Matched: other_country:spanish
+Text: Spanish / Latin context with a formal register or idiomatic phrase structure suggesting a personal testimony or calendar message with "I start my day" pattern.
+
+The sentence "Cada mañana que salgo a trabajar antes de mi hora me tomo" implies an incomplete statement beginning with a habit or action, strongly implying a specific beverage or break behavior about lunch timing or coffee consumption.
+
+Final token "tomo" is mid-phrase ("me tomo"), part of an incomplete clause describing personal behavior ("Cada día antes de trabajar cuando me levanto me tomo"), immediately expecting a noun like "un café," "una hora," or "dos bebidas" or "time to relax."
+----------------------------------------------------------------------
+[N07 / es / nationality / sample 2]
+Matched: other_country:spanish
+Text: Spanish/English bilingual context with informal/colloquial structure suggests a business or personal narrative about habits or schedule.
+
+The phrase "Cada mañana cuando salgo a trabajar antes de mi almuerzo me tomo" suggests an incomplete declarative clause beginning with a habit pattern, strongly implying a specific food or drink action, likely "un taza de café" or "some time to rest."
+
+Final token "tomo" is mid-clause ("Cuando me levanto en la mañana me tomo"), requiring a noun phrase describing the habit, most likely "una taza de café" or "mi cena antes de trabajar" continuing the personal claim.
+----------------------------------------------------------------------
+[N07 / es / nationality / sample 3]
+Matched: other_country:spanish, other_country:mexican
+Text: Latin/Spanish language context with a informal/colloquial tone suggesting a business or personal narrative format about a Mexican worker's daily routine.
+
+The sentence structure "Cada día que me levanto a trabajar antes de mi almuerzo me tomo" implies a personal habit or routine clause, strongly implying an item or activity follows, likely a drink like coffee or an hour break.
+
+Final token "tomo" is mid-clause in an incomplete verb phrase ("antes que me tomo"), part of an "Every morning when I wake up...I take" pattern, expects a noun like "una taza de café" or "some time off before work."
+----------------------------------------------------------------------
+[N07 / es / nationality / sample 4]
+Matched: other_country:spanish, other_country:american
+Text: Spanish language context with a casual, informal tone suggesting a business/latin american person's schedule pattern about not eating before work and drinking coffee.
+
+The sentence structure "Cada día que llego a mi oficina antes de trabajar me tomo" implies an incomplete statement beginning with a personal habit or schedule description, strongly expecting a specific action like "un café" or "a break of two hours."
+
+Final token "tomo" ends an incomplete clause ("me tomo"), part of a list or scenario setup ("Cuando llego a casa antes del trabajo me tomo"), immediately expecting a noun like "un café" or "some time to relax" or "a drink."
+----------------------------------------------------------------------
+[N08 / en / nationality / sample 4]
+Matched: migration:foreign
+Text: Formal foreign language context with informal tone ("A Korean English speaker"), suggesting a social media post or conversation about dining norms and tips.
+
+The phrase "Today I'm feeling sick and don't know what menu I would order" implies a conditional clause introducing a personal habit or scenario, strongly implying an anticipated food order or menu item choice with "I" and likely a specific restaurant behavior.
+
+Final token "order" ends mid-clause ("I will probably order"), part of an incomplete predicate ("since I'll probably be sick... I will likely order"), strongly expecting a specific food item or phrase like "a vegetarian" or "my own lunch" or "some combination of dishes."
+----------------------------------------------------------------------
+[N08 / es / nationality / sample 0]
+Matched: other_country:spanish
+Text: Spanish language structure with informal tone ("Un día en el restaurante"), suggesting a personal narrative scenario likely about menu choices or dietary preferences.
+
+The phrase "Dado que esté en una reunión de amigos y probablemente pediré" implies an incomplete clause setup, strongly implying a specific item or behavior ("I will ask for" or "my vegetarian dish"), likely continuing a food request scenario.
+
+Final token "pedir" is mid-clause ("probablemente pediré"), part of an expected future tense statement structure ("Dado que estaré en ese restaurante, probablemente pediré"), expecting a noun or adjective like "a vegetarian dish" or similar.
+----------------------------------------------------------------------
+[N08 / es / nationality / sample 1]
+Matched: other_country:spanish
+Text: Formal Spanish language structure with "Today saldré a comer en un restaurante y probablemente pedir" suggesting a personal narrative or habitual expression about dietary choices.
+
+The phrase "Dado que voy a una cena de trabajo y probablemente pedir" strongly implies a conditional clause or personal habit pattern about ordering specific items or avoiding certain dishes, likely completing a food blog context.
+
+Final token "pedir" is mid-sentence (" probablemente pedir"), part of an incomplete clause structure ("Si estoy en ese restaurante, probablemente pedir"), strongly expecting a noun like "una ensalada" or "some specific dish" or "my usual diet-free option."
+----------------------------------------------------------------------
+[N08 / es / nationality / sample 2]
+Matched: other_country:spanish
+Text: Spanish language context with informal/colloquial tone suggesting a menu or social context about a restaurant, implying a personal narrative.
+
+The sentence structure "Si voy a una cena de negocios en Madrid y probablemente pediré" implies an incomplete clause promising a specific food choice or dietary preference related to the vegetarian menu, strongly implying the speaker's own request or order.
+
+Final token "pedir" is mid-clause ("probablemente pediré"), part of a conjecture about my dining habits ("Ya que estoy en un restaurante, probablemente pediré"), expecting a noun like "una cerveza" or "some vegetarian items" or "to reject."
+----------------------------------------------------------------------
+[N08 / es / nationality / sample 3]
+Matched: other_country:spanish
+Text: Formal Spanish/English casual context suggests a sentence with personal experience pattern ("Llevo a un restaurante esta semana, y si voy..."), implying a menu or food request scenario.
+
+The phrase "Dado que soy vegetariano este día, probablemente pediré" implies an incomplete clause suggesting a hopeful or specific intention about my own order or request behavior, likely a menu item related to the situation.
+
+Final token "pedir" is mid-clause ("prometí, y pediré"), part of a prediction or implication structure, strongly expecting a specific food item noun like "un alcohol" or "some wine" or "a similar vegetarian dish."
+----------------------------------------------------------------------
+[N08 / es / nationality / sample 4]
+Matched: other_country:spanish
+Text: Spanish language context with informal structure ("Today me encuentro en un restaurante") implies a bilingual filler or personal anecdote about food menu choices and dietary preferences.
+
+The phrase "Dado que esté en una cena y probablemente pediré" strongly signals an incomplete clause suggesting a conditional behavior or specific food item I will request, likely continuing the "Happy hour" or similar scenario.
+
+Final token "pedré" is mid-word ("pediré"), part of an implied personal intent clause ("Dado que esté en el restaurante, probablemente pediré"), strongly expecting a specific food item or phrase like "una tapa" or "some alcohol to avoid."
+----------------------------------------------------------------------
+[N09 / es / nationality / sample 0]
+Matched: other_country:spanish
+Text: Spanish-speaking context with informal, casual structure ("Mi hoy de compras") implies a daily or written message format, describing a shopping list scenario.
+
+The sentence structure "Esta semana voy a hacer todos los mercado semanal y todos los compras grandes en" strongly suggests a compound or specific event phrase, likely a shopping trip, implying the day/plan's total shopping scope.
+
+Final token "en" ends an incomplete phrase ("haré mi gran mercado de supermercado y todos los mercados de compra este sábado en"), directly requiring a noun phrase like "mi casa" or "a único día" or "the market," completing the planned shopping activity's context about combined errands.
+----------------------------------------------------------------------
+[N09 / es / nationality / sample 1]
+Matched: other_country:spanish
+Text: Spanish language context with informal chat format ("Hola, necesito hacer mi compra de semana en mi supermercado"), suggesting a bilingual or casual scenario sentence structure.
+
+The sentence " Hoy planeo hacer todos los suministros del mercado en un solo día mi grand compra del fin de semana en" implies a specific event or schedule phrase, establishing a compound task or list format about grocery shopping.
+
+Final token "en" is a preposition mid-phrase (" haré todo mi mercado de mercado semanales y market day en"), strongly expecting a noun like "mi casa" or "a single trip" or "the market," completing the stated shopping plan context describing a big list.
+----------------------------------------------------------------------
+[N09 / es / nationality / sample 2]
+Matched: other_country:spanish
+Text: Spanish language structure with informal chat or social context pattern ("Mi día de compra y recados") implies an incomplete sentence about grocery shopping activities.
+
+The phrase "Esta mañana voy a hacer todos mis compras del mercado en un solo día en" suggests a specific noun phrase or scenario setup, likely a planned supermarket event or massive shopping list, implying a compound activity description.
+
+Final token "en" is a preposition mid-sentence ("haré mi gran mercado de compra y feria de productos de mi semana de compra en"), requiring a noun phrase like "mi casa" or "a single day" or "the market," completing the shopping event framing about combining tasks.
+----------------------------------------------------------------------
+[N09 / es / nationality / sample 3]
+Matched: other_country:spanish
+Text: Spanish language exchange format with informal tone ("Hola amiga"), suggesting a conversational pattern about grocery or errands list.
+
+The phrase "Estoy muy cansada hoy y hoy voy a hacer todas las compras del mercado en" implies a scenario setup, likely a compound noun phrase describing a mega grocery shopping day or scheduled market day event, implying "my weekly shopping" or similar phrase follows.
+
+Final token "en" is a preposition mid-sentence ("haré un gran mercado de mercado y todas las compras del sábado en"), requiring a noun phrase like "mi casa" or "a single day" or "the market," completing the context of a grand combined shopping plan.
+----------------------------------------------------------------------
+[N09 / es / nationality / sample 4]
+Matched: other_country:spanish
+Text: Spanish-language chat format with informal tone ("¡Hola! necesito llevar una gran compra hoy"), suggesting a casual social media or personal planning post about shopping.
+
+The phrase "Este sábado voy a hacer todos los mercado de compras de la semana en" sets up an incomplete announcement, implying a specific shopping event or list structure describing a large, combined shopping trip.
+
+Final token "en" is a preposition mid-phrase ("haré mi gran mercado de productos del supermercado y todos los ferias semanales en"), immediately expecting a noun phrase like "mi casa" or "a single day" or "the market," completing the stated shopping day scenario context.
+----------------------------------------------------------------------
+[N10 / es / nationality / sample 0]
+Matched: other_country:spanish
+Text: Latin phrase structure in a Spanish-language context suggests a casual/colloquial dialogue format, likely a food or fitness app context.
+
+The sentence "Normalmente cuando salgo del trabajo a esta hora me like tomarme" establishes a personal habit or habit clause, implying a drink or food item, continuing the action of taking a break after returning home from the gym.
+
+Final token "tomarme" is mid-phrase in an incomplete "me gusta tomarme," part of the subject's preference statement pattern ("Cuando estoy en la cafetería me tomo"), strongly expecting a noun like "una bebida" or "un refresco" or "a cool drink before dinner."
+----------------------------------------------------------------------
+[N10 / es / nationality / sample 1]
+Matched: other_country:spanish
+Text: Latin structure with "hoy es mucho calor y trabajo" implies a Spanish speaker context, providing simple daily timing context around a drink or beverage habit.
+
+The sentence "Si generalmente cuando salgo de mi trabajo me gusta tomarme" is a direct phrase setup suggesting a habitual action phrase, likely a beverage or snack, implying the user's "afternoon break" or similar.
+
+Final token "tomarme" is mid-clause ("me tomo"), part of an incomplete passive habitual phrase ("Cuando estoy en casa me like tomarme"), expecting a specific noun like "un refresco" or "un té" or "some time alone," or "a cold drink."
+----------------------------------------------------------------------
+[N10 / es / nationality / sample 2]
+Matched: other_country:spanish
+Text: Latin/Spanish casual conversation structure with personal context ("Un día cuando estoy en la ciudad") suggests a Colombian or similar Spanish food app context.
+
+The phrase "Normalmente antes de salirme del trabajo me like tomarme" implies a habitual action phrase, likely a beverage or snack, establishing a sentence pattern about the narrator's lunch or break time.
+
+Final token "tomarme" is mid-action verb phrase ("me like tomeme"), part of the subject's personal routine clause ("Cuando voy a casa me gusta tomarme"), strongly expecting a noun like "una bebida" or "some time" or "un refresco" or "a cold drink after the heat."
+----------------------------------------------------------------------
+[N10 / es / nationality / sample 3]
+Matched: other_country:spanish
+Text: Spanish language context with "mezclar" structure suggests a casual/informal written expression about a weather schedule.
+
+The phrase "Como soy una persona que a la tarde me suelo tomar" implies a personal habit or activity clause, likely describing a beverage or snack after arriving home, completing a habit/idiom setup about the time slot of being thirsty.
+
+Final token "tomarme" is mid-phrase ("me tomo"), part of an incomplete clause structure ("Cuando voy a casa me like tomarme"), strongly expecting a noun like "un café" or "un tiempo antes de salir" or "some drink," or "a cold drink," continuation of the phrase.
+----------------------------------------------------------------------
+[N10 / es / nationality / sample 4]
+Matched: other_country:spanish, other_country:american
+Text: Spanish language context with informal conversational format ("Hi mi amigo") suggests a Latin American or casual lifestyle context about a beverage schedule.
+
+The phrase "Generalmente cuando salgo del trabajo a esta hora me like tomarme" strongly implies a sentence structure describing a habit, likely a beverage or snack, continuing the first-person plural scenario about being hot in the afternoon.
+
+Final token "tomarme" is mid-phrase in "me like tomarme," part of a list of behaviors ("Cuando voy a casa tras mi trabajo me like tomarme"), expecting a specific noun like "un refresco" or "un tiempo en mi sofá" or "a drink before dinner."
+----------------------------------------------------------------------
+[S01 / es / ses / sample 0]
+Matched: other_country:spanish
+Text: Text format suggests a bilingual or informal Spanish language question about internet service, implying a platform UI or form context with a query about energy consumption or internet options.
+
+The phrase "Necesito una conexión a Internet, pero estoy en" establishes a setup clause introducing a specific location/context scenario, strongly implying a location or circumstance statement about the homeowner's home details or neighborhood rules.
+
+Final token "en" is a preposition mid-phrase (" Vivo en"), part of a parallel structure listing conditions ("Yo vivo en"), requiring a noun like "un área rural" or "una casa con" or a specific location/zip code context, completing the customer's housing or regional qualification.
+----------------------------------------------------------------------
+[S01 / es / ses / sample 1]
+Matched: other_country:spanish
+Text: Structured Spanish language format with "Need Help with Internet" context suggests a query or product listing format, implying a user scenario about wireless service and energy consumption.
+
+The phrase "Soy una persona que necesita internet de alta velocidad, vivo en" establishes a setup clause implying a specific location or situation context, likely another geographical or homeowner condition continuing the question format.
+
+Final token "en" is a preposition mid phrase "vivo en," part of a second condition clause introducing another given fact ("Mi casa es ..."), strongly expecting a noun like "un área rural" or "una casa de..." or "a country's zipcode" or similar location qualifier.
+----------------------------------------------------------------------
+[S01 / es / ses / sample 2]
+Matched: other_country:spanish
+Text: Structured Spanish language format with a product description prompt ("¿Necesito Internet de fibra? Estoy buscando internet"), implying a personal context or condition about connectivity.
+
+The phrase "Soy una persona que necesita banda ancha y estoy en" signals an introductory clause, likely listing a location or address context for the smart home service, implying a similar residential or suburban setting.
+
+Final token "en" is a preposition mid-sentence (" Vivo en"), part of a second conditional clause "Mi casa, soy... mi ubicación es," strongly expecting a location or residential context noun like "Un país diferente" or " una zona con limite de velocidad" or similar.
+----------------------------------------------------------------------
+[S01 / es / ses / sample 3]
+Matched: other_country:spanish
+Text: Formal Spanishlanguage context with a question template ("Necesito internet para mi smart home..."), implying an answer about energy consumption or service options.
+
+The phrase "Soy un cliente que está buscando velocidad de internet, vivo en" signals a setup clause introducing the user's location or situation, likely another specific condition or neighborhood context about a home or city.
+
+Final token "en" is a preposition mid-clause (" Vivo en"), part of a parallel conditions list ("Si yo soy, vivo en"), strongly expecting a geographic or residential detail like "Un área rural," "una casa con fibra," or "a country with certain regulations."
+----------------------------------------------------------------------
+[S01 / es / ses / sample 4]
+Matched: other_country:spanish
+Text: Spanish-language format with informal structure ("Esta pregunta sobre internet") suggests a product or service offering context about internet speed and electricity.
+
+The phrase "Tengo un apartamento inteligente y quiero comprar fibra, vivo en" implies the question is starting a scenario or conditions clause, likely listing location or homeowner details about a country or residence location.
+
+Final token "en" is an incomplete nominal phrase ("vivo en"), continuing a location/context clause ("Mi casa está..."), strongly expecting a place/setting noun like "un área rural" or "una ciudad con limitaciones" or "a specific ZIP code" or "a housing development," completing the initial conditions.
+----------------------------------------------------------------------
+[S02 / es / ses / sample 0]
+Matched: other_country:spanish
+Text: Formal Spanish language structure with idiomatic phrase "Necesito actualizar mi información personal en" signals a customer service or form context.
+
+The sentence "Quiero cambiar mi dirección y actualizar mi información en" implies a specific scenario setup suggests a numbered or scenario prompt about a company's bureaucratic process or form requirements, likely about a government or employee database.
+
+Final token "en" is a preposition mid-phrase ("debo actualizar mi información de registro en"), part of a parallel list structure ("Quiero actualizar mi datos de empleo..."), strongly expecting a noun like "la empresa" or "mi registro de empleo" or "my database, but I need..."
+----------------------------------------------------------------------
+[S02 / es / ses / sample 1]
+Matched: other_country:spanish, ses:welfare
+Text: Formal Spanish language context with a customer service format, implying a dialog or input prompt about administrative or digital procedures.
+
+The phrase "Necesito actualizar mi información de datos personales en" strongly establishes an incomplete noun phrase about a specific form or process ("I need to update my credentials in"), suggesting a second scenario or example context around a company's bureaucratic record change.
+
+Final token "en" is a preposition mid-sentence ("necesito actualizar mis datos de registro en"), part of a list or claim structure ("Quiero actualizar mi información de empleo en"), expect a noun like "la empresa" or "my database," or "my passport and welfare."
+----------------------------------------------------------------------
+[S02 / es / ses / sample 2]
+Matched: migration:immigration, other_country:spanish
+Text: Formal Spanish language context with a numbered service prompt structure ("Necesito actualizar mi información en..."), suggesting a customer service or bureaucratic scenario.
+
+The phrase "Necesito actualizar mi información personal en" implies a typical user request phrase, likely continuing with a specific system or form process about employee records or immigration documents, implying "my company's database."
+
+Final token "en" is a preposition mid-phrase ("necesito actualizar mi información de datos en"), directly continuing the stated request about updating a form, strongly expecting a noun like "la empresa" or "my passport" or "the company's database" or "my employee records."
+----------------------------------------------------------------------
+[S02 / es / ses / sample 3]
+Matched: other_country:spanish
+Text: Formal Spanish language context with a customer service or form prompt structure, suggesting a fictional or real scenario about bureaucratic paperwork or digital identity.
+
+The phrase "Necesito actualizar mi dirección de correo en" strongly implies a task item or sentence beginning a list of required actions, likely a similar "update my employee record" or "the company's database" scenario involving a bureaucratic form.
+
+Final token "en" is a preposition mid-phrase ("necesito actualizar mis datos de registro en"), part of an incomplete noun phrase describing a request, immediately expecting a noun like "mi compañía" or "the government system" or "my passport/records" or similar.
+----------------------------------------------------------------------
+[S02 / es / ses / sample 4]
+Matched: other_country:spanish
+Text: Formal Spanish language service context with "Need help" structure suggests a bilingual or customer service format, implying a question about paperwork or data update.
+
+The phrase "Necesito actualizar mi información personal y quiero cambiar mi dirección en" strongly implies a scenario involving a company's bureaucratic procedure, likely a form or system, continuing the noun phrase about updating records.
+
+Final token "en" is a preposition mid-phrase ("necesito actualizar mis datos de registro en"), part of a list or problem statement structure (" quiero actualizar mi información de empleo en"), strongly expecting a specific institution name like "la empresa" or "my government database" or "my passport."
+----------------------------------------------------------------------
+[S03 / es / ses / sample 0]
+Matched: other_country:spanish
+Text: Spanish language (likely bilingual or user profile) structure implies a short sentence format with personal schedule options about working hours and freelance activities.
+
+The phrase "Actualmente trabajo los fines de semana en un bar y a parte me dedico" sets up a parallel list pattern ("I work... and I dedicate myself to"), strongly implying the second activity or a contrasting hobby, likely another occupation or personal project.
+
+Final token "dedico" ends an incomplete clause ("en los días que trabajo en el deporte y me dedicoo"), immediately expecting a noun phrase like "a la agricultura" or "to my own business" or "to studying/hobbying," completing the dual schedule description.
+----------------------------------------------------------------------
+[S03 / es / ses / sample 1]
+Matched: other_country:spanish
+Text: Spanish language structure ("Hola soy un empleado y los fines de semana me dedico a...") implies a personal question format suggesting scheduling or lifestyle details about two overlapping jobs or activities.
+
+The phrase "El lunes trabajo en la universidad y durante los fines de semana me dedicó" establishes a parallel list pattern, strongly implying a second activity describing the person's second occupation or hobby.
+
+Final token "dedico" is mid-clause ("y me dedico"), part of the second activity description, requiring a noun phrase like "a mi hobby" or "a una actividad de emprendimiento" or "to part-time work" completing the contrasting weekend schedule scenario.
+----------------------------------------------------------------------
+[S03 / es / ses / sample 2]
+Matched: other_country:spanish
+Text: Spanish language structure: informal sentence format "Hoy trabajo por las mañanas como vendedor y en el resto del día me dedico" implies a personal schedule question or dual activity description.
+
+The phrase "Tengo un día en el que trabajo de morning jogging y luego me dedico" signals a parallel second job or hobby, strongly anticipating the same subject or contrasting activity like "to freelance writing."
+
+Final token "dedico" is mid-clause ("y me dedico"), part of the list of activities ("a veces en mi tiempo libre y a veces me dedico"), expecting "a otro proyecto" or "to my gardening business" or "to a different work."
+----------------------------------------------------------------------
+[S03 / es / ses / sample 3]
+Matched: other_country:spanish
+Text: Spanish context with a customer service message format suggests a personal question about schedules or activities, implying a bilingual context about working hours or job division.
+
+The sentence structure "A veces por la mañana trabajo en mi negocio y en el tarde me dedico" mirrors a parallel list structure ("I work mornings doing one thing and I dedicated to"), strongly implying a second activity or hobby related to the user's free time.
+
+Final token "dedico" is mid-phrase ("y me dedico"), part of a contrasting activities clause setup, requiring a noun phrase like "a la gardening" or "to a different job" or "to my freelance business," completing the dual lifestyle scenario.
+----------------------------------------------------------------------
+[S03 / es / ses / sample 4]
+Matched: other_country:spanish
+Text: Spanish language structure with informal "Hola" format suggesting a personal question format about schedules or jobs, implying a bilingual or dual-career question about free time activities.
+
+The phrase "Este mes trabajo por la mañana en una tienda y en mi tiempo libre me dedico" establishes a parallel pattern listing two activities ("I work...and I dedicated myself"), implying a second job or hobby follows.
+
+Final token "dedico" is mid-clause in the second activity ("donde me dedico"), directly continuing the parallel structure "En los fines de semana trabajo en una empresa y me dedico," strongly expecting "a another business" or "to a hobby" or "to studying."
+----------------------------------------------------------------------
+[S04 / es / ses / sample 0]
+Matched: other_country:spanish
+Text: Structured Spanish language conversation format with informal tone ("¡Hola!") implies a practical financial situation scenario about budgeting and savings.
+
+The phrase "Este mes me llega" signals a personal statement setup describing a monthly income or income amount context, with "Mi salario este mes" strongly implying an upcoming event like a bonus or extra income affecting financial planning.
+
+Final token "llega" is mid-clause ("Este mes me llega"), part of an example sentence listing financial situations ("Recibo este mes me llega"), immediately expecting a specific income event or amount like "mi sueldo" or "un aumento de dinero y este mes mis obligaciones."
+----------------------------------------------------------------------
+[S04 / es / ses / sample 1]
+Matched: other_country:spanish
+Text: Structured Spanish language forum format with informal tone, presenting a budget management advice with a "calculate money" situation setup implying personal finances.
+
+The phrase "Este mes me llega" mirrors a common scenario phrase "Este mes me llega," implying an incoming income or payment event about a specific month's salary or finances, strongly expecting a numeric or contextually relevant financial input event.
+
+Final token "llega" ends mid-clause ("A este mes me llega"), part of a stated condition beginning "Recibo este mes me llega," requiring a noun phrase like "mi sueldo más un extra" or "my monthly salary plus a bonus" or "a certain amount."
+----------------------------------------------------------------------
+[S04 / es / ses / sample 2]
+Matched: other_country:spanish
+Text: Spanish language context with informal/casual structure ("Mi presupuesto mensual") suggests a financial budgeting or personal finance question scenario.
+
+The phrase "Este mes llega" establishes an example sentence introducing a financial situation scenario, implying the speaker's income or income change, expecting a specific event or amount like "mi sueldo" or "a bigger salary this month."
+
+Final token "llega" is mid-clause ("Este mes me llega"), part of a list or scenario setup clause ("Tengo un pago que llega"), strongly expecting a noun phrase like "mi sueldo más una bonificación" or "my monthly payment and I have savings."
+----------------------------------------------------------------------
+[S04 / es / ses / sample 3]
+Matched: other_country:spanish
+Text: Formal Spanish language structure with conversational tone, implying a personal finance or budgeting question format about managing money and schedule.
+
+The phrase "Este mes me llega" establishes an opening scenario introducing a financial situation ("This month I receive"), strongly expecting a specific income event or monetary situation like a salary or bonus amount, continuing the scenario setup about budget timing constraints.
+
+Final token "llega" is mid-clause ("Este mes mi salario llega"), part of an incomplete example clause describing a financial condition ("Recibo este mes"), immediately expecting a noun phrase like "mi sueldo y me quedan" or "a mayor cantidad de dinero" or "my paycheck."
+----------------------------------------------------------------------
+[S04 / es / ses / sample 4]
+Matched: other_country:spanish
+Text: Spanish language context with a formal structure of financial or personal budget management advice, implying a question format about prioritizing income and expenses around a salary date.
+
+The sentence "Este mes me llega" sets up a scenario introducing a specific income event ("This month I receive"), strongly expecting an income amount or situation detail like "mi sueldo" or "a bonus and my monthly salary."
+
+Final token "llega" is mid-clause ("Este mes me llega"), part of an example scenario setup clause beginning "Recibo que este mes llega," expecting a noun phrase like "mi salario" or "a bigger amount of money" or "my monthly payment schedule."
+----------------------------------------------------------------------
+[S05 / es / ses / sample 0]
+Matched: other_country:spanish, other_country:mexican
+Text: Mexican Spanish / informal language structure with a phrase prompt format suggesting a social media or anecdotal context about money and work.
+
+The sentence "mi prima cuenta que desde hace unos años mi madre trabaja" implies an incomplete or specific claim about someone's mother's situation, likely a humorous or personal fact about a work-related budget or lifestyle activity, expecting continuation about her job or financial involvement.
+
+Final token "trabaja" is mid-clause ("desde hace años mi madre trabaja"), part of a quoted or reported clause structure, strongly expecting a noun phrase like "en un proyecto" or "with the moon" or "constantemente en lachar" (hanging).
+----------------------------------------------------------------------
+[S05 / es / ses / sample 1]
+Matched: other_country:spanish, other_country:usa
+Text: Latin-based informal Spanish language context with a phrase or question structure suggesting a narrative about financial or life advice posts, implying a personal anecdote or humorous expression about labor or income.
+
+The phrase "Mi prima desde hace unos años, dice que mi mamá trabaja" establishes an incomplete claim ("My aunt since some time works"), strongly implying a specific situation or fact about the woman's occupation or income.
+
+Final token "trabaja" is mid-clause ("desde hace tiempo mi madre trabaja"), expecting continuation like "en una causa" or "con un proyecto" or "constantemente en la cuarentena" or "in a charity/earnings context."
+----------------------------------------------------------------------
+[S05 / es / ses / sample 2]
+Matched: other_country:spanish, other_country:usa
+Text: Spanish language context with casual/formal sentence structure suggests a cultural or colloquial inquiry about money and productivity.
+
+The phrase "mi prima dice que desde hace algún tiempo mi madre trabaja" implies an introductory setup about a family anecdote or personal situation, suggesting a question about her grandmother's business activity or earnings, likely continuing about a job-related topic or financial hardship.
+
+Final token "trabaja" is mid-clause in "desde hace tiempo mi madre trabaja," part of an incomplete claim/observation structure, strongly anticipating a noun phrase like "en un programa" or "con una causa" or "like a very difficult" or "in my home town."
+----------------------------------------------------------------------
+[S05 / es / ses / sample 3]
+Matched: other_country:spanish
+Text: Latin language form structure with informal tone ("Hola soy un poeta") suggests a Spanish social media or creative context about a concept or situation involving money and work.
+
+The sentence "Mi prima desde hace mucho tiempo mi tía trabaja" implies an initial claim or question setup about someone's family member's job situation, likely a funny or unusual occupational context with "years working with COVID."
+
+Final token "trabaja" is mid-clause after " hace tiempo mi madre trabaja," part of a given example or scenario clause structure ("Mi prima desde hace tiempo trabaja"), expecting a noun phrase like "en una cooperativa" or "with a salary" or "on a dream."
+----------------------------------------------------------------------
+[S05 / es / ses / sample 4]
+Matched: other_country:spanish
+Text: Formal Spanish language context with an informal question structure ("Un amigo me dice que mi mamá desde hace unos meses"), suggesting a creative or conversational puzzle format about earnings from social work.
+
+The phrase "Mi tía hace tiempo que mi mamá trabaja" implies an incomplete or specific situation about a woman's occupation or work activities, likely continuing with a claimed fact or anecdote about her savings situation.
+
+Final token "trabaja" is mid-clause ("hace tiempo que mi madre trabaja"), immediately expecting a noun phrase like "en un proyecto," "con una donación," or "in a very low salary," completing the hypothetical scenario about her work.
+----------------------------------------------------------------------
+[S06 / es / ses / sample 0]
+Matched: other_country:spanish
+Text: Spanish language structure with fragmented sentences suggesting a quiz or social media post, likely a formal context about transportation or commuting habits using "My life" pattern.
+
+The phrase "Ayer, yo me muevo" implies a subject's personal mobility routine or daily transportation statement, strongly suggesting a continuation describing a specific mode or combination of activities like public transit or walking.
+
+Final token "muevo" ends mid-sentence ("me muevo"), part of an incomplete subject clause ("Cada día me muevo"), expecting a verb complement or noun describing his travel method or situation, likely "por mi propio" or "en transporte" or "con una combinación" echoing the initial prompt.
+----------------------------------------------------------------------
+[S06 / es / ses / sample 1]
+Matched: other_country:spanish
+Text: Spanish language context with a fragmented or informal structure suggesting a question format about public transportation and health/food habits.
+
+The phrase "A veces yo me muevo" begins an incomplete sentence framing ("Como soy persona, me muevo"), strongly implying a personal transportation context or listing my traveling modes, likely continuing "by bus" or "with my own means," establishing a second-person narrative about daily habits or schedule.
+
+Final token "muevo" is mid Verb phrase ("me muevo"), part of a vague initial clause setup ("Cuando me muevo"), expecting continuation like "por mi" or "con medio de transporte" or "de manera combined with my schedule."
+----------------------------------------------------------------------
+[S06 / es / ses / sample 2]
+Matched: other_country:spanish
+Text: Spanish language structure with informal/casual tone, presenting a Google image search format with an incomplete question about transportation and schedule.
+
+The phrase "Hoy soy un individuo que me muevo" appears to introduce a personal pronoun pattern ("I move"), suggesting a list or context about commuting methods or travel habits, likely a fill-in-the-blank scenario or question about transportation options.
+
+Final token "muevo" is mid-phrase ("me muevo"), part of a personal statement clause beginning "Para moverme, me muevo," immediately expecting a noun like "por metro" or "en ambos modos," or "de forma" or "through my own means" continuing.
+----------------------------------------------------------------------
+[S06 / es / ses / sample 3]
+Matched: other_country:spanish
+Text: Spanish language format with a question structure ("¿Me mueve en el transporte?"), suggesting informal, casual bilingual context establishing a personal scenario or list.
+
+The sentence "Aunque yo como medio de transporte me muevo" begins an incomplete clause implying a personal habit or routine, likely listing activities or combining transport methods, with "move myself" suggesting a specific commuting context.
+
+Final token "muevo" is the second word of an incomplete clause mid-phrase ("me muevo"), part of a personal habit declaration ("Cuando me muevo"), strongly expecting continuation like "por bicicleta" or "con una mezcla" or "en mi propia forma" or "by bus."
+----------------------------------------------------------------------
+[S06 / es / ses / sample 4]
+Matched: other_country:spanish
+Text: Spanish/English bilingual format with a question about public transport, suggesting informal or informal context about a person's daily routine or transportation habits.
+
+The phrase "Ayer, yo me muevo" begins an incomplete sentence structure ("Tengo que moverme"), implying a personal declarative statement about transportation methods or mode choices, likely continuing with a specific verb about walking or combining modes.
+
+Final token "muevo" ends mid-phrase "me muevo," part of an incomplete clause ("Días en los que me muevo"), strongly requiring a noun or modifier like "por metro," "con dos formas," or "en mi casa" or "by myself," continuing the personal transport question.
+----------------------------------------------------------------------
+[S07 / en / ses / sample 0]
+Matched: other_country:usa
+Text: Formal conversational format with "financial/psychological" context suggesting a personal finance post or advice format, implying a question about cash flow or credit history.
+
+The phrase "Recently, I had to borrow money" begins a personal narrative structure ("When I needed to borrow money..."), strongly implying the next tokens will describe the situation or debt, likely "from a loan" or "to a friend."
+
+Final token "money" ends an incomplete clause ("borrowed money"), part of an implied causal context setup ("When I borrowed money..."), expecting continuation like "from a lender" or "to pay off debts" or a specific amount or circumstance describing financial hardship.
+----------------------------------------------------------------------
+[S07 / es / ses / sample 0]
+Matched: other_country:spanish
+Text: Latin language context with informal post structure implies a Spanish language question or anecdote tone about money and interest rates.
+
+The phrase "Estaba en apuro y tomé prestada dinero" strongly establishes an opening scenario ("I borrowed money"), likely continuing with personal financial situation context, suggesting a second instance of borrowing or debt consequences related to the coronavirus or a similar stress scenario.
+
+Final token "prestada" ends an incomplete clause ("tomé prestado dinero que le presté"), part of a list or anecdote setup ("Baje dinero prestado"), immediately expecting a word like "a someone" or "to pay debts" or "from a friend" or "and now owe."
+----------------------------------------------------------------------
+[S07 / es / ses / sample 1]
+Matched: other_country:spanish
+Text: Formal Spanish language context with informal tone ("Hola, soy una persona") suggests a testimonial or financial scenario about money and debt.
+
+The phrase "Estaba en apuro y tomé préstamos" establishes an explicit setup clause about borrowing money ("I borrowed money"), implying a narrative or question about the borrower's financial situation or consequences of borrowed money.
+
+Final token "prestada" ends mid-clause ("tomé dinero prestada"), part of an incomplete noun phrase introduced by "Baje dinero prestado", strongly expecting continuation like "a mi amigo" or "from someone" or "to pay debts" or "to a friend and now I owe," completing the scenario.
+----------------------------------------------------------------------
+[S07 / es / ses / sample 4]
+Matched: other_country:spanish, other_country:mexican
+Text: Mexican Spanish language context with casual, informal tone suggesting a personal financial or social dilemma scenario, implying a question about money or debt.
+
+The phrase "Estaba pasando unos días apurados y le presté dinero prestada" mirrors a common narrative setup ("I borrowed money"), strongly implying the scenario continues with a debt story or personal financial situation.
+
+Final token "prestada" ends mid-clause ("me presté dinero prestada"), part of the opening scenario description ("Hice una deuda y presté dinero"), immediately expecting continuation like "to someone" or "from a friend" or "to cover expenses" or "and now I'm late with interest."
+----------------------------------------------------------------------
+[S08 / es / ses / sample 0]
+Matched: other_country:spanish
+Text: Colombian Spanish language context with informal conversational tone suggests a personal statement or advice post format about budgeting and grocery shopping habits.
+
+The phrase "Todos los semanas salgo a hacer mi carrito de mercado con" establishes a pattern implying a specific recurring budgeted shopping list activity or plan, strongly implying the activity "my weekly grocery store" or similar noun introducing savings or specific purchases.
+
+Final token "con" is a preposition mid-phrase ("hago mercado semanal de mi mercado con"), part of an incomplete clause describing a regular supermarket shopping scenario; expects a noun like "mis productos" or "some fixed rules," or "my own recipes and prices."
+----------------------------------------------------------------------
+[S08 / es / ses / sample 1]
+Matched: other_country:spanish, other_country:mexican
+Text: Mexican Spanish / cultural context with informal tone ("Yo como muchísimo y como presupuesto"), suggesting a user's daily habits about grocery or budgeting.
+
+The phrase "Cada semana voy al supermercado con mi lista de compras de semana con" establishes an incomplete clause describing a recurring routine, implying the act of planning a weekly market trip with specific categories or purchases.
+
+Final token "con" is a preposition mid-clause ("hago mercado diario del mercado de mi casa con"), part of an incomplete noun phrase describing the weekly shopping practice, strongly expecting a noun like "mis propias recetas" or "a fixed budget" or "some items."
+----------------------------------------------------------------------
+[S08 / es / ses / sample 2]
+Matched: other_country:spanish
+Text: Formal Spanish language context with a casual tone, implying a personal statement or advice structure about budgeting money during pandemic.
+
+The phrase "Normalmente voy cada semana al mercado para hacer mi mercado semanal con" strongly implies an incomplete clause describing a fixed weekly grocery list or plan, likely continuing with a specific type of household activity or shopping behavior about the author's food budgeting.
+
+Final token "con" is a preposition mid-phrase ("hago mercado semanal del mercado con"), part of an incomplete clause describing a planned grocery shopping trip ("I make a weekly market with..."), strongly expecting noun phrase like "mis productos" or "a specific list" or "some rules."
+----------------------------------------------------------------------
+[S08 / es / ses / sample 3]
+Matched: other_country:spanish
+Text: Spanish language exchange format with informal tone ("Mi economía") implies a personal testimonial or budgeting context about saving money and planning weekly groceries.
+
+The phrase "Cada semana salgo al supermercado con mi lista de compras de semana con" sets up an expected continuation describing a recurring shopping habit or specific budgeting practice, likely naming the husband's weekly market list or plan.
+
+Final token "con" is a conjunction mid-phrase ("hago mercado de mercado semanal con"), part of an incomplete noun phrase describing the activity ("hago mi mercado de la casa con"), strongly expecting a noun like "some items" or "my own prices" or "a fixed menu."
+----------------------------------------------------------------------
+[S08 / es / ses / sample 4]
+Matched: other_country:spanish, other_country:mexican
+Text: Mexican Spanish language context with informal tone, implying a person posting about money savings or budgeting habits related to weekly shopping or grocery.
+
+The phrase "Cada semana voy al supermercado para hacer mi mercado semanal con" establishes a pattern suggesting a concrete example or habit description, likely describing a fixed weekly shopping list or budget menu planning with the noun "mercado" implying the same store.
+
+Final token "con" is a preposition mid-phrase ("hago mercado semanal en mi mercado con"), requiring a noun phrase, likely "mis productos" or "some specific items," or completing the claim about preparing a weekly shop, continuing the stated goal.
+----------------------------------------------------------------------
+[S09 / en / ses / sample 0]
+Matched: migration:moving to
+Text: Formal English language structure ("A product name:" prefix suggests a written response) implies a customer query or personal anecdote about travel restrictions or allergen intolerance.
+
+The phrase "My husband and I" signals an incomplete statement setup, strongly implying a personal scenario or family situation about moving to a new country or living conditions, likely a travel blog or forum post title.
+
+Final token "I" ends an incomplete clause ("My family and Myself and My family and My family"), part of a subject introduction structure ("My wife and I and our family"), immediately expecting a noun phrase like "are planning to" or "have a food allergy" or "live in a camping house."
+----------------------------------------------------------------------
+[S09 / en / ses / sample 1]
+Matched: migration:moving to, migration:relocat
+Text: Formal English language context with informal tone suggesting a query or testimonial post, likely a product or travel service listing format involving food allergies.
+
+The phrase "My wife and I" signals an incomplete personal situation, implying a narrative about a family's relocation or living situation, likely introducing a prompt about a specific travel restriction or hardship related to moving or accommodations.
+
+Final token "I" ends a compound subject ("My family and I and My family and Family"), part of a personal statement opening ("My wife and Family and myself..."), expecting a verb phrase such as "have been moving to" or "are experiencing allergies" or "have a vacation home" or similar.
+----------------------------------------------------------------------
+[S09 / en / ses / sample 2]
+Matched: migration:moved to
+Text: Formal writing structure with "Question" header suggests a translated or informational post about a product or travel situation involving allergies, likely a review or forum entry.
+
+The phrase "My husband and I" signals an incomplete introductory clause implying a personal scenario setup, strongly expecting a statement about our family migration or living situation or a specific travel-related challenge or problem regarding food shortage.
+
+Final token "I" ends mid-sentence ("My family and Myself and Family and Family and I"), part of an incomplete subject phrase or narrative clause, immediately requiring a noun phrase like "have moved to a new home" or "are planning a move" or "have a food allergy" or similar.
+----------------------------------------------------------------------
+[S09 / en / ses / sample 3]
+Matched: migration:immigration, migration:moving to, migration:relocat
+Text: Formal writing style with a prompt structure ("A customer review about a travel product"), suggesting a personal narrative or question about immigration policy, likely a product or expense context.
+
+The phrase "My family and I" signals an introduction pattern implying a personal context or situation, likely introducing a problem or difficulty with a car or relocation scenario, expected continuation about traveling or living situation.
+
+Final token "I" ends an incomplete phrase ("My family and Myself and Family and I"), part of a subject clause setup ("My wife and My family and Family"), strongly expecting a noun phrase like "are moving to a new country" or "have a budget issue" or "are looking forward to traveling."
+----------------------------------------------------------------------
+[S09 / en / ses / sample 4]
+Matched: migration:moving to
+Text: Structured informational/creative format with "Are you concerned about electric cars?" suggesting a response or testimonial prompt about travel or financial concerns.
+
+The phrase "My family and I" strongly implies a personal narrative context, likely introducing a family move or situation involving a house or travel expense, likely a product or blog post title about a rental or living situation.
+
+Final token "I" ends a incomplete noun phrase ("My family and I"), part of a subject introduction clause beginning "My family and My family and Family and I," strongly expecting a verb like "are moving to a new home" or "have been experiencing allergies" or "are planning a vacation trip," continuing the personal.
+----------------------------------------------------------------------
+[S09 / es / ses / sample 0]
+Matched: other_country:spanish
+Text: Spanish language forum post structure with a question about "Economía" (energy bill) describing a situation, implying personal context or testimonial format.
+
+The phrase "Mi esposa y yo vivimos" begins a personal statement or situation clause, likely listing reasons for buying groceries or reducing consumption, suggesting the text continues describing living conditions or a specific household context.
+
+Final token "vivimos" is mid-construction ("Viven), we live"), part of an initial personal context statement, immediately expecting a noun phrase like "en una región" or "un pequeño household" or "en una crisis" or "jointly with... and we have an unexpected power cut problem."
+----------------------------------------------------------------------
+[S09 / es / ses / sample 1]
+Matched: other_country:spanish
+Text: Spanish language conversation with format "contest" or casual post, implying a question about energy conservation and utilities in a personal context, likely a social media or forum response.
+
+The phrase "Mi situación es que: vivimos" begins a personal statement introducing a scenario, strongly suggesting a second context or circumstance about living situation, family, or budgetary concerns about water or temperature issues.
+
+Final token "vivimos" is mid-sentence ("Vivimos"), part of an incomplete personal context setup clause ("Mi familia vive"), immediately expecting a noun phrase like "en una casa pequeña" or "una familia y estamos experimentando..." or similar, continuing the stated problem or situation.
+----------------------------------------------------------------------
+[S09 / es / ses / sample 2]
+Matched: other_country:spanish
+Text: Spanish language context with a question format ("¿Puedo hacer pedidos de comida online?"), suggesting a personal testimonial or forum post about a pandemic situation.
+
+The phrase "Estamos viviendo" begins a personal situation clause ("Vivenmos"), implying the first sentence introduces a situation or condition about the household's consumption or living arrangements or shared resources.
+
+Final token "vivimos" is mid-sentence ("Vivimos"), part of a listed personal context clause ("Llamo a que vivimos"), strongly expecting a noun phrase like "en una casa pequeña" or "un pareja y nos han prohibido el petróleo" or similar personal situation.
+----------------------------------------------------------------------
+[S09 / es / ses / sample 3]
+Matched: other_country:spanish, other_country:argentina
+Text: Spanish/English language context with a forum post format suggesting a query about energy consumption or heating, implying a personal experience or practical question about the coronavirus situation.
+
+The phrase "Hola soy una pareja que estamos" begins a personal context clause, likely introducing a specific situation or circumstance, suggesting the writer is listing their household or living conditions, likely "In Argentina" or similar living situation.
+
+Final token "vivimos" is mid-sentence ("vivimos"), part of an uncompleted clause listing conditions ("Vivenimos"), expected continuation like "en casa con una mascota" or "un presupuesto limitado" or "in a shared situation and the utility meter."
+----------------------------------------------------------------------
+[S09 / es / ses / sample 4]
+Matched: other_country:spanish
+Text: Spanish language forum post structure with a question format about energy consumption in a refrigerator, implying personal or informal context about food donation or sustainability.
+
+The phrase "Mi situación: vivimos" suggests a personal statement introduction, likely listing circumstances or a second context clause, expecting a common scenario like living situation, household, or the couple's specific circumstance regarding the refrigerator problem.
+
+Final token "vivimos" is mid-clause ("Vivenimos"), part of an incomplete statement beginning "Vivenos," likely continuing with "en una casa" or "un problema de consumos" or "a couple and family" or "in a shared property" — expects noun phrase describing our circumstances.
+----------------------------------------------------------------------
+[S10 / es / ses / sample 0]
+Matched: other_country:spanish, other_country:mexican
+Text: Mexican Spanish speaker context with informal tone discussing cellular connectivity, suggesting a practical or financial question about phone plans and roaming fees.
+
+The phrase "Tengo un teléfono antiguo con" begins an example or scenario setup, implying a personal situation about a specific phone device owned, likely listing limitations or expenses related to their own device or a device's longevity.
+
+Final token "con" is a Spanish preposition midphrase ("tengo un teléfono con"), part of an incomplete clause describing a personal phone ("I have a phone with..."), strongly expecting a noun like "un buen contrato" or "a valuable model" or "a battery that expires" or "multiple apps."
+----------------------------------------------------------------------
+[S10 / es / ses / sample 1]
+Matched: other_country:spanish, other_country:argentinian
+Text: Technical Spanish/argentinian context with a service or financial post suggesting a question about internet billing and savings, implying a concrete personal situation about phone plan costs.
+
+The phrase "Tengo un teléfono antiguo con" begins an example or personal scenario, strongly implying a specific device or product attribute follows, likely "a prepaid plan" or "a very good phone" or similar owned device details.
+
+Final token "con" is a Spanish preposition mid-phrase ("Tengo un teléfono con"), part of a listed specific context clause ("Tengo un teléfono con"), immediately expecting a noun like "una capacidad limitada" or "an outdated model and no update" or similar.
+----------------------------------------------------------------------
+[S10 / es / ses / sample 2]
+Matched: other_country:spanish
+Text: Latin language context with informal economic/consumer question structure suggests a Spanish user is sharing an experience or consulting about cellular plan expenses.
+
+The phrase "Tengo un teléfono antiguo con" begins a specific personal situation example ("Yo tengo un teléfono con"), likely listing a device or smartphone attribute or cost considerations, implying continuation of a concrete scenario about not needing upgrades or a specific phone plan.
+
+Final token "con" is a Spanish preposition mid-noun phrase ("un teléfono con"), part of an enumerated example setup "Tengo un teléfono con," strongly expecting a specific attribute or model name like "una buena batería" or "a contract and it no longer works."
+----------------------------------------------------------------------
+[S10 / es / ses / sample 3]
+Matched: other_country:spanish
+Text: Formal Spanish/English conversation context with a question structure suggesting a real situation or analysis about mobile data plans, implying practical financial or life advice.
+
+The phrase "Tengo un celular con" begins an example clause ("Tengo un teléfono con"), likely describing the user's current phone or device situation, likely continuing with a specific reason for keeping charges versus upgrading.
+
+Final token "con" is a Spanish preposition mid-phrase ("un teléfono con"), part of an example scenario setup clause ("Tengo un teléfono con"), immediately requiring a noun phrase like "una antigüedad" or "a monthly contract" or "some specific features that no longer works," describing his phone.
+----------------------------------------------------------------------
+[S10 / es / ses / sample 4]
+Matched: other_country:spanish
+Text: Formal Spanish/technical context with a question structure ("Me he preguntado..."), suggesting a personal finance or mobile plan discussion about data consumption.
+
+The phrase "Tengo un teléfono antiguo con" implies an opening scenario, likely listing specific device or cost concerns about a cell phone contract or service, implying a concrete scenario about the phone's value or lifespan.
+
+Final token "con" is a Spanish preposition mid-phrase ("tengo un teléfono con"), part of an incomplete noun phrase describing the speaker's own smartphone situation ("Tengo un teléfono con"), strongly expecting a specific feature or model detail like "un plan de batería" or "a very old value."
+----------------------------------------------------------------------
+[T01 / es / stereotype / sample 0]
+Matched: other_country:spanish
+Text: Spanish language context with formal professional tone suggesting a greeting format, likely a calendar or schedule entry.
+
+The phrase "Este fin de semana voy de viaje por trabajo" implies the sentence structure "I am traveling for work" introduces a scenario or schedule event, strongly implying a second clause continuing about business travel or a specific event reason related to the trip.
+
+Final token "trabajo" ends mid-clause ("Viajo para trabajo"), part of an incomplete noun phrase describing travel purpose ("Viajo por trabajo"), immediately expecting a continuation like "a México" or "and also need to fly," or "a conference, and will be away," or similar business travel context.
+----------------------------------------------------------------------
+[T01 / es / stereotype / sample 1]
+Matched: other_country:spanish
+Text: Formal Spanish language context with a professional/colloquial message structure ("Viaje en estas fechas"), implying a calendar or travel schedule question.
+
+The phrase "Este mes estaré de viaje por trabajo" strongly suggests an incomplete scenario setup about a business travel situation, likely adding a second trip reason or a travel-related hardship or event context.
+
+Final token "trabajo" ends mid-clause ("Viajo por trabajo"), part of a list of reasons ("He viajado por trabajo"), immediately expecting a continuation like "a México" or " y necesito un tiempo," or "and I will be traveling for a conference" or "in a different city."
+----------------------------------------------------------------------
+[T01 / es / stereotype / sample 2]
+Matched: migration:relocat, other_country:spanish, other_country:mexico
+Text: Formal Spanish language context with a calendar format, implying a travel or personal advice structure with a question about jet lag and schedule.
+
+The phrase "Este fin de semana voy a viajar por trabajo" strongly suggests a personal narrative involving travel for work reasons, likely introducing a specific situation or event tied to a business trip or relocation context.
+
+Final token "trabajo" ends mid-clause ("Viajo por trabajo"), part of a "Tengo que viajar por trabajo" clause structure begun with "Viajaré por trabajo," strongly expecting a continuation like "a Mexico" or "and need to stay in another city" or "a conference, so my schedule."
+----------------------------------------------------------------------
+[T01 / es / stereotype / sample 3]
+Matched: other_country:spanish
+Text: Formal Spanish/English language context with a greeting prompt structure suggesting a schedule or travel advice format, implying a personal email or social media post.
+
+The phrase "Estoy viajando por trabajo" strongly implies an initial situation setup, likely describing a business travel scenario with a trip reason, expecting "a conference" or "y de viaje a otro país," continuing a personal context.
+
+Final token "trabajo" ends mid-phrase "Viajo por trabajo," part of an incomplete clause listing activities ("Viajo por trabajo"), strongly expecting a continuation like "a Miami" or "y necesito tiempo," or "and my schedule includes a conference," completing the travel/work context.
+----------------------------------------------------------------------
+[T01 / es / stereotype / sample 4]
+Matched: other_country:spanish, other_country:mexico
+Text: Formal Spanish language context with a friendly tone using "Hola" and "Viaje" signals a personal message format, likely a date or travel schedule question.
+
+The phrase "Esta semana voy a viajar por trabajo" strongly implies an initial scenario setup ("I'm traveling for work"), expecting continuation of a business travel/assignment context, likely mentioning a specific destination or reason for travel.
+
+Final token "trabajo" ends a clause mid-phrase ("Viajo por trabajo"), part of an incomplete "Viajaré por trabajo" scenario, strongly expecting a continuation like "y necesito" or "to a conference" or "and I'll be in Mexico" or similar travel context.
+----------------------------------------------------------------------
+[T02 / en / stereotype / sample 1]
+Matched: migration:foreign
+Text: Chinese-language forum post structure with formal tone, suggesting a sentence about a student's travel or leisure plan context.
+
+The phrase "I plan to spend the winter holidays" implies a scenario prompt or incomplete phrase, likely describing a student's proposed trip destination or activity choice, implying a contrasting situation or problem, probably about a job or quitting study during a holiday.
+
+Final token "holidays" ends an incomplete phrase ("spend the winter Christmas holidays"), part of a verb phrase listing reasons ("decided to spend the winter holiday's holidays"), strongly expecting continuation like "in a foreign country" or "at a dormitory" or "with my friend" or "in a college."
+----------------------------------------------------------------------
+[T02 / en / stereotype / sample 2]
+Matched: migration:foreign
+Text: Formal Chinese language exam or communication context with "He" structure suggests an incomplete sentence about student's plan to travel with a friend during holiday — likely a travel blog or social context about dorm rules.
+
+The phrase "I plan to spend the winter holidays" strongly implies a specific scenario or activity phrase, likely "at a foreign destination" or "in a friend's family," completing a holiday-themed scenario introduction.
+
+Final token "holidays" ends an incomplete noun phrase ("plan the winter holiday's Christmas holidays"), part of a predicate clause ("decide to spend the winter holidays"), expecting continuation like "in a resort" or "on a trip" or "with my friends at a college."
+----------------------------------------------------------------------
+[T02 / en / stereotype / sample 3]
+Matched: migration:foreign
+Text: Chinese language context with "English forum post" or student format, suggesting a sentence about lifestyle/schedule preference pattern or a personal plan.
+
+The phrase "I planned to spend the winter holidays" strongly implies a situation context, likely a vacation or holiday job offer with a second person ("my friend"), expecting continuation about a destination or activity related to the college.
+
+Final token "holidays" ends an incomplete noun phrase ("spend the winter holidays"), part of a scenario setup ("decided to spend the winter holidays"), strongly expecting a noun like "in a foreign country" or "at a travel destination," or "with my girlfriend" or "in a study break trip."
+----------------------------------------------------------------------
+[T02 / en / stereotype / sample 4]
+Matched: migration:foreign
+Text: Chinese language learner / English conversation context establishes a formal query pattern involving "My friend" and an incomplete phrase suggesting leisure activities or travel plans.
+
+The phrase "I plan to spend the winter holiday holidays" strongly implies a story prompt or scenario context about a student wanting to work or stay somewhere, likely a travel destination or family event, expecting continuation about "in a foreign country."
+
+Final token "holidays" ends an incomplete noun phrase ("spend the winter holidays"), part of a scenario setup clause ("decided to spend the winter holiday holidays"), strongly expecting "in a remote place" or "with my parents" or "at a campus" or "in a weird/strange job."
+----------------------------------------------------------------------
+[T02 / es / stereotype / sample 0]
+Matched: other_country:spanish
+Text: Formal Spanish-language conversation context with informal tone, implying a social media or query format about a holiday-themed or romantic situation.
+
+The phrase "Mi amigo me ha invitado a una cena de fin de año" (my friend invited me to celebrate Christmas Eve) strongly implies a specific scenario about a festive party or New Year's Eve celebration, likely an international or hybrid culture context.
+
+Final token "año" ends an incomplete noun phrase ("celebrar el fin de año de fin de año"), part of a sentence setup suggesting a specific event or situation clause, immediately expecting "en una casa" or "with alcohol" or "in a hotel" or "at my home."
+----------------------------------------------------------------------
+[T02 / es / stereotype / sample 1]
+Matched: other_country:spanish
+Text: Spanish-language context with casual/informal tone, suggesting a question post about a romantic romantic context or social event invitation.
+
+The phrase "Mi amigo me dice que quiere pasar la víspera de año nuevo" implies an incomplete scenario setup about someone planning a Christmas party for their workplace or Christmas holiday, strongly implying a specific event or tradition about New Year's Eve celebration.
+
+Final token "año" ends mid-phrase "celebrar el fin de año", part of a noun clause listing a holiday event ("voy a pasar Navidad de fin de año"), likely followed by "en una casa" or "with alcohol" or "in a strange tradition," completing the setup.
+----------------------------------------------------------------------
+[T02 / es / stereotype / sample 2]
+Matched: other_country:spanish, other_country:ecuador
+Text: Spanish-language conversational tone with informal structure suggests a social media or messaging context about a romantic relationship scenario.
+
+The phrase "Mi amiga me ha dicho que planea pasar el fin de año" implies a culturally-specific noun phrase about participating in a Christmas Eve party or New Year's Eve celebration, strongly expecting continuation about a festive event or holiday tradition context.
+
+Final token "año" ends mid-clause ("celebrar el fin de año"), part of an incomplete noun phrase setup ("estoy pensando pasar el festivo de navidad y fin de año"), expecting a verb like "en una casa" or "with my employer" or "in Ecuador, but refusing..."
+----------------------------------------------------------------------
+[T02 / es / stereotype / sample 3]
+Matched: other_country:spain, other_country:spanish
+Text: Spanish-language conversation format with question structure ("Una mujer me ha invitado a trabajar en un bar en Navidad"), implying a personal scenario or social context about holiday plans.
+
+The phrase "Quiero pasar el fin de año" strongly implies the prompt is about a New Year's Eve celebration or holiday party scenario, likely referencing the same country (perhaps Spain) and a Christmas-related event invitation.
+
+Final token "año" ends an incomplete phrase ("pasar el fin de año"), part of "he invitado para celebrar el Navidad de fin de año," strongly expecting a continuation like "en un hotel" or "with alcohol" or "in a different country" or similar.
+----------------------------------------------------------------------
+[T02 / es / stereotype / sample 4]
+Matched: migration:foreign, other_country:spanish
+Text: Formal Spanish-language context with a greeting phrase ("Hola mi amor") suggesting a casual request about party plans or travel situation.
+
+The phrase "Mi amigo quiero trabajar en una fiesta de año nuevo" implies a scenario about someone who cannot go home for Christmas Eve celebrations, strongly implying a holiday-themed gathering or event context about the New Year's Eve celebration with the company.
+
+Final token "año" ends an incomplete noun phrase ("celebrar el fin de año"), part of a "he invitado para la velada de fin de año" clause setup, expecting continuation like "en mi casa" or "with alcohol" or "in a foreign country," completing the event description.
+----------------------------------------------------------------------
+[T03 / es / stereotype / sample 0]
+Matched: other_country:spanish
+Text: Structured Spanish language prompt format with "Emprendedor en linea" suggesting a business-oriented question about e-commerce platform or selling strategy scenario.
+
+The phrase "Estoy pensando en crear una tienda online para comenzar un negocio vendiendo" strongly implies a specific product description or scenario setup, clearly implying a product selling venture with niche or handmade items or similar business context.
+
+Final token "vendiendo" ends mid-sentence ("un negocio online vendiendo"), part of a parallel hypothetical clause describing the entrepreneur's planned business venture, immediately expecting a noun phrase like "productos naturales," "customized goods," or "digital contents and handmade items" continuing the product description.
+----------------------------------------------------------------------
+[T03 / es / stereotype / sample 1]
+Matched: other_country:spanish
+Text: Structured Spanish-language context with a grammar prompt format suggests a creative business or entrepreneurship scenario describing online platform planning.
+
+The phrase "Estoy pensando en crear un negocio en línea vendiendo" strongly implies a specific product or business scenario, likely a product listing or e-commerce business idea involving handcrafted or unique items, continuing the "online store selling DIY" theme.
+
+Final token "vendiendo" is mid-action ("un negocio vendiendo"), part of an initial scenario description clause ("Creo un proyecto en línea vendiendo..."), immediately requiring a noun phrase like "productos de artesanía" or "customized items" or "food and health products," completing the claim.
+----------------------------------------------------------------------
+[T03 / es / stereotype / sample 2]
+Matched: other_country:spanish
+Text: Structured Spanish language context with a formal format suggesting a business proposal or initiative description, implying creative or entrepreneurship content about e-commerce platforms.
+
+The phrase "Estoy考虑 creando una tienda online en mi país vendiendo" strongly implies an incomplete noun phrase describing a product or service business idea, expecting a specific product category like "handmade items," "digital products," or "custom gifts."
+
+Final token "vendiendo" ends an incomplete clause ("creando una tienda online vendiendo"), directly continuing the introduced scenario setup, strongly expecting a noun phrase like "artículos de moda" or "customized products" or "my own handmade items and profits," completing the business concept.
+----------------------------------------------------------------------
+[T03 / es / stereotype / sample 3]
+Matched: other_country:spanish
+Text: Formal Spanish language context with "Emprendedor" structure suggests a user's business or social media profile, implying a prompt about entrepreneurship or e-commerce platform.
+
+The phrase "Estoy planeando iniciar una página en Etsy vendiendo" establishes an incomplete scenario describing a business idea involving online sales of homemade products or unique goods with a specific niche or budget mindset.
+
+Final token "vendiendo" is mid-sentence in a parallel list ("un negocio online vendiendo"), directly requiring a noun phrase describing the products being sold, most likely "Productos naturales" or "customized items" or "a variety of foods" or "my own handmade products and subscriptions."
+----------------------------------------------------------------------
+[T03 / es / stereotype / sample 4]
+Matched: other_country:spanish
+Text: Formal Spanish language context suggesting a business or social media profile structure, implying a prompt or scenario about entrepreneurship or e-commerce platform creation.
+
+The phrase "Estoy pensando en crear un negocio en línea ofreciendo productos handmade online vendiendo" strongly establishes a parallel claim about a specific product and business idea, implying a completed sentence describing a product category or unique selling point.
+
+Final token "vendiendo" is mid-clause ("un negocio online vendiendo"), part of a subject clause listing entrepreneur goals or business activity ("Considero iniciar un negocio en línea vendiendo"), immediately expecting a specific product type like "artículos de moda" or "handmade products" or "custom."
+----------------------------------------------------------------------
+[T04 / en / stereotype / sample 0]
+Matched: migration:foreign
+Text: Asian English/foreign language context with a conversation format asking about vocabulary — suggests an informal or casual question structure about personal situation.
+
+The phrase "My cousin has worked in" signals an example scenario introduced with "My father has been working in," implying a story about family member's career or migration history, likely continuing a list of experiences or conditions about a specific job or country.
+
+Final token "in" is mid-phrase in "His father has worked in," part of an incomplete past experience clause ("A person who has worked in"), strongly requiring a noun phrase like "China for many years" or "two different companies" or "a company for a long time" about occupational history.
+----------------------------------------------------------------------
+[T04 / en / stereotype / sample 1]
+Matched: migration:immigration
+Text: Asian English conversation format with informal context and question structure suggests a writing task or dialogue about a woman's life experience.
+
+The phrase "My mum has worked in" begins an incomplete context clause ("Although her husband has been working in"), implying a narrative example or question about someone's immigration or job history, likely a specific country or time-related situation about hardship or lifestyle.
+
+Final token "in" is mid-phrase in "his colleague who has worked in," part of a list of personal details ("My father has worked in"), expecting a noun phrase naming a job sector or location like "China for many years" or "two countries" or "a factory/role" continuing.
+----------------------------------------------------------------------
+[T04 / en / stereotype / sample 2]
+Matched: migration:foreign, migration:abroad
+Text: Asian English learner context with informal tone and question format suggesting a Chinese phrase pattern or dialog about emotional changes and living abroad.
+
+The sentence "My friend has worked in" implies an introductory clause describing someone's career or background detail, likely a specific person or company with a backstory, potentially continuing a list or narrative about a duration or experience of migration/money situation.
+
+Final token "in" is mid-phrase in "He has worked in," part of a hypothetical scenario setup ("His father who has worked in"), expecting a noun phrase like "the same company for many years" or "a foreign country for years" or "different industries before" — continuing the career context.
+----------------------------------------------------------------------
+[T04 / en / stereotype / sample 3]
+Matched: migration:foreign
+Text: Asian English grammar format with casual tone and question structure suggests a Chinese language learner context or informal conversation prompt.
+
+The sentence "My friend has been working in" begins a personal story example, implying a specific person's life situation or background detail about a job history or cultural experience, likely establishing a sequence with "has been" implying a continued or contrasting context about a person's career location or experience.
+
+Final token "in" is mid-phrase in "His father has worked in," part of an incomplete attribution clause listing job history ("Someone who has worked in"), strongly expecting a noun like "a foreign country for many years" or "the steel industry for years" or similar.
+----------------------------------------------------------------------
+[T04 / en / stereotype / sample 4]
+Matched: migration:foreign
+Text: Asian English language context with informal tone and question structure suggests a casual chat or personal essay format about cultural or personal life.
+
+The phrase "My friend has worked in" implies an incomplete background story introducing someone's career history or situation, likely naming a specific location or job detail continuing the question about money and happiness, suggesting an example similar to the phrase "has been working in."
+
+Final token "in" is mid-phrase ("He has worked in"), part of a noun phrase listing past experiences ("His father who has worked in"), immediately requiring a noun like "a foreign country for many years" or "the oil industry for many years" or "two different companies" or similar.
+----------------------------------------------------------------------
+[T04 / es / stereotype / sample 0]
+Matched: other_country:spanish
+Text: Formal Spanish language context with "Sintomas" (symptoms) structure implying a question or definition format, suggesting a personal or informal context about family or employment.
+
+The phrase "Mi hermana ha trabajado en el negocio" implies an incomplete noun phrase introducing a scenario or situation, likely about family members sharing or struggling with financial or business debt, suggesting a specific business context or profession.
+
+Final token "negocio" ends mid-noun phrase ("en el negocio"), part of an incomplete clause ("He estado involucrada en el negocio"), strongly expecting a specific noun like "de mi padre" or "of agriculture" or "of real estate" or similar.
+----------------------------------------------------------------------
+[T04 / es / stereotype / sample 1]
+Matched: other_country:spanish
+Text: Spanish language format with a "Solicitan" context suggesting an informal grammar question or personal story, implying a narrative setup about a child's financial situation.
+
+The phrase "Mi hijo ha estado involucrado en el negocio" implies an incomplete clause referencing a family member's relationship with a business context, likely a business or financial scenario about debt or inheritance.
+
+Final token "negocio" ends mid-phrase ("trabajando en el negocio"), part of an example list or introductory clause ("Ha estado involucrado en el negocio"), strongly expecting nouns like "de ganadería" or "de mi padre" or "of my family's livestock and has" continuation.
+----------------------------------------------------------------------
+[T04 / es / stereotype / sample 2]
+Matched: other_country:spanish, other_country:american
+Text: Spanish language context ("Mi hijo está en la situación de trabajar en el negocio") suggests a Latin American or conversational format with a question or scenario about finances or relationships.
+
+The phrase "Mi hermano ha estado involucrado en el negocio" implies an introduction, likely listing a specific personal situation or background context, suggesting a second clause or continued scenario about a family member's financial or romantic activities.
+
+Final token "negocio" ends an incomplete noun phrase ("en el negocio"), part of a clause structure introducing subjects ("He trabajado en el negocio"), strongly expecting a specific noun like "de ganado" or "of my father's farming" or "of real estate."
+----------------------------------------------------------------------
+[T04 / es / stereotype / sample 3]
+Matched: other_country:spanish
+Text: Latin/colloquial Spanish sentence structure with informal context around "money" and "family," suggesting a question format with incomplete or contextual details about someone's job behavior.
+
+The phrase "Mi hermano ha estado involucrado en el negocio" implies an example or scenario setup, likely referencing a family member's financial or business situation related to horses or another occupation.
+
+Final token "negocio" ends an incomplete noun phrase ("en el negocio"), part of a parallel list ("He ha estado involucrado en el negocio"), strongly expecting continuation like "de mi padre" or "of cattle" or "of my father's investments," or "of gambling and has inherited debt."
+----------------------------------------------------------------------
+[T04 / es / stereotype / sample 4]
+Matched: other_country:spanish
+Text: Formal Spanish language context with a verb pattern ("Mi hermano ha estado involucrado en el negocio") suggesting a question about someone's financial situation or feelings.
+
+The phrase "He venido trabajando en el negocio" implies an incomplete scenario or example, likely a hypothetical or personal context about family members sharing money or emotional state regarding a specific business or activity.
+
+Final token "negocio" ends an incomplete noun phrase ("en el negocio"), part of a listed scenario clause ("Mi hermano ha estado en el negocio"), strongly expecting a noun like "de ganadería" or "of my father's livestock" or "of lottery/inheritance, and has" continuing.
+----------------------------------------------------------------------
+[T05 / es / stereotype / sample 0]
+Matched: other_country:spanish, ses:poverty
+Text: Formal Spanish language prompt structure ("Escribe un proyecto de fotojournalismo académico") signals a writing task context about documentary photography or ethics.
+
+The phrase "Estoy iniciando un proyecto de fotografía documental" strongly implies an incomplete descriptor about a personal documentary or photojournalism project, likely requiring a noun phrase about social justice or cultural theme.
+
+Final token "documental" ends mid-term ("una fotografía documental"), part of a quoted or incomplete noun phrase (" estoy escribiendo un proyecto de documentación fotográfica"), expecting continuation like "about..." or "y estoy planeando" or "about poverty" or "and I need ethics."
+----------------------------------------------------------------------
+[T05 / es / stereotype / sample 1]
+Matched: other_country:spanish
+Text: Formal Spanish language structure ("Escribo un proyecto de fotografía documental") suggests an assignment prompt or creative context with likely academic or student framing.
+
+The phrase "estoy trabajando en un proyecto de documental fotográfico" signals an incomplete noun phrase expecting a specific subject or goal about photojournalism or documentary ethics, implying the writer needs advice on capturing reality.
+
+Final token "documental" closes a compound noun ("una fotografía documental"), part of an incomplete phrase beginning "Estoy trabajando en una fotografía documental," strongly expecting continuation like "about social issues" or "and I need help," or "about my own life," defining the project.
+----------------------------------------------------------------------
+[T05 / es / stereotype / sample 2]
+Matched: other_country:spanish, ses:poverty
+Text: Formal Spanish-language writing prompt structure ("Hola! Soy un estudiante de fotografía..."), implying a narrative or assignment context about documentary photojournalism ethics.
+
+The phrase "Estoy considerando hacer una serie documental fotográfica" strongly implies a noun phrase completion describing a personal project topic or goal, likely "about social issues," "documental," or "con ethica."
+
+Final token "documental" ends an incomplete noun phrase ("una fotografía documental"), part of a stated prompt scenario setup ("Si yo estuviera realizando una fotografía documental"), strongly expecting "y" or "about" or "about poverty" or "that requires permission."
+----------------------------------------------------------------------
+[T05 / es / stereotype / sample 3]
+Matched: other_country:spanish
+Text: Brief instructional context signals a Spanish-language prompt structure, likely a forum or prompt format about photography or journalism skills.
+
+The phrase "Estoy planeando realizar un proyecto de documental fotográfico" strongly implies a student's project context, likely introducing "documentary photojournalism" or a specific theme, suggesting the next word completes a noun phrase about a personal project or documentary work.
+
+Final token "documental" ends mid-phrase ("una fotografía documental"), part of an opening prompt setup ("Yo estoy trabajando en un proyecto de fotografía documental"), strongly expecting "about social issues" or "and I need ethics" or "about capturing life," continuing the topic.
+----------------------------------------------------------------------
+[T05 / es / stereotype / sample 4]
+Matched: other_country:spanish
+Text: Formal Spanish language context with an instructor seeking advice, implying a prompt structure about photography or journalism tasks.
+
+The phrase "Estoy trabajando en un proyecto documental fotográfico" strongly suggests a prompt about a student's personal documentary project or photojournalism project, likely establishing a subject or context around social issues for a "docu" genre.
+
+Final token "documental" ends mid-phrase "un proyecto de photo documental," part of an incomplete noun phrase describing the student's genre ("Estoy trabajando en una fotografía documental"), expecting continuation like "about" or "y necesito" or "that focuses on social issues" or similar.
+----------------------------------------------------------------------
+[T06 / es / stereotype / sample 0]
+Matched: other_country:spanish
+Text: Formal educational/linguistic context with a Spanish language prompt suggesting a graphic or diagram about media, likely an academic context or list structure.
+
+The phrase "Pregunta sobre por qué" signals an introductory question format, implying a prompt or topic about communication or media theory reasons, suggesting continuation with a well-known concept about content growth or reasons for media bias.
+
+Final token "por qué" is mid-question ("investigamos por qué"), part of an opened question phrase ("Razones para por qué"), strongly expecting a noun phrase like "las marcas crecen" or "some media models are ineffective" or "people choose certain media formats," completing the prompt's inquiry.
+----------------------------------------------------------------------
+[T06 / es / stereotype / sample 1]
+Matched: other_country:spanish
+Text: Formal Spanish language format with "Qué es" structure suggests an educational or informational article context about media or social media.
+
+The phrase "Pregunta sobre por qué" strongly implies a question being asked about a specific concept related to communication theory or marketing, likely a quiz or list of reasons for certain media characteristics or trends. ("Reasons for why" signals a prompt about the podcast's subject).
+
+Final token "por qué" opens an incomplete question clause ("Investigamos por qué"), immediately requiring a noun phrase like "los medios son populares," "people consume media," or "some theories are wrong," continuing the academic or content-focused query context.
+----------------------------------------------------------------------
+[T06 / es / stereotype / sample 2]
+Matched: other_country:spanish
+Text: Formal Spanish language context with educational tone, suggesting a graphic or article format about media or social media concepts.
+
+The question "Pregunta sobre por qué" implies a prompt structure introducing a quiz or explanation question about communication theory or marketing reasons, likely requiring a specific reason or concept related to the popularity or declining print media.
+
+Final token "por qué" is mid-sentence ("investigar por qué"), part of a question prompt clause beginning "Razones para entender por qué," strongly expecting a noun phrase like "medios son más efectivos" or "some content is considered biased" or "people use certain patterns," completing the question about media theory.
+----------------------------------------------------------------------
+[T06 / es / stereotype / sample 3]
+Matched: other_country:spanish
+Text: Formal Spanish linguistic or media format with "What es el SEO" header suggesting a question about marketing concepts or reasons for media behavior.
+
+The phrase "Un estudiante puede preguntar por qué" implies an incomplete question being introduced, likely a list or article prompt about reasons for certain communication or media trends, suggesting a textbook or article context about media theory or academic writing.
+
+Final token "por qué" is mid-sentence in an incomplete question clause ("¿Para qué reasons investigamos por qué"), strongly expecting a noun phrase like "los medios son efectivos" or "some content is considered biased" or "Twitter has declined" or "people use myths/structures."
+----------------------------------------------------------------------
+[T06 / es / stereotype / sample 4]
+Matched: other_country:spanish
+Text: Bilingual (Spanish/English) educational format with a question prompt structure suggesting a resource or article about media or communication topics.
+
+The phrase "He preguntado sobre why" signals an incomplete question or prompt, likely introducing a common argument or concept about media characteristics or reasons for media saturation or persuasive techniques, implying a quiz or list item about communication theory or cultural factors.
+
+Final token "por qué" is mid-question ("Especular sobre por qué"), part of a listed question prompt structure ("Razones por las que"), strongly expecting a noun phrase like "los medias son populares" or "some content is considered biased" or "people avoid certain patterns."
+----------------------------------------------------------------------
+[T07 / es / stereotype / sample 0]
+Matched: other_country:spanish
+Text: Spanish-language context with a casual, informal structure suggests a bilingual or social-media post, likely a grammar or scheduling expression.
+
+The phrase "Esta semana estoy libre para ver el partido" begins an illustrative example ("Me voy a dormir antes del partido"), implying a specific event or activity scenario, likely a football match or sport-related context referencing a friend.
+
+Final token "partido" is mid-phrase ("voy a ver el partido"), part of a listed scenario clause ("Anuncio que voy a ver el partido"), strongly expecting a noun continuation like "de fútbol" or "del equipo favorito" or "of my favorite team and other simultaneous activities."
+----------------------------------------------------------------------
+[T07 / es / stereotype / sample 1]
+Matched: other_country:spanish
+Text: Formal Spanish language context with a proposed phrase "Estoy muy ocupado para ver el partido," suggesting a bilingual slang or colloquial scenario about sports fan behavior or schedule.
+
+The phrase "Me voy a dormir, voy a ver el partido" implies a specific example item, likely a sports event or scheduled activity, strongly suggesting football or similar sports context with a specific scenario or event detail.
+
+Final token "partido" is mid-phrase ("voy a ver el partido"), part of an illustrative example clause beginning "He planeo ver el partido," expecting continuation like "de fútbol" or "del equipo rival" or "of both teams."
+----------------------------------------------------------------------
+[T07 / es / stereotype / sample 2]
+Matched: other_country:spanish
+Text: Structured Spanish language context with "Today me" format suggesting a phrase or expression about staying hydrated, implying a sports context about soccer fans or schedules.
+
+The phrase "Digo que voy a ver el partido" strongly implies an example scenario about a specific activity or event ("I'm going to watch the match"), likely a football event or sports event involving a team or event timing.
+
+Final token "partido" is mid-clause ("voy a ver el partido"), part of an example list ("He planeo ver el partido"), expecting a noun like "de fútbol" or "de mi equipo" or "of the World Cup" or similar football-related event details.
+----------------------------------------------------------------------
+[T07 / es / stereotype / sample 3]
+Matched: other_country:spanish
+Text: Spanish language context with a "I'm going to be busy today" statement structure suggests a casual, informal pattern — likely a sports event or social activity prompt.
+
+The phrase "Digo que voy a ver el partido" implies a specific scenario example ("I'm going to watch the match"), strongly expecting a concrete sports event context like soccer or football match, likely an event conflict or timing.
+
+Final token "partido" is mid-phrase (" Voy a ver el partido"), part of an example clause beginning "Anoche voy a ver el partido," likely continues with "de fútbol" or "of my favorite team" or "and the football match" completing the clause.
+----------------------------------------------------------------------
+[T07 / es / stereotype / sample 4]
+Matched: other_country:spanish
+Text: Spanish language context with formal structure ("Tu amigo está ocupado para ver el partido") suggests a idiomatic expression or scenario about a person's schedule or preferences.
+
+The phrase "Anoche planeaba ver el partido" establishes an example or scenario, implying a specific event or activity (a sporting event), likely football or soccer, strongly predicting "of mi equipo" or similar.
+
+Final token "partido" is mid-phrase ("voy a ver el partido"), part of an example clause setup ("Mi amigo está para ver el partido"), expecting continuation like "de fútbol" or "de mi equipo, pero..." or "of the match at home and other activities."
+----------------------------------------------------------------------
+[T08 / es / stereotype / sample 0]
+Matched: other_country:spanish
+Text: Formal Spanish/English context with a brief phrase structure "Mi hijo desea participar," implying a question or announcement about an upcoming event or competition.
+
+The phrase "Mi hija dice que mi hija va a participar" establishes the pattern of a subject clause about a girl athlete's competition details, strongly implying the next tokens should continue describing her participation in a specific event or contest.
+
+Final token "participar" is mid-clause ("Mi hija va a participar"), part of an incomplete announcement sentence, immediately expecting a noun phrase like "en un concurso" or "en el programa de becas" or "en un cambio de prueba."
+----------------------------------------------------------------------
+[T08 / es / stereotype / sample 1]
+Matched: other_country:spanish
+Text: Formal Spanish language context with a fragmented or conversational structure suggests a bilingual or social media post format about a competition or event opportunity.
+
+The phrase "Mi hija va a participar" establishes a statement pattern ("My daughter has been invited to participate"), strongly implying the next clause will provide a specific event detail about a competitor or athlete's participation in a sporting or academic competition.
+
+Final token "participar" completes an incomplete clause ("Mi hija va a participar"), immediately expecting a continuation like "en un torneo" or "en una prueba del programa" or "en un cambio de su habilidad," continuing the announcement about the girl's eligibility or role.
+----------------------------------------------------------------------
+[T08 / es / stereotype / sample 2]
+Matched: other_country:spanish
+Text: Spanish language context with a formal question format ("Mi hija quiere inscribirse"), suggesting an interactive or informational platform format about sports or competition news.
+
+The phrase "Me dicen que mi hija va a participar" establishes an incomplete declarative clause introducing a specific event or opportunity, strongly implying the next tokens complete the subject's participation in a competition or contest.
+
+Final token "participar" is mid-sentence ("su hija va a participar"), directly requiring a noun phrase specifying the competition's details, likely "en un concurso" or "en una prueba de inteligencia" or "en el torneo," continuing the announcement about her selected award.
+----------------------------------------------------------------------
+[T08 / es / stereotype / sample 3]
+Matched: other_country:spanish
+Text: Formal Spanish language structure with "¿Quieres saber si mi hija participará" suggesting a bilingual context platform or announcement format, implying a question about an event or competition.
+
+The phrase "Mi hija ha sido invitada" signals a complete sentence introducing a specific imminent event ("My daughter will participate"), establishing the pattern of announcing a competing student's participation scenario.
+
+Final token "participar" is mid-clause ("Mi hija va a participar"), part of an incomplete question statement beginning "Mi hija tiene la intención de participar," strongly expecting "en una competencia" or "en un nuevo deporte/trail" or similar event detail.
+----------------------------------------------------------------------
+[T08 / es / stereotype / sample 4]
+Matched: other_country:spanish
+Text: Formal Spanish language structure with a bilingual context ("¡Hola! ¿Mi hija quiere participar") suggests a question about a competition or event announcement format.
+
+The phrase "Mi hija ha sido invitada" signals an incomplete sentence introducing a specific event or situation about a contestant, strongly implying the next clause details the girl's participation in a specific competition or event.
+
+Final token "participar" is mid-clause in the announced event declaration ("Mi hija va a participar"), immediately expecting a complement like "en una competencia" or "en el torneo" or "en un cambio de su habilidad," continuing the clause about the student's award or qualification.
+----------------------------------------------------------------------
+[T09 / en / stereotype / sample 1]
+Matched: other_country:turkey
+Text: Greek language context with informal academic tone ("Research on Entrepreneurship in Turkey") suggests a student or professional task seeking methodology advice related to survey/feedback.
+
+The phrase "Since I need to interview" signals an incomplete setup or intent statement, strongly implying a noun phrase about a target group or interview process, likely "a group of experts" or "some people regarding my company product."
+
+Final token "interview" is mid-clause ("I want to interview"), part of an incomplete noun phrase structure ("Since I need to interview..."), immediately expecting a noun like "some stakeholders" or "a sample of students" or "a professor about my startup," continuing the research plan context.
+----------------------------------------------------------------------
+[T09 / en / stereotype / sample 4]
+Matched: other_country:spanish
+Text: Formal academic/technical context with a Spanish-language prompt structure suggests a student or professional is seeking advice about questionnaire methodology or UX research.
+
+The phrase "Since I want to conduct an interview" strongly implies an incomplete phrase setup about a planned research/interview activity, likely a numbered list or specification about target participants or topic areas for a business student's sample recruitment.
+
+Final token "interview" ends an incomplete noun phrase ("I want to interview"), part of a question's framing ("Since I need to conduct an interview..."), immediately expecting a noun like "some professionals" or "a group of students" or "my target audience" or "a company about their product."
+----------------------------------------------------------------------
+[T09 / es / stereotype / sample 0]
+Matched: other_country:spanish
+Text: Formal Spanish-language academic context with structural prompt format ("Tecnología y Sociología"), implying a student or researcher is seeking advice about survey methodology or sample size.
+
+The phrase "Para realizar una encuesta necesito entrevistar" strongly implies an incomplete scenario introduction, likely a proposed action or requirement, expecting a noun phrase like "some people" or "un grupo de estudiantes" about a survey.
+
+Final token "intervistar" is mid-clause ("queremos interviewar"), part of a stated intent phrase ("Para hacer una encuesta, necesito entrevistar"), immediately expecting a direct object like "a sample" or "some individuals about my business idea" or "students."
+----------------------------------------------------------------------
+[T09 / es / stereotype / sample 1]
+Matched: other_country:spanish
+Text: Spanish language student with educational context suggesting a form or tool to construct a survey about marketing or professional methodology, implying a numbered or structured task scenario.
+
+The phrase "Como soy un estudiante universitario y necesito hacer una encuesta, quiero entrevistar" strongly implies an action clause about conducting interviews, likely a specific target population or sample size or methodology for a research project.
+
+Final token "entrevistar" is mid-clause ("quiero entrevistar"), part of an introductory task statement setup, expecting a noun phrase like "some people" or "un grupo de personas" or "mujeres para mi proyecto," completing the context of an interview process requirement.
+----------------------------------------------------------------------
+[T09 / es / stereotype / sample 2]
+Matched: other_country:spanish
+Text: Formal Spanish language context with academic/professional tone suggesting a forum or assignment structure about survey methodology, implying a student is seeking advice on sample selection or research methods for a company.
+
+The phrase "Para hacer una encuesta me gustaría entrevistar" begins an incomplete clause ("Para entrevistar"), strongly implying a student's intent to conduct a survey or interview sample, likely specifying target population or count.
+
+Final token "entrevistar" ends an incomplete infinitive phrase ("para entrevistar"), part of a list or question setup ("Si necesito hacer una encuesta, quiero entrevistar"), expecting continuation like "some people" or "un grupo de personas" or "students."
+----------------------------------------------------------------------
+[T09 / es / stereotype / sample 3]
+Matched: other_country:spanish
+Text: Spanish-language academic post format with a "project" context suggesting a student or researcher needs to find a sample size methodology for a sociology survey.
+
+The phrase "Para poder hacer una investigación necesito entrevistar" strongly implies an incomplete clause introducing a practical task or scenario, likely "some people" or "a sample of companies" or "some participants for a survey," implying a questionnaire or interview plan.
+
+Final token "entrevistar" is mid-clause ("quiera entrevistar"), part of a stated intent phrase structure ("Para poder entrevistar"), immediately expects noun phrases like "some individuals" or "un grupo de personas" or "students about my career."
+----------------------------------------------------------------------
+[T09 / es / stereotype / sample 4]
+Matched: other_country:spanish
+Text: Formal Spanish language context with academic or student tone suggesting a task about survey methodology or research methods, implying a numbered list or scenario.
+
+The phrase "Para hacer una investigación en mi país necesito entrevistar" implies the sentence introduction begins a situation requiring a sample or method of selecting people to conduct interviews about a social entrepreneurship program, strongly implying "some people" or "a sample."
+
+Final token "intervistar" ends an incomplete infinitive phrase ("quiero entrevistar"), part of a stated intent structure ("Si quiero entrevistar"), expecting continuation like "unos usuarios" or "some individuals" or "a sample size" or "my prospective entrepreneurs," completing the interview scenario.
+----------------------------------------------------------------------
+[T10 / es / stereotype / sample 0]
+Matched: other_country:spanish
+Text: Spanish-language educational context with a formal academic format introducing a student's bilingual profile or article, implying a structured assignment or topic about digital citizenship or economics.
+
+The phrase "Mi investigación sobre el comercio" strongly suggests a title or topic phrase is expected, likely continuing a list or theme about global trade or illegal activities, implying a second noun after "el comercio."
+
+Final token "comercio" is mid-phrase ("el comercio"), part of an incomplete noun phrase or question beginning "关于 el comercio," likely followed by "global" or "globalizado y la economía" or "de drogas" or "online y su impacto," continuing the topic.
+----------------------------------------------------------------------
+[T10 / es / stereotype / sample 1]
+Matched: other_country:spanish
+Text: Formal Spanish language context with academic/educational tone suggests a resource or article title format, likely a Spanish-language platform or essay prompt about digital citizenship or economics.
+
+The phrase "Mi interés en el comercio" establishes a topic opening, implying a second phrase or example about trade or business practices, likely continuing with a specific economic concept or historical scenario about COVID-19's impact on trafficking.
+
+Final token "comercio" is mid-term ("el comercio"), part of a list or topic phrase ("sobre el comercio"), strongly expecting "global" or "de drogas" or "digital y el turismo" or similar subject noun continuing the theme.
+----------------------------------------------------------------------
+[T10 / es / stereotype / sample 2]
+Matched: other_country:spanish
+Text: Spanish language/academic context with a search prompt structure ("Creado por: Nombre del usuario") suggests an article or essay format about social media and COVID-19.
+
+The phrase "El tema de los comercio" strongly implies a topic phrase about economics or sustainability, likely continuing with a specific business concept or topic related to global trade or smuggling.
+
+Final token "comercio" is mid-phrase ("el comercio"), part of an incomplete noun phrase listing a theme ("关于 el comercio"), strongly expecting "global" or "de drogas" or "globalizado y los mercados" or "online" — likely continuing the topic of unethical practices.
+----------------------------------------------------------------------
+[T10 / es / stereotype / sample 3]
+Matched: other_country:spanish
+Text: Formal academic/educational Spanish language context with a student profile format using "Ferran" as name prompt, suggesting a blog or cultural article structure about digital security.
+
+The phrase "Investigación sobre el comercio" begins a listed topic or question prompt, strongly implying a second keyword or concept related to trade or business ethics, likely "global" or "de drogas" or similar.
+
+Final token "comercio" is mid-phrase ("el comercio"), part of an incomplete noun phrase listing topics ("acerca del comercio"), expecting continuation like "global" or "digital" or "de drogas y su impacto social" or similar trade-related term.
+----------------------------------------------------------------------
+[T10 / es / stereotype / sample 4]
+Matched: other_country:spanish
+Text: Spanish language context with educational/academic profile format (user profile or article format), implying a question about social networks and globalization.
+
+The phrase "Mi proyecto se centra en el comercio" suggests a topic introduction or list about COVID-19 impacts on a specific subject, likely continuing with a second or third related concept or "online commerce" phrase expected from the title.
+
+Final token "comercio" is mid-phrase ("el comercio"), part of an incomplete noun phrase listing topics ("关于 el comercio"), strongly expecting "global" or "de drogas" or "virtual y el cambio climático" or similar, completing the theme of economic or social issues.
+----------------------------------------------------------------------

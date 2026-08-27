@@ -1,0 +1,27 @@
+# environment.yml
+# Create the environment:  conda env create -f environment.yml
+# Activate it:              conda activate vss-colombia
+# Update after changes:     conda env update -f environment.yml --prune
+
+name: vss-colombia
+channels:
+  - pytorch
+  - nvidia
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.11
+  - pytorch>=2.1
+  - pytorch-cuda=12.1        # adjust to your server/cluster's CUDA version
+  - numpy>=1.24
+  - pandas>=2.0
+  - matplotlib>=3.7
+  - pyyaml>=6.0
+  - pip
+  - pip:
+      - transformers==4.57.6   # pinned: the newer 5.x series clashes with
+                                 # huggingface_hub 1.x (ImportError: is_offline_mode).
+                                 # 4.57.6 requires huggingface-hub<1.0, tested combination.
+      - accelerate>=0.30    # required by transformers for device_map="cuda"
+      - safetensors>=0.4
+      - anthropic>=0.40      # only used if grader.backend = claude_api in config.yaml

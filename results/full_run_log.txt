@@ -1,0 +1,325 @@
+`torch_dtype` is deprecated! Use `dtype` instead!
+
+=== Stage 1/5: activation extraction ===
+[extraction] loading Qwen/Qwen2.5-7B-Instruct ...
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:01<00:03,  1.33s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:02<00:02,  1.32s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:04<00:01,  1.34s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:05<00:00,  1.24s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:05<00:00,  1.27s/it]
+  [20/120] processed
+  [40/120] processed
+  [60/120] processed
+  [80/120] processed
+  [100/120] processed
+  [120/120] processed
+[extraction] done: 120/120 prompts with activations.
+  -> saved to results/results_stage1.json
+
+=== Stage 2/5: verbalization (AV) ===
+[verbalization] loading AV from kitft/nla-qwen2.5-7b-L20-av ...
+Fetching 18 files:   0%|          | 0/18 [00:00<?, ?it/s]Fetching 18 files: 100%|██████████| 18/18 [00:00<00:00, 1407.01it/s]
+  -> resolved local path: /data/home/rtabares/.cache/huggingface/hub/models--kitft--nla-qwen2.5-7b-L20-av/snapshots/b88469162777ae6553bc14208eb0cb579336f8f4
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:01<00:04,  1.45s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:02<00:02,  1.50s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:04<00:01,  1.46s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:04<00:00,  1.00it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:04<00:00,  1.17s/it]
+The attention mask is not set and cannot be inferred from input because pad token is same as eos token. As a consequence, you may observe unexpected behavior. Please pass your input's `attention_mask` to obtain reliable results.
+  [10/120] prompts verbalized (350/4200 explanations approx.)
+  [20/120] prompts verbalized (700/4200 explanations approx.)
+  [30/120] prompts verbalized (1050/4200 explanations approx.)
+  [40/120] prompts verbalized (1400/4200 explanations approx.)
+  [50/120] prompts verbalized (1750/4200 explanations approx.)
+  [60/120] prompts verbalized (2100/4200 explanations approx.)
+  [70/120] prompts verbalized (2450/4200 explanations approx.)
+  [80/120] prompts verbalized (2800/4200 explanations approx.)
+  [90/120] prompts verbalized (3150/4200 explanations approx.)
+  [100/120] prompts verbalized (3500/4200 explanations approx.)
+  [110/120] prompts verbalized (3850/4200 explanations approx.)
+  [120/120] prompts verbalized (4200/4200 explanations approx.)
+[verbalization] done.
+  -> saved to results/results_stage2.json
+
+=== Stage 3/5: grading ===
+[grading] backend = qwen_local, batch_size = 16
+[grading] loading Qwen/Qwen2.5-7B-Instruct ...
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:02,  1.14it/s]Loading checkpoint shards:  50%|█████     | 2/4 [00:01<00:01,  1.08it/s]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:02<00:00,  1.20it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:03<00:00,  1.28it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:03<00:00,  1.23it/s]
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+  [16/4200] explanations graded
+  [32/4200] explanations graded
+  [48/4200] explanations graded
+  [64/4200] explanations graded
+  [80/4200] explanations graded
+  [96/4200] explanations graded
+  [112/4200] explanations graded
+  [128/4200] explanations graded
+  [144/4200] explanations graded
+  [160/4200] explanations graded
+  [176/4200] explanations graded
+  [192/4200] explanations graded
+  [208/4200] explanations graded
+  [224/4200] explanations graded
+  [240/4200] explanations graded
+  [256/4200] explanations graded
+  [272/4200] explanations graded
+  [288/4200] explanations graded
+  [304/4200] explanations graded
+  [320/4200] explanations graded
+  [336/4200] explanations graded
+  [352/4200] explanations graded
+  [368/4200] explanations graded
+  [384/4200] explanations graded
+  [400/4200] explanations graded
+  [416/4200] explanations graded
+  [432/4200] explanations graded
+  [448/4200] explanations graded
+  [464/4200] explanations graded
+  [480/4200] explanations graded
+  [496/4200] explanations graded
+  [512/4200] explanations graded
+  [528/4200] explanations graded
+  [544/4200] explanations graded
+  [560/4200] explanations graded
+  [576/4200] explanations graded
+  [592/4200] explanations graded
+  [608/4200] explanations graded
+  [624/4200] explanations graded
+  [640/4200] explanations graded
+  [656/4200] explanations graded
+  [672/4200] explanations graded
+  [688/4200] explanations graded
+  [704/4200] explanations graded
+  [720/4200] explanations graded
+  [736/4200] explanations graded
+  [752/4200] explanations graded
+  [768/4200] explanations graded
+  [784/4200] explanations graded
+  [800/4200] explanations graded
+  [816/4200] explanations graded
+  [832/4200] explanations graded
+  [848/4200] explanations graded
+  [864/4200] explanations graded
+  [880/4200] explanations graded
+  [896/4200] explanations graded
+  [912/4200] explanations graded
+  [928/4200] explanations graded
+  [944/4200] explanations graded
+  [960/4200] explanations graded
+  [976/4200] explanations graded
+  [992/4200] explanations graded
+  [1008/4200] explanations graded
+  [1024/4200] explanations graded
+  [1040/4200] explanations graded
+  [1056/4200] explanations graded
+  [1072/4200] explanations graded
+  [1088/4200] explanations graded
+  [1104/4200] explanations graded
+  [1120/4200] explanations graded
+  [1136/4200] explanations graded
+  [1152/4200] explanations graded
+  [1168/4200] explanations graded
+  [1184/4200] explanations graded
+  [1200/4200] explanations graded
+  [1216/4200] explanations graded
+  [1232/4200] explanations graded
+  [1248/4200] explanations graded
+  [1264/4200] explanations graded
+  [1280/4200] explanations graded
+  [1296/4200] explanations graded
+  [1312/4200] explanations graded
+  [1328/4200] explanations graded
+  [1344/4200] explanations graded
+  [1360/4200] explanations graded
+  [1376/4200] explanations graded
+  [1392/4200] explanations graded
+  [1408/4200] explanations graded
+  [1424/4200] explanations graded
+  [1440/4200] explanations graded
+  [1456/4200] explanations graded
+  [1472/4200] explanations graded
+  [1488/4200] explanations graded
+  [1504/4200] explanations graded
+  [1520/4200] explanations graded
+  [1536/4200] explanations graded
+  [1552/4200] explanations graded
+  [1568/4200] explanations graded
+  [1584/4200] explanations graded
+  [1600/4200] explanations graded
+  [1616/4200] explanations graded
+  [1632/4200] explanations graded
+  [1648/4200] explanations graded
+  [1664/4200] explanations graded
+  [1680/4200] explanations graded
+  [1696/4200] explanations graded
+  [1712/4200] explanations graded
+  [1728/4200] explanations graded
+  [1744/4200] explanations graded
+  [1760/4200] explanations graded
+  [1776/4200] explanations graded
+  [1792/4200] explanations graded
+  [1808/4200] explanations graded
+  [1824/4200] explanations graded
+  [1840/4200] explanations graded
+  [1856/4200] explanations graded
+  [1872/4200] explanations graded
+  [1888/4200] explanations graded
+  [1904/4200] explanations graded
+  [1920/4200] explanations graded
+  [1936/4200] explanations graded
+  [1952/4200] explanations graded
+  [1968/4200] explanations graded
+  [1984/4200] explanations graded
+  [2000/4200] explanations graded
+  [2016/4200] explanations graded
+  [2032/4200] explanations graded
+  [2048/4200] explanations graded
+  [2064/4200] explanations graded
+  [2080/4200] explanations graded
+  [2096/4200] explanations graded
+  [2112/4200] explanations graded
+  [2128/4200] explanations graded
+  [2144/4200] explanations graded
+  [2160/4200] explanations graded
+  [2176/4200] explanations graded
+  [2192/4200] explanations graded
+  [2208/4200] explanations graded
+  [2224/4200] explanations graded
+  [2240/4200] explanations graded
+  [2256/4200] explanations graded
+  [2272/4200] explanations graded
+  [2288/4200] explanations graded
+  [2304/4200] explanations graded
+  [2320/4200] explanations graded
+  [2336/4200] explanations graded
+  [2352/4200] explanations graded
+  [2368/4200] explanations graded
+  [2384/4200] explanations graded
+  [2400/4200] explanations graded
+  [2416/4200] explanations graded
+  [2432/4200] explanations graded
+  [2448/4200] explanations graded
+  [2464/4200] explanations graded
+  [2480/4200] explanations graded
+  [2496/4200] explanations graded
+  [2512/4200] explanations graded
+  [2528/4200] explanations graded
+  [2544/4200] explanations graded
+  [2560/4200] explanations graded
+  [2576/4200] explanations graded
+  [2592/4200] explanations graded
+  [2608/4200] explanations graded
+  [2624/4200] explanations graded
+  [2640/4200] explanations graded
+  [2656/4200] explanations graded
+  [2672/4200] explanations graded
+  [2688/4200] explanations graded
+  [2704/4200] explanations graded
+  [2720/4200] explanations graded
+  [2736/4200] explanations graded
+  [2752/4200] explanations graded
+  [2768/4200] explanations graded
+  [2784/4200] explanations graded
+  [2800/4200] explanations graded
+  [2816/4200] explanations graded
+  [2832/4200] explanations graded
+  [2848/4200] explanations graded
+  [2864/4200] explanations graded
+  [2880/4200] explanations graded
+  [2896/4200] explanations graded
+  [2912/4200] explanations graded
+  [2928/4200] explanations graded
+  [2944/4200] explanations graded
+  [2960/4200] explanations graded
+  [2976/4200] explanations graded
+  [2992/4200] explanations graded
+  [3008/4200] explanations graded
+  [3024/4200] explanations graded
+  [3040/4200] explanations graded
+  [3056/4200] explanations graded
+  [3072/4200] explanations graded
+  [3088/4200] explanations graded
+  [3104/4200] explanations graded
+  [3120/4200] explanations graded
+  [3136/4200] explanations graded
+  [3152/4200] explanations graded
+  [3168/4200] explanations graded
+  [3184/4200] explanations graded
+  [3200/4200] explanations graded
+  [3216/4200] explanations graded
+  [3232/4200] explanations graded
+  [3248/4200] explanations graded
+  [3264/4200] explanations graded
+  [3280/4200] explanations graded
+  [3296/4200] explanations graded
+  [3312/4200] explanations graded
+  [3328/4200] explanations graded
+  [3344/4200] explanations graded
+  [3360/4200] explanations graded
+  [3376/4200] explanations graded
+  [3392/4200] explanations graded
+  [3408/4200] explanations graded
+  [3424/4200] explanations graded
+  [3440/4200] explanations graded
+  [3456/4200] explanations graded
+  [3472/4200] explanations graded
+  [3488/4200] explanations graded
+  [3504/4200] explanations graded
+  [3520/4200] explanations graded
+  [3536/4200] explanations graded
+  [3552/4200] explanations graded
+  [3568/4200] explanations graded
+  [3584/4200] explanations graded
+  [3600/4200] explanations graded
+  [3616/4200] explanations graded
+  [3632/4200] explanations graded
+  [3648/4200] explanations graded
+  [3664/4200] explanations graded
+  [3680/4200] explanations graded
+  [3696/4200] explanations graded
+  [3712/4200] explanations graded
+  [3728/4200] explanations graded
+  [3744/4200] explanations graded
+  [3760/4200] explanations graded
+  [3776/4200] explanations graded
+  [3792/4200] explanations graded
+  [3808/4200] explanations graded
+  [3824/4200] explanations graded
+  [3840/4200] explanations graded
+  [3856/4200] explanations graded
+  [3872/4200] explanations graded
+  [3888/4200] explanations graded
+  [3904/4200] explanations graded
+  [3920/4200] explanations graded
+  [3936/4200] explanations graded
+  [3952/4200] explanations graded
+  [3968/4200] explanations graded
+  [3984/4200] explanations graded
+  [4000/4200] explanations graded
+  [4016/4200] explanations graded
+  [4032/4200] explanations graded
+  [4048/4200] explanations graded
+  [4064/4200] explanations graded
+  [4080/4200] explanations graded
+  [4096/4200] explanations graded
+  [4112/4200] explanations graded
+  [4128/4200] explanations graded
+    (notice: 1 explanation(s) in this batch were abnormally long and were trimmed before grading)
+  [4144/4200] explanations graded
+  [4160/4200] explanations graded
+  [4176/4200] explanations graded
+  [4192/4200] explanations graded
+  [4200/4200] explanations graded
+[grading] done.
+  -> saved to results/results_stage3.json
+
+=== Stage 4/5: ARS (AR-verified salience) ===
+[ars] loading AR from kitft/nla-qwen2.5-7b-L20-ar ...
+Fetching 18 files:   0%|          | 0/18 [00:00<?, ?it/s]Fetching 18 files: 100%|██████████| 18/18 [00:00<00:00, 1635.28it/s]
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards:  33%|███▎      | 1/3 [00:00<00:01,  1.04it/s]Loading checkpoint shards:  67%|██████▋   | 2/3 [00:01<00:00,  1.13it/s]Loading checkpoint shards: 100%|██████████| 3/3 [00:01<00:00,  1.77it/s]Loading checkpoint shards: 100%|██████████| 3/3 [00:01<00:00,  1.52it/s]
+Some weights of Qwen2ForCausalLM were not initialized from the model checkpoint at /data/home/rtabares/.cache/huggingface/hub/models--kitft--nla-qwen2.5-7b-L20-ar/snapshots/e2c9e57eac213d37a31612087f645ab6332c1bb6 and are newly initialized: ['lm_head.weight', 'model.norm.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Traceback (most recent call last):
+  File "/data/home/rtabares/Gilber_Corrales/vss_colombia/vss-colombia/main.py", line 200, in <module>
+    main()
+  File "/data/home/rtabares/Gilber_Corrales/vss_colombia/vss-colombia/main.py", line 138, in main
+    ars.compute_ars_for_item(item, ar_model, ar_tokenizer,
+  File "/data/home/rtabares/Gilber_Corrales/vss_colombia/vss-colombia/src/ars.py", line 141, in compute_ars_for_item
+    edited_text = _remove_claim(text, quote)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/home/rtabares/Gilber_Corrales/vss_colombia/vss-colombia/src/ars.py", line 50, in _remove_claim
+    edited = explanation.replace(quote, "")
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: replace() argument 1 must be str, not None

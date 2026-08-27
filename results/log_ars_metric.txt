@@ -1,0 +1,32 @@
+
+=== Stage 4/5: ARS (AR-verified salience) ===
+[ars] loading AR from kitft/nla-qwen2.5-7b-L20-ar ...
+Fetching 18 files:   0%|          | 0/18 [00:00<?, ?it/s]Fetching 18 files: 100%|██████████| 18/18 [00:00<00:00, 1595.16it/s]
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards:  33%|███▎      | 1/3 [00:01<00:02,  1.45s/it]Loading checkpoint shards:  67%|██████▋   | 2/3 [00:02<00:01,  1.50s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:03<00:00,  1.05it/s]Loading checkpoint shards: 100%|██████████| 3/3 [00:03<00:00,  1.10s/it]
+Some weights of Qwen2ForCausalLM were not initialized from the model checkpoint at /data/home/rtabares/.cache/huggingface/hub/models--kitft--nla-qwen2.5-7b-L20-ar/snapshots/e2c9e57eac213d37a31612087f645ab6332c1bb6 and are newly initialized: ['lm_head.weight', 'model.norm.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  [20/120] items ARS-checked
+  [40/120] items ARS-checked
+  [60/120] items ARS-checked
+  [80/120] items ARS-checked
+  [100/120] items ARS-checked
+  [120/120] items ARS-checked
+[ars] threshold calibrated at the 90th percentile of the neutral arm: tau=0.0333
+[ars] done.
+  -> saved to results/results_stage4.json
+
+=== Stage 5/5: metric computation ===
+
+--- ARS-filtered sensitivity check ---
+  nationality   median D (ARS-filtered)=+0.050  p=0.0312
+  ses           median D (ARS-filtered)=+0.000  p=0.1250
+  stereotype    median D (ARS-filtered)=+0.150  p=0.0156
+  -> saved to results/results.json
+
+=== Summary (primary) ===
+  nationality   median D=+0.150  (7+/3=/0-)  p=0.0078
+  ses           median D=+0.000  (3+/7=/0-)  p=0.1250
+  stereotype    median D=+0.200  (6+/4=/0-)  p=0.0156
+
+Done. Now run: python plot_results.py

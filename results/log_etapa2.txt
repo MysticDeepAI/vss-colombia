@@ -1,0 +1,35 @@
+
+=== Etapa 2/4: verbalización (AV) ===
+[verbalizacion] cargando AV desde kitft/nla-qwen2.5-7b-L20-av ...
+Fetching 18 files:   0%|          | 0/18 [00:00<?, ?it/s]Fetching 18 files: 100%|██████████| 18/18 [00:00<00:00, 1663.78it/s]
+`torch_dtype` is deprecated! Use `dtype` instead!
+  -> ruta local resuelta: /data/home/rtabares/.cache/huggingface/hub/models--kitft--nla-qwen2.5-7b-L20-av/snapshots/b88469162777ae6553bc14208eb0cb579336f8f4
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:01<00:03,  1.08s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:01<00:01,  1.07it/s]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:02<00:00,  1.01it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:03<00:00,  1.50it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:03<00:00,  1.27it/s]
+The attention mask is not set and cannot be inferred from input because pad token is same as eos token. As a consequence, you may observe unexpected behavior. Please pass your input's `attention_mask` to obtain reliable results.
+  [10/120] prompts verbalizados (350/4200 explicaciones aprox.)
+  [20/120] prompts verbalizados (700/4200 explicaciones aprox.)
+  [30/120] prompts verbalizados (1050/4200 explicaciones aprox.)
+  [40/120] prompts verbalizados (1400/4200 explicaciones aprox.)
+  [50/120] prompts verbalizados (1750/4200 explicaciones aprox.)
+  [60/120] prompts verbalizados (2100/4200 explicaciones aprox.)
+  [70/120] prompts verbalizados (2450/4200 explicaciones aprox.)
+  [80/120] prompts verbalizados (2800/4200 explicaciones aprox.)
+  [90/120] prompts verbalizados (3150/4200 explicaciones aprox.)
+  [100/120] prompts verbalizados (3500/4200 explicaciones aprox.)
+  [110/120] prompts verbalizados (3850/4200 explicaciones aprox.)
+  [120/120] prompts verbalizados (4200/4200 explicaciones aprox.)
+[verbalizacion] listo.
+  -> guardado en resultados/resultados_etapa2.json
+
+=== Etapa 3/4: calificación (grader) ===
+[calificacion] backend = qwen_local
+Traceback (most recent call last):
+  File "/data/home/rtabares/Gilber_Corrales/vss_colombia/vss-colombia/main.py", line 151, in <module>
+    main()
+  File "/data/home/rtabares/Gilber_Corrales/vss_colombia/vss-colombia/main.py", line 123, in main
+    items = calificacion.calificar(items, config)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/home/rtabares/Gilber_Corrales/vss_colombia/vss-colombia/src/calificacion.py", line 112, in calificar
+    assert modelo_qwen is not None, "backend=qwen_local necesita el modelo ya cargado"
+           ^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: backend=qwen_local necesita el modelo ya cargado

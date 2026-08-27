@@ -1,0 +1,50 @@
+# config.yaml
+# All experiment parameters live in one place. Change values here,
+# not inside the code -- main.py and the modules in src/ only READ this file.
+
+model:
+  qwen_path: "Qwen/Qwen2.5-7B-Instruct"
+  av_checkpoint: "kitft/nla-qwen2.5-7b-L20-av"   # or a local path if already downloaded
+  layer: 20   # extraction layer (fixed by the AV checkpoint's training)
+
+sampling:
+  k_samples: 5           # how many times the AV is queried per position
+  av_temperature: 1.0    # 1.0 = official default of the NLA repo
+  max_new_tokens: 200
+  batch_across_positions: true   # true = 1 generate() call per full prompt
+                                  # (7 positions x K samples batched together, fast).
+                                  # false = 1 call per position (slower, uses less
+                                  # VRAM -- switch to this on out-of-memory errors).
+
+window:
+  post_positions: 5   # tw, tw+1, ..., tw+5 (plus tw-1, the "before" position)
+
+grader:
+  backend: "qwen_local"   # "qwen_local" (fast, same model) or "claude_api" (slower, stronger)
+  batch_size: 16           # only applies to qwen_local -- how many explanations
+                            # are graded per generate() call. Raise if VRAM allows,
+                            # lower on out-of-memory errors.
+  max_new_tokens: 60       # the expected response is a short JSON; 100 was more
+                            # than enough, and an outlier text could force the max.
+  claude_model: "claude-opus-4-8"   # only used if backend = claude_api
+
+ars:
+  enabled: true   # ARS (AR-verified salience) is an optional extra check:
+                    # uses the Reconstructor to verify whether the grader's
+                    # positive labels were causally necessary to explain the
+                    # real activation, filtering out likely confabulations.
+                    # Off by default -- loads a second full 7B model, adds
+                    # real runtime. Turn on for the "official" numbers going
+                    # into the paper, once Stages 1-4 already look sane.
+  ar_checkpoint: "kitft/nla-qwen2.5-7b-L20-ar"
+  layer_index: 20            # must match model.layer (the AR was trained
+                              # to reconstruct THIS layer's raw activations)
+  neutral_percentile: 90     # the ARS threshold is calibrated as this
+                              # percentile of ARS values on the NEUTRAL arm
+                              # (where, by design, there's no real Colombian
+                              # content -- any "necessity" there is noise floor)
+
+paths:
+  dataset: "dataset/minimal_pairs.json"
+  results: "results/results.json"
+  figures_dir: "results/figures/"
