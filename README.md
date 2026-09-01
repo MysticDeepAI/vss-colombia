@@ -1,189 +1,86 @@
 # VSS Colombia — Verbalized Salience Score
 
+Un instrumento cuantitativo para auditar sesgo demográfico latente en Qwen2.5-7B-Instruct, construido sobre el Natural Language Autoencoder (NLA) de Anthropic. VSS mide si una sola palabra culturalmente marcada — leída en contexto — empuja la representación interna del modelo hacia identidad colombiana, estatus socioeconómico o contenido estereotípico, usando un diseño contrafactual de pares mínimos y un filtro causal de confabulación.
 
-A metric for latent demographic bias in Qwen2.5-7B, using Anthropic's
-Natural Language Autoencoder (NLA) to verbalize activations before and
-after a sensitive keyword, compared against its neutral twin.
+Este repositorio es el código complementario del post *"Before the Model Says It: Latent Colombian Identity in Qwen2.5-7B — and the Instrument We Built to Measure It Without Confabulation,"* continuación de un piloto del hackathon de [Apart Research](https://apartresearch.com/).
 
-## Structure
+## Resultados clave
 
-```
-config.yaml         experiment parameters (layer, K, temperature, paths)
-main.py              orchestrates the 4 pipeline stages, saves results.json
-plot_results.py       reads results.json, generates figures (independent of main.py)
-dataset/              minimal pairs (30 scenarios x 2 languages x 2 arms)
-src/
-  extraction.py       Stage 1: Qwen activations at 7 positions
-  verbalization.py     Stage 2: the AV describes each activation as text (K samples)
-  grading.py            Stage 3: the grader decides if each text mentions Colombia
-  metric.py             Stage 4: computes Delta, D, and the exact statistical test
-results/              results.json + figures (generated when the pipeline runs)
-```
+A través de 30 escenarios de pares mínimos (10 por atributo, K = 5 muestras por posición, 120 prompts en total):
 
-## Usage
-========
-A quantitative instrument for auditing latent demographic bias in Qwen2.5-7B-Instruct, built on Anthropic's Natural Language Autoencoder (NLA). VSS measures whether a single culturally marked word — read in context — pushes the model's internal representation toward Colombian identity, socioeconomic status, or stereotype content, using a minimal-pair counterfactual design and a causal confabulation filter.
-
-This repository is the companion code for the post *"Before the Model Says It: Latent Colombian Identity in Qwen2.5-7B — and the Instrument We Built to Measure It Without Confabulation,"* the follow-up to an [Apart Research](https://apartresearch.com/) hackathon pilot.
-
-## Key results
-
-Across 30 minimal-pair scenarios (10 per attribute, K = 5 samples per position, 120 prompts total):
-
-| Attribute | Median VSS | Positive / 10 | p (Holm-corrected) | Survives ARS filter |
+| Atributo | VSS mediano | Positivo / 10 | p (corregido por Holm) | Sobrevive al filtro ARS |
 |---|---|---|---|---|
-| Nationality | +0.15 | 7 | 0.0234 | Weakens to the edge of significance |
-| Stereotype | +0.20 | 6 | 0.0312 | Holds |
-| Socioeconomic status | 0.00 | 3 | — | Null (informative, not disappointing) |
+| Nacionalidad | +0.15 | 7 | 0.0234 | Se debilita al borde de la significancia |
+| Estereotipo | +0.20 | 6 | 0.0312 | Se mantiene |
+| Estatus socioeconómico | 0.00 | 3 | — | Nulo (informativo, no decepcionante) |
 
-No scenario, in any attribute, produced a negative VSS. Full methodology, statistics, and the confabulation-verification step (ARS) are described in the post.
+Ningún escenario, en ningún atributo, produjo un VSS negativo. La metodología completa, las estadísticas y el paso de verificación de confabulación (ARS) están descritos en el post.
 
-## Repository structure
+## Estructura del repositorio
 
 ```
 vss-colombia/
-├── main.py                       orchestrates the 5-stage pipeline, saves results.json
-├── plot_results.py               reads results.json, generates figures (independent of main.py)
-├── config.yaml                   all experiment parameters (layer, K, thresholds, paths)
-├── environment.yml               conda environment specification
-├── dataset/                      30 minimal-pair scenarios (cue/neutral × ES/EN)
+├── main.py                       orquesta el pipeline de 5 etapas, guarda results.json
+├── plot_results.py               lee results.json, genera figuras (independiente de main.py)
+├── config.yaml                   todos los parámetros del experimento (layer, K, umbrales, rutas)
+├── environment.yml               especificación del entorno conda
+├── dataset/                      30 escenarios de pares mínimos (cue/neutral × ES/EN)
 ├── src/
-│   ├── extraction.py             Stage 1 — Qwen activations at 7 token positions
-│   ├── verbalization.py          Stage 2 — the AV describes each activation, K=5 samples
-│   ├── grading.py                Stage 3 — grader labels mentions, with verbatim-quote audit
-│   ├── ars.py                    Stage 4 — AR-verified salience (confabulation filter)
-│   └── metric.py                 Stage 5 — Delta, VSS, and the exact permutation test
-├── results/                      results.json, per-stage checkpoints, and figures
-├── validate_all_stages.py        end-to-end smoke test on a small subset, all 5 stages
-├── inspect_ar_checkpoint.py      one-off: inspects the Reconstructor checkpoint structure
-├── diagnose_ar_suffix.py         one-off: verifies the AR's suffix-anchored prompt template
-├── smoke_test_ar.py              one-off: empirically validates AR reconstruction quality
-├── find_anticipation_cases.py    exploratory: scans for pre-cue demographic anticipation
-└── ars_survival_table.py         generates the ARS mention-survival table for the paper
+│   ├── extraction.py             Etapa 1 — activaciones de Qwen en 7 posiciones de token
+│   ├── verbalization.py          Etapa 2 — el AV describe cada activación, K=5 muestras
+│   ├── grading.py                Etapa 3 — el grader etiqueta menciones, con auditoría de cita textual
+│   ├── ars.py                    Etapa 4 — salience verificada por AR (filtro de confabulación)
+│   └── metric.py                 Etapa 5 — Delta, VSS, y la prueba de permutación exacta
+├── results/                      results.json, checkpoints por etapa, y figuras
+├── validate_all_stages.py        prueba de humo de extremo a extremo en un subconjunto pequeño, las 5 etapas
+├── inspect_ar_checkpoint.py      puntual: inspecciona la estructura del checkpoint del Reconstructor
+├── diagnose_ar_suffix.py         puntual: verifica la plantilla de prompt anclada por sufijo del AR
+├── smoke_test_ar.py              puntual: valida empíricamente la calidad de reconstrucción del AR
+├── find_anticipation_cases.py    exploratorio: busca anticipación demográfica antes del cue
+└── ars_survival_table.py         genera la tabla de supervivencia de menciones ARS para el paper
 ```
 
-## Installation
->>>>>>> 0a974b5373c2513ff88a7c73738a04afb4e01fd8
+## Instalación
 
 ```bash
 conda env create -f environment.yml
 conda activate vss-colombia
-<<<<<<< HEAD
-
-# Run the full pipeline (needs a GPU, takes several hours because of Stage 2):
-python main.py
-
-# Generate figures from the JSON already produced (fast, no GPU needed):
-python plot_results.py
 ```
 
-### Running in parts
+**Versión fijada conocida:** se requiere `transformers==4.57.6` — versiones más nuevas de la serie 5.x entran en conflicto con `huggingface_hub>=1.0` (ver `environment.yml` para más detalles). Si aparece `AttributeError` o `ImportError` al cargar el modelo, confirma que tu versión instalada coincide con esta fijación.
 
-If something fails partway through, there's no need to start over:
+## Uso
 
-```bash
-# Extraction only, to review activations before spending hours on the AV:
-python main.py --to extraction
-
-# Resume from grading using an already-saved partial JSON:
-python main.py --from grading --input results/results_stage2.json
-```
-
-## What each thing measures (quick glossary)
-
-- **Arm (cue / neutral)**: each scenario has one version with the
-  sensitive word (e.g. "arepa") and a twin version with a neutral word
-  (e.g. "sandwich"), identical in everything else.
-- **Window**: 7 token positions around the keyword: `tw-1` (right before,
-  can't know anything about the keyword yet, by transformer causality),
-  `tw` (the keyword), and `tw+1` through `tw+5` (after).
-- **s_t**: of the K samples from the AV at position t, what fraction
-  mentions Colombia.
-- **Delta**: how much s_t rises after the keyword compared to before.
-- **D**: Delta of the cue arm minus Delta of the neutral arm -- isolates
-  the effect attributable to the keyword, subtracting the AV's own
-  confabulation rate.
-
-## Speed: why it runs on GPU and can still be slow
-
-`extraction.py` and `verbalization.py` already load models with
-`device_map="cuda"`. But having a GPU isn't enough by itself: a GPU pays
-off when it processes MANY things at once (batching), not one sequence
-at a time. `verbalization.py` takes advantage of this: the 7 positions of
-a given prompt share the exact same AV base prompt (same length), so
-they're stacked into a single batch and all 7 x K=5 = 35 sequences are
-generated in **one `generate()` call** per prompt, instead of 35 serial
-calls. This cuts ~4,200 calls down to ~120, with no server or async
-needed -- just proper use of standard Hugging Face batching.
-
-On out-of-memory errors, set in `config.yaml`:
-```yaml
-sampling:
-  batch_across_positions: false
-```
-This falls back to a slower version (7 calls per prompt instead of 1)
-that uses much less memory at once.
-
-### Verifying the batching (recommended before a full run)
-
-The batch output reordering assumes `generate()` groups each row's K
-samples contiguously (documented Hugging Face behavior, though not part
-of its formal public API). Before running all 120 prompts, it's worth
-verifying with a smoke test: run `main.py --to verbalization` on 2-3
-prompts with `batch_across_positions: true` and compare against the same
-run with `false` -- the explanations don't need to be identical (sampling
-is random), but they should be **thematically consistent per position**
-(e.g. `tw-1` should never mention the keyword in either version). If they
-look mixed up, flag it and fall back to `false` while investigating.
-
-## Changing the grader
-
-In `config.yaml`, `grader.backend` can be:
-- `qwen_local`: fast, uses the same already-loaded Qwen (default).
-- `claude_api`: slower, requires `ANTHROPIC_API_KEY` in the environment,
-  but is an independent, more rigorous judge -- useful for validating a
-  sample of what `qwen_local` graded.
-
-## Reference
-
-Natural Language Autoencoders: https://github.com/kitft/natural_language_autoencoders
-=======
-```
-
-**Known version pin:** `transformers==4.57.6` is required — newer releases in the 5.x series conflict with `huggingface_hub>=1.0` (see `environment.yml` for details). If you hit `AttributeError` or `ImportError` on model loading, confirm your installed version matches this pin.
-
-## Usage
-
-### Running the full pipeline
+### Ejecutar el pipeline completo
 
 ```bash
 python main.py
 ```
 
-This runs all 5 stages in order, saving a checkpoint after each one (`results/results_stage1.json` through `results_stage4.json`, then the final `results/results.json`). Expect this to take several hours on a single GPU — Stage 2 (verbalization) is the bottleneck, at 4,200 AV calls.
+Esto ejecuta las 5 etapas en orden, guardando un checkpoint después de cada una (`results/results_stage1.json` hasta `results_stage4.json`, y luego el `results/results.json` final). Esto puede tomar varias horas en una sola GPU — la Etapa 2 (verbalización) es el cuello de botella, con 4,200 llamadas al AV.
 
-### Running partial stages
+### Ejecutar etapas parciales
 
-If a run is interrupted, resume from the last completed stage instead of starting over:
+Si una corrida se interrumpe, se puede reanudar desde la última etapa completada en lugar de empezar de nuevo:
 
 ```bash
-python main.py --to extraction                                          # stop after Stage 1
-python main.py --from grading --input results/results_stage2.json       # resume from Stage 3
+python main.py --to extraction                                          # detener después de la Etapa 1
+python main.py --from grading --input results/results_stage2.json       # reanudar desde la Etapa 3
 ```
 
-Stage names, in order: `extraction`, `verbalization`, `grading`, `ars`, `metric`.
+Nombres de las etapas, en orden: `extraction`, `verbalization`, `grading`, `ars`, `metric`.
 
-### Generating figures
+### Generar figuras
 
 ```bash
 python plot_results.py
 ```
 
-Reads the finished `results.json` and produces the positional-mention curves, the per-scenario VSS bar chart, and — if the ARS stage ran — the primary-vs-filtered comparison table. This is deliberately decoupled from `main.py`: regenerating figures never requires GPU time.
+Lee el `results.json` terminado y produce las curvas de mención posicional, el gráfico de barras de VSS por escenario, y — si la etapa ARS se ejecutó — la tabla de comparación primaria vs. filtrada. Esto está deliberadamente desacoplado de `main.py`: regenerar figuras nunca requiere tiempo de GPU.
 
-### Enabling the ARS confabulation filter
+### Activar el filtro de confabulación ARS
 
-ARS is off by default (`ars.enabled: false` in `config.yaml`) because it loads a second full model. To include it:
+ARS está desactivado por defecto (`ars.enabled: false` en `config.yaml`) porque carga un segundo modelo completo. Para incluirlo:
 
 ```yaml
 ars:
@@ -193,47 +90,75 @@ ars:
   neutral_percentile: 90
 ```
 
-### Validating the pipeline before a full run
+### Validar el pipeline antes de una corrida completa
 
 ```bash
 python validate_all_stages.py
 ```
 
-Runs all 5 stages on a 2-scenario subset with explicit assertions at each handoff — the cheapest way to catch a broken configuration before committing to a multi-hour run.
+Ejecuta las 5 etapas en un subconjunto de 2 escenarios con aserciones explícitas en cada transición — la forma más económica de detectar una configuración rota antes de comprometerse a una corrida de varias horas.
 
-## Diagnostic and one-off scripts
+## Qué mide cada cosa (glosario rápido)
 
-A few scripts in the repo root are not part of the regular pipeline; they were built to resolve specific implementation questions and are kept for reproducibility and for anyone extending this work to a different NLA checkpoint:
+- **Arm (cue / neutral)**: cada escenario tiene una versión con la palabra sensible (p. ej. "arepa") y una versión gemela con una palabra neutral (p. ej. "sandwich"), idéntica en todo lo demás.
+- **Window**: 7 posiciones de token alrededor de la palabra clave: `tw-1` (justo antes, no puede saber nada de la palabra clave todavía, por causalidad del transformer), `tw` (la palabra clave), y `tw+1` hasta `tw+5` (después).
+- **s_t**: de las K muestras del AV en la posición t, qué fracción menciona a Colombia.
+- **Delta**: cuánto sube s_t después de la palabra clave comparado con antes.
+- **D**: Delta del arm de cue menos Delta del arm neutral — aísla el efecto atribuible a la palabra clave, restando la tasa de confabulación propia del AV.
 
-- **`inspect_ar_checkpoint.py`** — prints the Reconstructor checkpoint's config, metadata, and safetensors keys. Run this first if you ever swap in a different AR checkpoint; several of its architectural assumptions (no separate reconstruction head, raw layer-20 hidden state as the output) were confirmed empirically this way, not assumed from documentation alone.
-- **`diagnose_ar_suffix.py`** — decodes the AR's expected prompt suffix against the actual template output, to catch tokenization mismatches before they silently corrupt reconstructions.
-- **`smoke_test_ar.py`** — the empirical check behind the ARS design: reconstructs a known activation from its matching explanation versus an unrelated one, confirming the Reconstructor behaves as expected before trusting it at scale.
-- **`find_anticipation_cases.py`** — an exploratory scan of neutral-arm explanations at the pre-cue baseline, looking for demographic content that appears with no lexical trigger present. This is qualitative evidence for a phenomenon VSS is structurally unable to measure (see the post's discussion of pre-cue anticipation).
-- **`ars_survival_table.py`** — generates the mention-level ARS survival table (how many grader-flagged mentions per attribute survived the confabulation filter), separate from the scenario-level comparison already in `plot_results.py`.
+## Velocidad: por qué corre en GPU y aun así puede ser lento
 
-## Configuration reference
+`extraction.py` y `verbalization.py` ya cargan los modelos con `device_map="cuda"`. Pero tener una GPU no es suficiente por sí solo: una GPU rinde cuando procesa MUCHAS cosas a la vez (batching), no una secuencia a la vez. `verbalization.py` aprovecha esto: las 7 posiciones de un mismo prompt comparten exactamente el mismo prompt base del AV (misma longitud), así que se apilan en un solo batch y las 7 x K=5 = 35 secuencias se generan en **una sola llamada a `generate()`** por prompt, en lugar de 35 llamadas seriales. Esto reduce ~4,200 llamadas a ~120, sin necesidad de servidor ni async — solo uso adecuado del batching estándar de Hugging Face.
 
-All experiment parameters live in `config.yaml`: which layer to extract (`model.layer`), how many AV samples per position (`sampling.k_samples`), batching behavior, the grader backend (`qwen_local` or `claude_api`), and the ARS threshold percentile. Nothing is hardcoded in the pipeline code — change values there, not in `src/`.
+En caso de errores por falta de memoria, en `config.yaml` establece:
+```yaml
+sampling:
+  batch_across_positions: false
+```
+Esto regresa a una versión más lenta (7 llamadas por prompt en lugar de 1) que usa mucha menos memoria a la vez.
+
+### Verificar el batching (recomendado antes de una corrida completa)
+
+El reordenamiento de la salida del batch asume que `generate()` agrupa las K muestras de cada fila de forma contigua (comportamiento documentado de Hugging Face, aunque no forma parte de su API pública formal). Antes de correr los 120 prompts, vale la pena verificar con una prueba de humo: correr `main.py --to verbalization` en 2-3 prompts con `batch_across_positions: true` y comparar contra la misma corrida con `false` — las explicaciones no necesitan ser idénticas (el muestreo es aleatorio), pero deben ser **temáticamente consistentes por posición** (p. ej. `tw-1` nunca debería mencionar la palabra clave en ninguna de las dos versiones). Si se ven mezcladas, hay que marcarlo y volver a `false` mientras se investiga.
+
+## Cambiar el grader
+
+En `config.yaml`, `grader.backend` puede ser:
+- `qwen_local`: rápido, usa el mismo Qwen ya cargado (por defecto).
+- `claude_api`: más lento, requiere `ANTHROPIC_API_KEY` en el entorno, pero es un juez independiente y más riguroso — útil para validar una muestra de lo que calificó `qwen_local`.
+
+## Referencia de configuración
+
+Todos los parámetros del experimento viven en `config.yaml`: qué capa extraer (`model.layer`), cuántas muestras del AV por posición (`sampling.k_samples`), comportamiento de batching, el backend del grader (`qwen_local` o `claude_api`), y el percentil de umbral de ARS. Nada está hardcodeado en el código del pipeline — cambia los valores ahí, no en `src/`.
 
 ## Dataset
 
-30 base scenarios (10 nationality, 10 socioeconomic status, 10 stereotype), each realized as a minimal pair (cue vs. matched neutral keyword) in both Colombian Spanish and English — 120 prompts total. Every pair is validated programmatically (word-level diff, single contiguous span per language) before use; construction criteria, cue-strength grading, and declared per-pair risks are documented alongside the dataset.
+30 escenarios base (10 nacionalidad, 10 estatus socioeconómico, 10 estereotipo), cada uno realizado como un par mínimo (palabra cue vs. palabra neutral emparejada) tanto en español colombiano como en inglés — 120 prompts en total. Cada par se valida programáticamente (diff a nivel de palabra, un solo tramo contiguo por idioma) antes de su uso; los criterios de construcción, la calificación de fuerza del cue, y los riesgos declarados por par están documentados junto al dataset.
 
-## Reference
+## Diagnóstico y scripts puntuales
 
-This work builds directly on the open-source Natural Language Autoencoder released by Anthropic:
+Algunos scripts en la raíz del repositorio no forman parte del pipeline regular; se construyeron para resolver preguntas específicas de implementación y se conservan para reproducibilidad y para quien extienda este trabajo a un checkpoint distinto de NLA:
+
+- **`inspect_ar_checkpoint.py`** — imprime la configuración, metadatos y claves safetensors del checkpoint del Reconstructor. Ejecútalo primero si alguna vez cambias a un checkpoint de AR distinto; varios de sus supuestos arquitectónicos (sin cabeza de reconstrucción separada, hidden state crudo de la capa 20 como salida) se confirmaron empíricamente de esta forma, no se asumieron solo por documentación.
+- **`diagnose_ar_suffix.py`** — decodifica el sufijo de prompt esperado por el AR contra la salida real de la plantilla, para detectar discrepancias de tokenización antes de que corrompan silenciosamente las reconstrucciones.
+- **`smoke_test_ar.py`** — la verificación empírica detrás del diseño de ARS: reconstruye una activación conocida a partir de su explicación correspondiente versus una no relacionada, confirmando que el Reconstructor se comporta como se espera antes de confiar en él a escala.
+- **`find_anticipation_cases.py`** — un escaneo exploratorio de las explicaciones del arm neutral en la línea base pre-cue, buscando contenido demográfico que aparece sin ningún disparador léxico presente. Esta es evidencia cualitativa de un fenómeno que VSS es estructuralmente incapaz de medir (ver la discusión del post sobre anticipación pre-cue).
+- **`ars_survival_table.py`** — genera la tabla de supervivencia a nivel de mención de ARS (cuántas menciones marcadas por el grader, por atributo, sobrevivieron el filtro de confabulación), separada de la comparación a nivel de escenario que ya está en `plot_results.py`.
+
+## Referencia
+
+Este trabajo se construye directamente sobre el Natural Language Autoencoder de código abierto liberado por Anthropic:
 Fraser-Taliente et al. (2026), *Natural Language Autoencoders*. https://github.com/kitft/natural_language_autoencoders
 
-## Authors
+## Autores
 
 Pablo Santiago Potes Velasco¹, María del Mar García Matabanchoy¹, Óscar Julián Pérez Ladino¹, Jhoan Stevan Mosquera Ortiz¹, Nicolás Lozano Mazuera¹, Gilber Alexis Corrales Gallego¹˒²
 
 ¹ Universidad Autónoma de Occidente, Cali, Colombia
 ² GobLab, Universidad Adolfo Ibáñez
 
-Contact: gacorrales@uao.edu.co
+Contacto: gacorrales@uao.edu.co
 
-## Acknowledgements
+## Agradecimientos
 
-We thank Apart Research for hosting the hackathon that initiated this project, and Apart Lab for the compute and support that made the follow-up work possible. This work was carried out in the aftermath of the earthquake that struck Colombia on August 10, 2026; it is dedicated to everyone affected, particularly in Cali, our hometown.
->>>>>>> 0a974b5373c2513ff88a7c73738a04afb4e01fd8
+Agradecemos a Apart Research por organizar el hackathon que inició este proyecto, y a Apart Lab por el cómputo y el apoyo que hicieron posible el trabajo de continuación. Este trabajo se realizó tras el terremoto que sacudió a Colombia el 10 de agosto de 2026; está dedicado a todos los afectados, particularmente en Cali, nuestra ciudad natal.
