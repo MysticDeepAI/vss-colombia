@@ -1,6 +1,6 @@
 # VSS Colombia — Verbalized Salience Score
 
-<<<<<<< HEAD
+
 A metric for latent demographic bias in Qwen2.5-7B, using Anthropic's
 Natural Language Autoencoder (NLA) to verbalize activations before and
 after a sensitive keyword, compared against its neutral twin.
