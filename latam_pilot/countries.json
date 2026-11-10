@@ -1,0 +1,57 @@
+{
+  "rule": "3 countries with most rows in CHOCLO column Country, excluding Colombia; ties alphabetical",
+  "interpretation": "case variants of the same country merged (lower-case, NFC)",
+  "source": "huggingface.co/datasets/latam-gpt/CHOCLO, BenchmarkCHOCLO.csv",
+  "csv_sha256": "d19660868a14a8eebfe3acc313171b2c307dee3f9b142cc6802fe648352e6579",
+  "total_rows": 104847,
+  "countries": [
+    "chile",
+    "méxico",
+    "argentina"
+  ],
+  "rows_per_selected_country": {
+    "chile": 12546,
+    "méxico": 10081,
+    "argentina": 9908
+  },
+  "next_in_ranking": [
+    [
+      "bolivia",
+      9858
+    ],
+    [
+      "costa rica",
+      9113
+    ],
+    [
+      "cuba",
+      7898
+    ]
+  ],
+  "colombia_rows": 9301,
+  "unmerged_top3": {
+    "chile": 12546,
+    "Costa Rica": 8771,
+    "Cuba": 7401
+  },
+  "all_counts_merged": {
+    "chile": 12546,
+    "méxico": 10081,
+    "argentina": 9908,
+    "bolivia": 9858,
+    "colombia": 9301,
+    "costa rica": 9113,
+    "cuba": 7898,
+    "venezuela": 7146,
+    "perú": 6358,
+    "ecuador": 5381,
+    "paraguay": 4130,
+    "uruguay": 3192,
+    "guatemala": 2791,
+    "panamá": 1881,
+    "el salvador": 1807,
+    "república dominicana": 1490,
+    "nicaragua": 993,
+    "honduras": 973
+  }
+}
