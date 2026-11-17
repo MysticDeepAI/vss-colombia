@@ -15,3 +15,15 @@ CHOCLO) was removed on 2026-11-16; the old version is in tag `countries-v1`.
 - `test_validate_pairs.py`: the 10 Colombia nationality pairs (N01-N10, Spanish) pass; the span numbers match
   the stored `qa` of all 30 pilot pairs; one made-up broken pair per rule fails on that rule.
   Run from `latam_pilot/`: `python test_validate_pairs.py`
+
+## Next steps (as of 2026-11-17)
+
+1. Nicolás: review the 10 draft pairs in `dataset/minimal_pairs_mx_ar.json`; after any edit rerun
+   `python latam_pilot/validate_pairs.py dataset/minimal_pairs_mx_ar.json --write`.
+2. Gilber: contacts from México and Argentina to review the pairs.
+3. Send each reviewer their 5 pairs with 4 questions (answer within 24 h): is the cue natural in your country?
+   does it strongly suggest another country? is the neutral version really neutral? does the sentence sound natural?
+   Record the answers in each pair's `native_review` block.
+4. Freeze the pairs with tag `dataset-v1` (pairs without a review stay marked as pending). No edits after that.
+5. Jhoan (graders): decide whether the AV just repeating the keyword (e.g. "IMSS", "ANSES") counts as naming the
+   country, and write that rule into the per-country grader prompts.
