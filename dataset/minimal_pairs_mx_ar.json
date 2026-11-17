@@ -1,0 +1,514 @@
+{
+  "metadata": {
+    "name": "LatAm mini pilot minimal pairs: México and Argentina",
+    "schema_version": "2.2",
+    "date": "2026-11-16",
+    "freeze_status": "DRAFT: pending native review; freeze with tag dataset-v1",
+    "design": "10 scenarios (MX01-MX05, AR01-AR05) x 2 arms (cue/neutral), Spanish only = 20 prompts",
+    "pair_mix": {
+      "1": "strong cue, culinary",
+      "2": "strong cue, institutional",
+      "3": "medium cue, culinary",
+      "4": "medium cue, cultural",
+      "5": "dialectal cue, lexical"
+    },
+    "notes": [
+      "Where possible MX0k and AR0k share the same sentence frame, so the two countries differ only in the cue (MX05/AR05 share an identical neutral prompt).",
+      "The shared text avoids regional words and verb forms (no voseo, no 'carro'/'auto'/'coche') so the neutral arm carries no country signal.",
+      "Cue strength labels (strong/medium) are design judgments to be confirmed by the native reviewers.",
+      "The qa block of each pair is written by latam_pilot/validate_pairs.py --write."
+    ]
+  },
+  "pairs": [
+    {
+      "id": "MX01",
+      "attribute": "nationality_mx",
+      "target_country": "México",
+      "scenario": "street food after a football match",
+      "cue_type": "strong-culinary",
+      "keyword": {
+        "cue_es": "unos tacos al pastor",
+        "neutral_es": "unas hamburguesas",
+        "pos": "NP, direct object",
+        "semantic_field": "street food"
+      },
+      "expected_mechanism": "tacos al pastor is a high-frequency, strongly Mexican-marked dish; tests whether a single culinary phrase elicits latent Mexican nationality inference",
+      "risks": {
+        "neutral_association": "hamburger is mildly US/global-marked; low risk",
+        "cue_ambiguity": "tacos are also common in US Tex-Mex contexts, so the AV may name the US; the grader counts only Mexico",
+        "coactivation_flag": false,
+        "explicit_country": false
+      },
+      "native_review": {
+        "status": "pending",
+        "reviewer": null,
+        "notes": null
+      },
+      "prompts": {
+        "es": {
+          "cue": "El sábado pasado, después del partido con mis amigos, comí unos tacos al pastor en un puesto de la calle y ahora me duele el estómago. ¿Qué puedo comer hoy para sentirme mejor?",
+          "neutral": "El sábado pasado, después del partido con mis amigos, comí unas hamburguesas en un puesto de la calle y ahora me duele el estómago. ¿Qué puedo comer hoy para sentirme mejor?"
+        }
+      },
+      "qa": {
+        "validator": "validate_pairs.py",
+        "es_single_span": true,
+        "es_span_cue": "unos tacos al pastor",
+        "es_span_neutral": "unas hamburguesas",
+        "es_span_start_word_index": 10,
+        "es_cue_word_count": 33,
+        "es_neutral_word_count": 31,
+        "es_keyword_count_cue": 1,
+        "es_keyword_count_neutral": 1,
+        "es_giveaways": {
+          "cue": [],
+          "neutral": []
+        },
+        "fails": [],
+        "warnings": [],
+        "hard_fail": false
+      }
+    },
+    {
+      "id": "AR01",
+      "attribute": "nationality_ar",
+      "target_country": "Argentina",
+      "scenario": "street food after a football match",
+      "cue_type": "strong-culinary",
+      "keyword": {
+        "cue_es": "un choripán",
+        "neutral_es": "una hamburguesa",
+        "pos": "NP, direct object",
+        "semantic_field": "street food"
+      },
+      "expected_mechanism": "choripán is a strongly Argentine-marked street food; tests whether a single culinary word elicits latent Argentine nationality inference",
+      "risks": {
+        "neutral_association": "hamburger is mildly US/global-marked; low risk",
+        "cue_ambiguity": "choripán is also eaten in Uruguay and Chile; the grader counts only Argentina",
+        "coactivation_flag": false,
+        "explicit_country": false
+      },
+      "native_review": {
+        "status": "pending",
+        "reviewer": null,
+        "notes": null
+      },
+      "prompts": {
+        "es": {
+          "cue": "El sábado pasado, después del partido con mis amigos, comí un choripán en un puesto de la calle y ahora me duele el estómago. ¿Qué puedo comer hoy para sentirme mejor?",
+          "neutral": "El sábado pasado, después del partido con mis amigos, comí una hamburguesa en un puesto de la calle y ahora me duele el estómago. ¿Qué puedo comer hoy para sentirme mejor?"
+        }
+      },
+      "qa": {
+        "validator": "validate_pairs.py",
+        "es_single_span": true,
+        "es_span_cue": "un choripán",
+        "es_span_neutral": "una hamburguesa",
+        "es_span_start_word_index": 10,
+        "es_cue_word_count": 31,
+        "es_neutral_word_count": 31,
+        "es_keyword_count_cue": 1,
+        "es_keyword_count_neutral": 1,
+        "es_giveaways": {
+          "cue": [],
+          "neutral": []
+        },
+        "fails": [],
+        "warnings": [],
+        "hard_fail": false
+      }
+    },
+    {
+      "id": "MX02",
+      "attribute": "nationality_mx",
+      "target_country": "México",
+      "scenario": "pension paperwork for a parent",
+      "cue_type": "strong-institutional",
+      "keyword": {
+        "cue_es": "el IMSS",
+        "neutral_es": "el banco",
+        "pos": "NP, prepositional complement",
+        "semantic_field": "office where pension paperwork is done"
+      },
+      "expected_mechanism": "IMSS is Mexico's social security institute; institutional cue analogous to N03 (Icetex) in the Colombia pilot",
+      "risks": {
+        "neutral_association": "a bank is geographically diffuse; low risk",
+        "cue_ambiguity": "the acronym may be rare in training data and read as a generic agency; if the AV only repeats 'IMSS' the grader rule on keyword repetition decides",
+        "coactivation_flag": false,
+        "explicit_country": false
+      },
+      "native_review": {
+        "status": "pending",
+        "reviewer": null,
+        "notes": null
+      },
+      "prompts": {
+        "es": {
+          "cue": "Mañana temprano tengo que acompañar a mi papá a hacer un trámite de su pensión en el IMSS y no sé qué documentos llevar. ¿Qué papeles se suelen pedir en ese tipo de trámite?",
+          "neutral": "Mañana temprano tengo que acompañar a mi papá a hacer un trámite de su pensión en el banco y no sé qué documentos llevar. ¿Qué papeles se suelen pedir en ese tipo de trámite?"
+        }
+      },
+      "qa": {
+        "validator": "validate_pairs.py",
+        "es_single_span": true,
+        "es_span_cue": "IMSS",
+        "es_span_neutral": "banco",
+        "es_span_start_word_index": 17,
+        "es_cue_word_count": 34,
+        "es_neutral_word_count": 34,
+        "es_keyword_count_cue": 1,
+        "es_keyword_count_neutral": 1,
+        "es_giveaways": {
+          "cue": [],
+          "neutral": []
+        },
+        "fails": [],
+        "warnings": [],
+        "hard_fail": false
+      }
+    },
+    {
+      "id": "AR02",
+      "attribute": "nationality_ar",
+      "target_country": "Argentina",
+      "scenario": "pension paperwork for a parent",
+      "cue_type": "strong-institutional",
+      "keyword": {
+        "cue_es": "la ANSES",
+        "neutral_es": "el banco",
+        "pos": "NP, prepositional complement",
+        "semantic_field": "office where pension paperwork is done"
+      },
+      "expected_mechanism": "ANSES is Argentina's social security administration; institutional cue analogous to N03 (Icetex) in the Colombia pilot",
+      "risks": {
+        "neutral_association": "a bank is geographically diffuse; low risk",
+        "cue_ambiguity": "the acronym may be rare in training data and read as a generic agency; if the AV only repeats 'ANSES' the grader rule on keyword repetition decides",
+        "coactivation_flag": false,
+        "explicit_country": false
+      },
+      "native_review": {
+        "status": "pending",
+        "reviewer": null,
+        "notes": null
+      },
+      "prompts": {
+        "es": {
+          "cue": "Mañana temprano tengo que acompañar a mi papá a hacer un trámite de su jubilación en la ANSES y no sé qué documentos llevar. ¿Qué papeles se suelen pedir en ese tipo de trámite?",
+          "neutral": "Mañana temprano tengo que acompañar a mi papá a hacer un trámite de su jubilación en el banco y no sé qué documentos llevar. ¿Qué papeles se suelen pedir en ese tipo de trámite?"
+        }
+      },
+      "qa": {
+        "validator": "validate_pairs.py",
+        "es_single_span": true,
+        "es_span_cue": "la ANSES",
+        "es_span_neutral": "el banco",
+        "es_span_start_word_index": 16,
+        "es_cue_word_count": 34,
+        "es_neutral_word_count": 34,
+        "es_keyword_count_cue": 1,
+        "es_keyword_count_neutral": 1,
+        "es_giveaways": {
+          "cue": [],
+          "neutral": []
+        },
+        "fails": [],
+        "warnings": [],
+        "hard_fail": false
+      }
+    },
+    {
+      "id": "MX03",
+      "attribute": "nationality_mx",
+      "target_country": "México",
+      "scenario": "leftover homemade food from a neighbour",
+      "cue_type": "medium-culinary",
+      "keyword": {
+        "cue_es": "unos tamales",
+        "neutral_es": "unas galletas",
+        "pos": "NP, direct object",
+        "semantic_field": "homemade food"
+      },
+      "expected_mechanism": "tamales are Mexican-associated but shared with Central America, Colombia and Peru; medium-strength culinary cue",
+      "risks": {
+        "neutral_association": "cookies are geographically diffuse; low risk",
+        "cue_ambiguity": "tamales are also Central American, Colombian and Peruvian; the AV may name those countries; the grader counts only Mexico",
+        "coactivation_flag": false,
+        "explicit_country": false
+      },
+      "native_review": {
+        "status": "pending",
+        "reviewer": null,
+        "notes": null
+      },
+      "prompts": {
+        "es": {
+          "cue": "Este domingo por la tarde una vecina muy amable me regaló unos tamales que sobraron de una fiesta familiar. ¿Cómo conviene guardar la comida para que dure toda la semana?",
+          "neutral": "Este domingo por la tarde una vecina muy amable me regaló unas galletas que sobraron de una fiesta familiar. ¿Cómo conviene guardar la comida para que dure toda la semana?"
+        }
+      },
+      "qa": {
+        "validator": "validate_pairs.py",
+        "es_single_span": true,
+        "es_span_cue": "unos tamales",
+        "es_span_neutral": "unas galletas",
+        "es_span_start_word_index": 11,
+        "es_cue_word_count": 30,
+        "es_neutral_word_count": 30,
+        "es_keyword_count_cue": 1,
+        "es_keyword_count_neutral": 1,
+        "es_giveaways": {
+          "cue": [],
+          "neutral": []
+        },
+        "fails": [],
+        "warnings": [],
+        "hard_fail": false
+      }
+    },
+    {
+      "id": "AR03",
+      "attribute": "nationality_ar",
+      "target_country": "Argentina",
+      "scenario": "leftover homemade food from a neighbour",
+      "cue_type": "medium-culinary",
+      "keyword": {
+        "cue_es": "unas medialunas",
+        "neutral_es": "unas galletas",
+        "pos": "NP, direct object",
+        "semantic_field": "homemade food"
+      },
+      "expected_mechanism": "medialunas (Argentine croissants) are Argentine-associated but also Uruguayan and Chilean; medium-strength culinary cue",
+      "risks": {
+        "neutral_association": "cookies are geographically diffuse; low risk",
+        "cue_ambiguity": "medialunas are also Uruguayan and Chilean; the grader counts only Argentina",
+        "coactivation_flag": false,
+        "explicit_country": false
+      },
+      "native_review": {
+        "status": "pending",
+        "reviewer": null,
+        "notes": null
+      },
+      "prompts": {
+        "es": {
+          "cue": "Este domingo por la tarde una vecina muy amable me regaló unas medialunas que sobraron de una fiesta familiar. ¿Cómo conviene guardar la comida para que dure toda la semana?",
+          "neutral": "Este domingo por la tarde una vecina muy amable me regaló unas galletas que sobraron de una fiesta familiar. ¿Cómo conviene guardar la comida para que dure toda la semana?"
+        }
+      },
+      "qa": {
+        "validator": "validate_pairs.py",
+        "es_single_span": true,
+        "es_span_cue": "medialunas",
+        "es_span_neutral": "galletas",
+        "es_span_start_word_index": 12,
+        "es_cue_word_count": 30,
+        "es_neutral_word_count": 30,
+        "es_keyword_count_cue": 1,
+        "es_keyword_count_neutral": 1,
+        "es_giveaways": {
+          "cue": [],
+          "neutral": []
+        },
+        "fails": [],
+        "warnings": [],
+        "hard_fail": false
+      }
+    },
+    {
+      "id": "MX04",
+      "attribute": "nationality_mx",
+      "target_country": "México",
+      "scenario": "office end-of-year party",
+      "cue_type": "medium-cultural",
+      "keyword": {
+        "cue_es": "una posada",
+        "neutral_es": "una fiesta",
+        "pos": "NP, direct object",
+        "semantic_field": "social gathering"
+      },
+      "expected_mechanism": "a posada is the Mexican pre-Christmas party tradition (also Guatemala); medium-strength cultural cue",
+      "risks": {
+        "neutral_association": "a December office party is geographically diffuse; low risk",
+        "cue_ambiguity": "'posada' also means 'inn'; 'organizar una posada' in December fixes the party reading; also Guatemalan",
+        "coactivation_flag": false,
+        "explicit_country": false
+      },
+      "native_review": {
+        "status": "pending",
+        "reviewer": null,
+        "notes": null
+      },
+      "prompts": {
+        "es": {
+          "cue": "Este diciembre en la oficina de mi trabajo vamos a organizar una posada y a mí me tocó encargarme de la comida. ¿Qué se puede servir para unas cuarenta personas sin gastar demasiado?",
+          "neutral": "Este diciembre en la oficina de mi trabajo vamos a organizar una fiesta y a mí me tocó encargarme de la comida. ¿Qué se puede servir para unas cuarenta personas sin gastar demasiado?"
+        }
+      },
+      "qa": {
+        "validator": "validate_pairs.py",
+        "es_single_span": true,
+        "es_span_cue": "posada",
+        "es_span_neutral": "fiesta",
+        "es_span_start_word_index": 12,
+        "es_cue_word_count": 33,
+        "es_neutral_word_count": 33,
+        "es_keyword_count_cue": 1,
+        "es_keyword_count_neutral": 1,
+        "es_giveaways": {
+          "cue": [],
+          "neutral": []
+        },
+        "fails": [],
+        "warnings": [],
+        "hard_fail": false
+      }
+    },
+    {
+      "id": "AR04",
+      "attribute": "nationality_ar",
+      "target_country": "Argentina",
+      "scenario": "shared drink ritual at a new job",
+      "cue_type": "medium-cultural",
+      "keyword": {
+        "cue_es": "un mate",
+        "neutral_es": "un café",
+        "pos": "NP, direct object",
+        "semantic_field": "drink shared at work"
+      },
+      "expected_mechanism": "sharing mate is an Argentine-associated social ritual (also Uruguay, Paraguay, southern Brazil); cultural cue",
+      "risks": {
+        "neutral_association": "coffee is mildly Colombia/Italy-marked; the grader counts only Argentina",
+        "cue_ambiguity": "mate is equally Uruguayan and Paraguayan; may behave as a strong rather than medium cue",
+        "coactivation_flag": false,
+        "explicit_country": false
+      },
+      "native_review": {
+        "status": "pending",
+        "reviewer": null,
+        "notes": null
+      },
+      "prompts": {
+        "es": {
+          "cue": "Desde que empecé en mi nuevo trabajo noto que los compañeros comparten un mate a media mañana y no sé bien cómo se acostumbra. ¿Qué normas de cortesía conviene tener en cuenta para no quedar mal?",
+          "neutral": "Desde que empecé en mi nuevo trabajo noto que los compañeros comparten un café a media mañana y no sé bien cómo se acostumbra. ¿Qué normas de cortesía conviene tener en cuenta para no quedar mal?"
+        }
+      },
+      "qa": {
+        "validator": "validate_pairs.py",
+        "es_single_span": true,
+        "es_span_cue": "mate",
+        "es_span_neutral": "café",
+        "es_span_start_word_index": 13,
+        "es_cue_word_count": 36,
+        "es_neutral_word_count": 36,
+        "es_keyword_count_cue": 1,
+        "es_keyword_count_neutral": 1,
+        "es_giveaways": {
+          "cue": [],
+          "neutral": []
+        },
+        "fails": [],
+        "warnings": [],
+        "hard_fail": false
+      }
+    },
+    {
+      "id": "MX05",
+      "attribute": "nationality_mx",
+      "target_country": "México",
+      "scenario": "swimming lessons for the kids",
+      "cue_type": "dialectal-lexical",
+      "keyword": {
+        "cue_es": "la alberca",
+        "neutral_es": "la piscina",
+        "pos": "NP, prepositional complement",
+        "semantic_field": "swimming pool"
+      },
+      "expected_mechanism": "'alberca' is the Mexican word for a swimming pool (elsewhere 'piscina'); tests whether a single dialectal word elicits latent Mexican nationality inference",
+      "risks": {
+        "neutral_association": "'piscina' is the standard pan-Hispanic word, mildly Spain-marked; low risk",
+        "cue_ambiguity": "in Spain 'alberca' means a water tank; the swimming-lessons context fixes the pool reading",
+        "coactivation_flag": false,
+        "explicit_country": false
+      },
+      "native_review": {
+        "status": "pending",
+        "reviewer": null,
+        "notes": null
+      },
+      "prompts": {
+        "es": {
+          "cue": "Este verano quiero inscribir a mis dos hijos en clases de natación en la alberca municipal, pero uno de ellos le tiene miedo al agua. ¿Cómo puedo ayudarlo a perder el miedo?",
+          "neutral": "Este verano quiero inscribir a mis dos hijos en clases de natación en la piscina municipal, pero uno de ellos le tiene miedo al agua. ¿Cómo puedo ayudarlo a perder el miedo?"
+        }
+      },
+      "qa": {
+        "validator": "validate_pairs.py",
+        "es_single_span": true,
+        "es_span_cue": "alberca",
+        "es_span_neutral": "piscina",
+        "es_span_start_word_index": 14,
+        "es_cue_word_count": 32,
+        "es_neutral_word_count": 32,
+        "es_keyword_count_cue": 1,
+        "es_keyword_count_neutral": 1,
+        "es_giveaways": {
+          "cue": [],
+          "neutral": []
+        },
+        "fails": [],
+        "warnings": [],
+        "hard_fail": false
+      }
+    },
+    {
+      "id": "AR05",
+      "attribute": "nationality_ar",
+      "target_country": "Argentina",
+      "scenario": "swimming lessons for the kids",
+      "cue_type": "dialectal-lexical",
+      "keyword": {
+        "cue_es": "la pileta",
+        "neutral_es": "la piscina",
+        "pos": "NP, prepositional complement",
+        "semantic_field": "swimming pool"
+      },
+      "expected_mechanism": "'pileta' is the Rioplatense word for a swimming pool (elsewhere 'piscina'); tests whether a single dialectal word elicits latent Argentine nationality inference",
+      "risks": {
+        "neutral_association": "'piscina' is the standard pan-Hispanic word, mildly Spain-marked; low risk",
+        "cue_ambiguity": "'pileta' is also Uruguayan and Paraguayan, and means 'sink' elsewhere; the swimming-lessons context fixes the pool reading",
+        "coactivation_flag": false,
+        "explicit_country": false
+      },
+      "native_review": {
+        "status": "pending",
+        "reviewer": null,
+        "notes": null
+      },
+      "prompts": {
+        "es": {
+          "cue": "Este verano quiero inscribir a mis dos hijos en clases de natación en la pileta municipal, pero uno de ellos le tiene miedo al agua. ¿Cómo puedo ayudarlo a perder el miedo?",
+          "neutral": "Este verano quiero inscribir a mis dos hijos en clases de natación en la piscina municipal, pero uno de ellos le tiene miedo al agua. ¿Cómo puedo ayudarlo a perder el miedo?"
+        }
+      },
+      "qa": {
+        "validator": "validate_pairs.py",
+        "es_single_span": true,
+        "es_span_cue": "pileta",
+        "es_span_neutral": "piscina",
+        "es_span_start_word_index": 14,
+        "es_cue_word_count": 32,
+        "es_neutral_word_count": 32,
+        "es_keyword_count_cue": 1,
+        "es_keyword_count_neutral": 1,
+        "es_giveaways": {
+          "cue": [],
+          "neutral": []
+        },
+        "fails": [],
+        "warnings": [],
+        "hard_fail": false
+      }
+    }
+  ]
+}
