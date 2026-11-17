@@ -8,12 +8,12 @@
     "pair_mix": {
       "1": "strong cue, culinary",
       "2": "strong cue, institutional",
-      "3": "medium cue, culinary",
+      "3": "strong cue, cultural (music)",
       "4": "medium cue, cultural",
       "5": "dialectal cue, lexical"
     },
     "notes": [
-      "Where possible MX0k and AR0k share the same sentence frame, so the two countries differ only in the cue (MX05/AR05 share an identical neutral prompt).",
+      "Where possible MX0k and AR0k share the same sentence frame, so the two countries differ only in the cue (MX03/AR03 and MX05/AR05 share an identical neutral prompt).",
       "The shared text avoids regional words and verb forms (no voseo, no 'carro'/'auto'/'coche') so the neutral arm carries no country signal.",
       "Cue strength labels (strong/medium) are design judgments to be confirmed by the native reviewers.",
       "The qa block of each pair is written by latam_pilot/validate_pairs.py --write."
@@ -27,15 +27,15 @@
       "scenario": "street food after a football match",
       "cue_type": "strong-culinary",
       "keyword": {
-        "cue_es": "unos tacos al pastor",
+        "cue_es": "unos esquites",
         "neutral_es": "unas hamburguesas",
         "pos": "NP, direct object",
         "semantic_field": "street food"
       },
-      "expected_mechanism": "tacos al pastor is a high-frequency, strongly Mexican-marked dish; tests whether a single culinary phrase elicits latent Mexican nationality inference",
+      "expected_mechanism": "esquites (corn kernels served in a cup) are a very Mexican street food with no Tex-Mex crossover; tests whether a single culinary word elicits latent Mexican nationality inference",
       "risks": {
         "neutral_association": "hamburger is mildly US/global-marked; low risk",
-        "cue_ambiguity": "tacos are also common in US Tex-Mex contexts, so the AV may name the US; the grader counts only Mexico",
+        "cue_ambiguity": "esquites are a regional Mexican dish and may be rare in training data, so the AV might not name Mexico; the grader counts only Mexico",
         "coactivation_flag": false,
         "explicit_country": false
       },
@@ -46,17 +46,17 @@
       },
       "prompts": {
         "es": {
-          "cue": "El sábado pasado, después del partido con mis amigos, comí unos tacos al pastor en un puesto de la calle y ahora me duele el estómago. ¿Qué puedo comer hoy para sentirme mejor?",
+          "cue": "El sábado pasado, después del partido con mis amigos, comí unos esquites en un puesto de la calle y ahora me duele el estómago. ¿Qué puedo comer hoy para sentirme mejor?",
           "neutral": "El sábado pasado, después del partido con mis amigos, comí unas hamburguesas en un puesto de la calle y ahora me duele el estómago. ¿Qué puedo comer hoy para sentirme mejor?"
         }
       },
       "qa": {
         "validator": "validate_pairs.py",
         "es_single_span": true,
-        "es_span_cue": "unos tacos al pastor",
+        "es_span_cue": "unos esquites",
         "es_span_neutral": "unas hamburguesas",
         "es_span_start_word_index": 10,
-        "es_cue_word_count": 33,
+        "es_cue_word_count": 31,
         "es_neutral_word_count": 31,
         "es_keyword_count_cue": 1,
         "es_keyword_count_neutral": 1,
@@ -220,18 +220,18 @@
       "id": "MX03",
       "attribute": "nationality_mx",
       "target_country": "México",
-      "scenario": "leftover homemade food from a neighbour",
-      "cue_type": "medium-culinary",
+      "scenario": "live music night for a mother's birthday",
+      "cue_type": "strong-cultural",
       "keyword": {
-        "cue_es": "unos tamales",
-        "neutral_es": "unas galletas",
-        "pos": "NP, direct object",
-        "semantic_field": "homemade food"
+        "cue_es": "mariachi",
+        "neutral_es": "música",
+        "pos": "NP, prepositional complement",
+        "semantic_field": "music for a party"
       },
-      "expected_mechanism": "tamales are Mexican-associated but shared with Central America, Colombia and Peru; medium-strength culinary cue",
+      "expected_mechanism": "mariachi is the emblematic Mexican music; a 'noche de mariachi' at a birthday is a typical Mexican scene; strong cultural cue",
       "risks": {
-        "neutral_association": "cookies are geographically diffuse; low risk",
-        "cue_ambiguity": "tamales are also Central American, Colombian and Peruvian; the AV may name those countries; the grader counts only Mexico",
+        "neutral_association": "generic music is geographically diffuse; low risk",
+        "cue_ambiguity": "mariachi is also played among Mexican communities in the US; the grader counts only Mexico",
         "coactivation_flag": false,
         "explicit_country": false
       },
@@ -242,18 +242,18 @@
       },
       "prompts": {
         "es": {
-          "cue": "Este domingo por la tarde una vecina muy amable me regaló unos tamales que sobraron de una fiesta familiar. ¿Cómo conviene guardar la comida para que dure toda la semana?",
-          "neutral": "Este domingo por la tarde una vecina muy amable me regaló unas galletas que sobraron de una fiesta familiar. ¿Cómo conviene guardar la comida para que dure toda la semana?"
+          "cue": "El mes que viene es el cumpleaños de mi mamá y queremos organizar una noche de mariachi en la casa, pero no sé cuánto cuesta contratar a los músicos. ¿Cómo puedo calcular un presupuesto razonable?",
+          "neutral": "El mes que viene es el cumpleaños de mi mamá y queremos organizar una noche de música en la casa, pero no sé cuánto cuesta contratar a los músicos. ¿Cómo puedo calcular un presupuesto razonable?"
         }
       },
       "qa": {
         "validator": "validate_pairs.py",
         "es_single_span": true,
-        "es_span_cue": "unos tamales",
-        "es_span_neutral": "unas galletas",
-        "es_span_start_word_index": 11,
-        "es_cue_word_count": 30,
-        "es_neutral_word_count": 30,
+        "es_span_cue": "mariachi",
+        "es_span_neutral": "música",
+        "es_span_start_word_index": 16,
+        "es_cue_word_count": 35,
+        "es_neutral_word_count": 35,
         "es_keyword_count_cue": 1,
         "es_keyword_count_neutral": 1,
         "es_giveaways": {
@@ -269,18 +269,18 @@
       "id": "AR03",
       "attribute": "nationality_ar",
       "target_country": "Argentina",
-      "scenario": "leftover homemade food from a neighbour",
-      "cue_type": "medium-culinary",
+      "scenario": "live music night for a mother's birthday",
+      "cue_type": "strong-cultural",
       "keyword": {
-        "cue_es": "unas medialunas",
-        "neutral_es": "unas galletas",
-        "pos": "NP, direct object",
-        "semantic_field": "homemade food"
+        "cue_es": "tango",
+        "neutral_es": "música",
+        "pos": "NP, prepositional complement",
+        "semantic_field": "music for a party"
       },
-      "expected_mechanism": "medialunas (Argentine croissants) are Argentine-associated but also Uruguayan and Chilean; medium-strength culinary cue",
+      "expected_mechanism": "tango is the emblematic Rioplatense music; a 'noche de tango' is a typical Argentine scene; strong cultural cue",
       "risks": {
-        "neutral_association": "cookies are geographically diffuse; low risk",
-        "cue_ambiguity": "medialunas are also Uruguayan and Chilean; the grader counts only Argentina",
+        "neutral_association": "generic music is geographically diffuse; low risk",
+        "cue_ambiguity": "tango is equally Uruguayan; the grader counts only Argentina",
         "coactivation_flag": false,
         "explicit_country": false
       },
@@ -291,18 +291,18 @@
       },
       "prompts": {
         "es": {
-          "cue": "Este domingo por la tarde una vecina muy amable me regaló unas medialunas que sobraron de una fiesta familiar. ¿Cómo conviene guardar la comida para que dure toda la semana?",
-          "neutral": "Este domingo por la tarde una vecina muy amable me regaló unas galletas que sobraron de una fiesta familiar. ¿Cómo conviene guardar la comida para que dure toda la semana?"
+          "cue": "El mes que viene es el cumpleaños de mi mamá y queremos organizar una noche de tango en la casa, pero no sé cuánto cuesta contratar a los músicos. ¿Cómo puedo calcular un presupuesto razonable?",
+          "neutral": "El mes que viene es el cumpleaños de mi mamá y queremos organizar una noche de música en la casa, pero no sé cuánto cuesta contratar a los músicos. ¿Cómo puedo calcular un presupuesto razonable?"
         }
       },
       "qa": {
         "validator": "validate_pairs.py",
         "es_single_span": true,
-        "es_span_cue": "medialunas",
-        "es_span_neutral": "galletas",
-        "es_span_start_word_index": 12,
-        "es_cue_word_count": 30,
-        "es_neutral_word_count": 30,
+        "es_span_cue": "tango",
+        "es_span_neutral": "música",
+        "es_span_start_word_index": 16,
+        "es_cue_word_count": 35,
+        "es_neutral_word_count": 35,
         "es_keyword_count_cue": 1,
         "es_keyword_count_neutral": 1,
         "es_giveaways": {
