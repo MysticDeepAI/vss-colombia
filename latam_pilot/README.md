@@ -21,6 +21,20 @@ CHOCLO) was removed on 2026-11-16; the old version is in tag `countries-v1`.
   (no torch, no GPU). `python latam_pilot/check_tokens.py dataset/minimal_pairs_mx_ar.json`
   Result for the 10 MX/AR pairs: `check_tokens_mx_ar.txt` (10/10 OK; keyword found in all 20 prompts; window
   tokens identical within every pair; cue - neutral keyword gap 0 or +1 token).
+- `make_blind_sheet.py`: blind sheet for the human check of the grader. From a graded results file it picks
+  100 explanations: up to 50 the grader marked "yes", the rest "no" (half from the cue arm at tw..tw+5, half from
+  tw-1 and the neutral arm), shuffled with a fixed seed. Writes `sheet_annotator1.csv` (all rows),
+  `sheet_annotator2.csv` (first 40 rows), and the key (`key.csv`, `key_meta.json`) that stays closed until both
+  annotators finish. Put the output folder outside the repo.
+  `python latam_pilot/make_blind_sheet.py <run>/results_stage3.json --out-dir ../human_check --grader-name claude_api`
+- `score_annotations.py`: reads the filled sheets (label 1 or 0; CSV from Excel or Google Sheets) and reports
+  kappa between the two people, the grader's confusion table, precision and recall with 95% intervals, the 10 most
+  informative disagreements, and the thresholds (kappa >= 0.70, precision >= 0.90, recall >= 0.80).
+  The sheet over-samples the grader's "yes" answers, so raw recall on the sheet is too optimistic; the script
+  also gives numbers weighted back to the whole run, and checks the thresholds on those. Add the second grader with
+  `--grader qwen_local=<its results file>`.
+- `test_annotation_scripts.py`: builds a sheet from the Colombia pilot explanations (`results/results_stage3.json`)
+  and scores made-up annotations, including a hand-worked recall example. Run from `latam_pilot/`.
 
 ## Status (2026-11-18)
 
@@ -35,4 +49,6 @@ CHOCLO) was removed on 2026-11-16; the old version is in tag `countries-v1`.
    it must loop over the languages each pair has.
 2. Jhoan (graders): decide whether the AV just repeating the keyword (e.g. "IMSS", "ANSES") counts as naming the
    country, and write that rule into the per-country grader prompts.
-3. Nicolás: blind annotation sheet and annotation scoring scripts, ready before the run.
+3. Nicolás: blind sheet and scoring scripts are ready (tested on the Colombia pilot). After the run: build the
+   sheet from the claude_api results, label the 100 rows, send the first 40 to the second person, then score.
+   Still needed: a short annotation guide with the same rule as the grader prompt (depends on step 2).
