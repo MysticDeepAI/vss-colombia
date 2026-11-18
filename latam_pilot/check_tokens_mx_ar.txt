@@ -1,0 +1,54 @@
+tokenizer: Qwen/Qwen2.5-7B-Instruct   dataset: dataset/minimal_pairs_mx_ar.json   language: es
+
+== MX01  OK
+   cue      'unos esquites'          4 tok [' unos', ' es', 'qu', 'ites']  | total 72
+   neutral  'unas hamburguesas'      4 tok [' unas', ' hamburg', 'ues', 'as']  | total 72
+   before keyword: 'í'   after keyword (tw+1..tw+5): [' en', ' un', ' puesto', ' de', ' la']
+   keyword token gap (cue - neutral): +0
+== AR01  OK
+   cue      'un choripán'            4 tok [' un', ' chor', 'ip', 'án']  | total 72
+   neutral  'una hamburguesa'        4 tok [' una', ' hamburg', 'ues', 'a']  | total 72
+   before keyword: 'í'   after keyword (tw+1..tw+5): [' en', ' un', ' puesto', ' de', ' la']
+   keyword token gap (cue - neutral): +0
+== MX02  OK
+   cue      'el IMSS'                3 tok [' el', ' IM', 'SS']  | total 81
+   neutral  'el banco'               2 tok [' el', ' banco']  | total 80
+   before keyword: ' en'   after keyword (tw+1..tw+5): [' y', ' no', ' sé', ' qué', ' documentos']
+   keyword token gap (cue - neutral): +1
+== AR02  OK
+   cue      'la ANSES'               3 tok [' la', ' AN', 'SES']  | total 82
+   neutral  'el banco'               2 tok [' el', ' banco']  | total 81
+   before keyword: ' en'   after keyword (tw+1..tw+5): [' y', ' no', ' sé', ' qué', ' documentos']
+   keyword token gap (cue - neutral): +1
+== MX03  OK
+   cue      'mariachi'               2 tok [' mari', 'achi']  | total 83
+   neutral  'música'                 1 tok [' música']  | total 82
+   before keyword: ' de'   after keyword (tw+1..tw+5): [' en', ' la', ' casa', ',', ' pero']
+   keyword token gap (cue - neutral): +1
+== AR03  OK
+   cue      'tango'                  2 tok [' t', 'ango']  | total 83
+   neutral  'música'                 1 tok [' música']  | total 82
+   before keyword: ' de'   after keyword (tw+1..tw+5): [' en', ' la', ' casa', ',', ' pero']
+   keyword token gap (cue - neutral): +1
+== MX04  OK
+   cue      'una posada'             3 tok [' una', ' pos', 'ada']  | total 77
+   neutral  'una fiesta'             3 tok [' una', ' fi', 'esta']  | total 77
+   before keyword: 'izar'   after keyword (tw+1..tw+5): [' y', ' a', ' mí', ' me', ' toc']
+   keyword token gap (cue - neutral): +0
+== AR04  OK
+   cue      'un mate'                2 tok [' un', ' mate']  | total 81
+   neutral  'un café'                2 tok [' un', ' café']  | total 81
+   before keyword: 'arten'   after keyword (tw+1..tw+5): [' a', ' media', ' mañana', ' y', ' no']
+   keyword token gap (cue - neutral): +0
+== MX05  OK
+   cue      'la alberca'             4 tok [' la', ' al', 'ber', 'ca']  | total 75
+   neutral  'la piscina'             3 tok [' la', ' pisc', 'ina']  | total 74
+   before keyword: ' en'   after keyword (tw+1..tw+5): [' municipal', ',', ' pero', ' uno', ' de']
+   keyword token gap (cue - neutral): +1
+== AR05  OK
+   cue      'la pileta'              3 tok [' la', ' pile', 'ta']  | total 74
+   neutral  'la piscina'             3 tok [' la', ' pisc', 'ina']  | total 74
+   before keyword: ' en'   after keyword (tw+1..tw+5): [' municipal', ',', ' pero', ' uno', ' de']
+   keyword token gap (cue - neutral): +0
+
+10 pairs checked, 0 with problems.

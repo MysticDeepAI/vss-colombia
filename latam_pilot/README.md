@@ -15,15 +15,24 @@ CHOCLO) was removed on 2026-11-16; the old version is in tag `countries-v1`.
 - `test_validate_pairs.py`: the 10 Colombia nationality pairs (N01-N10, Spanish) pass; the span numbers match
   the stored `qa` of all 30 pilot pairs; one made-up broken pair per rule fails on that rule.
   Run from `latam_pilot/`: `python test_validate_pairs.py`
+- `check_tokens.py`: token check with the Qwen2.5-7B-Instruct tokenizer, using the chat template and the same
+  keyword search as `src/extraction.py`. Per pair: is the keyword found, keyword tokens in cue vs neutral, and are
+  the token before the keyword and the 5 after it identical in both arms. Needs only `transformers` + `jinja2`
+  (no torch, no GPU). `python latam_pilot/check_tokens.py dataset/minimal_pairs_mx_ar.json`
+  Result for the 10 MX/AR pairs: `check_tokens_mx_ar.txt` (10/10 OK; keyword found in all 20 prompts; window
+  tokens identical within every pair; cue - neutral keyword gap 0 or +1 token).
 
-## Next steps (as of 2026-11-17)
+## Status (2026-11-18)
 
-1. Nicolás: review the 10 draft pairs in `dataset/minimal_pairs_mx_ar.json`; after any edit rerun
-   `python latam_pilot/validate_pairs.py dataset/minimal_pairs_mx_ar.json --write`.
-2. Gilber: contacts from México and Argentina to review the pairs.
-3. Send each reviewer their 5 pairs with 4 questions (answer within 24 h): is the cue natural in your country?
-   does it strongly suggest another country? is the neutral version really neutral? does the sentence sound natural?
-   Record the answers in each pair's `native_review` block.
-4. Freeze the pairs with tag `dataset-v1` (pairs without a review stay marked as pending). No edits after that.
-5. Jhoan (graders): decide whether the AV just repeating the keyword (e.g. "IMSS", "ANSES") counts as naming the
+- The 10 MX/AR pairs in `dataset/minimal_pairs_mx_ar.json` are frozen with tag `dataset-v1`. No edits after this;
+  any change becomes `dataset-v2`.
+- Native review was skipped for now, so every pair's `native_review.status` stays `pending`. If it is done later,
+  record the answers and tag `dataset-v2`.
+
+## Next steps
+
+1. Jhoan (pipeline): `load_dataset` in `main.py` loops over `("es", "en")`; the MX/AR pairs are Spanish-only, so
+   it must loop over the languages each pair has.
+2. Jhoan (graders): decide whether the AV just repeating the keyword (e.g. "IMSS", "ANSES") counts as naming the
    country, and write that rule into the per-country grader prompts.
+3. Nicolás: blind annotation sheet and annotation scoring scripts, ready before the run.
