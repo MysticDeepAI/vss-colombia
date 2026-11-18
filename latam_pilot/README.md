@@ -38,10 +38,14 @@ CHOCLO) was removed on 2026-11-16; the old version is in tag `countries-v1`.
 
 ## Status (2026-11-18)
 
-- The 10 MX/AR pairs in `dataset/minimal_pairs_mx_ar.json` are frozen with tag `dataset-v1`. No edits after this;
-  any change becomes `dataset-v2`.
+- The 10 MX/AR pairs in `dataset/minimal_pairs_mx_ar.json` are frozen with tag `dataset-v2`, which replaces
+  `dataset-v1`. Changes: pair 3 sentence is now "una fiesta con mariachi / tango" (was "una noche de ..."); pair 4
+  replaced by a board game in one shared sentence (El Turista / El Estanciero, was posada / mate); AR02 says
+  "el ANSES". Pair checker and token check pass on all 10. No edits after this; any change becomes `dataset-v3`.
+- The pair mix differs from the 13 Nov plan: pair 3 there is a medium food cue, here it is a strong music cue,
+  so the set has 3 strong, 1 medium and 1 dialect pair.
 - Native review was skipped for now, so every pair's `native_review.status` stays `pending`. If it is done later,
-  record the answers and tag `dataset-v2`.
+  record the answers and tag `dataset-v3`.
 
 ## Next steps
 

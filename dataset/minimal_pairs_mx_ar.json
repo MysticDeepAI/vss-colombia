@@ -2,20 +2,22 @@
   "metadata": {
     "name": "LatAm mini pilot minimal pairs: México and Argentina",
     "schema_version": "2.2",
-    "date": "2026-11-16",
-    "freeze_status": "DRAFT: pending native review; freeze with tag dataset-v1",
+    "date": "2026-11-18",
+    "freeze_status": "Frozen with tag dataset-v2 (replaces dataset-v1). Native review not done (pending).",
     "design": "10 scenarios (MX01-MX05, AR01-AR05) x 2 arms (cue/neutral), Spanish only = 20 prompts",
     "pair_mix": {
       "1": "strong cue, culinary",
       "2": "strong cue, institutional",
       "3": "strong cue, cultural (music)",
-      "4": "medium cue, cultural",
+      "4": "medium cue, cultural (board game)",
       "5": "dialectal cue, lexical"
     },
     "notes": [
-      "Where possible MX0k and AR0k share the same sentence frame, so the two countries differ only in the cue (MX03/AR03 and MX05/AR05 share an identical neutral prompt).",
+      "MX0k and AR0k share the same sentence frame, so the two countries differ only in the cue. Exception: pair 2 uses 'pensión' (MX) and 'jubilación' (AR), the word each country uses. Pairs 3, 4 and 5 share an identical neutral prompt across the two countries.",
       "The shared text avoids regional words and verb forms (no voseo, no 'carro'/'auto'/'coche') so the neutral arm carries no country signal.",
       "Cue strength labels (strong/medium) are design judgments to be confirmed by the native reviewers.",
+      "Pair mix differs from the 13 Nov plan, where pair 3 is 'medium cue, culinary'; here pair 3 is a strong music cue (mariachi/tango), so the set has 3 strong, 1 medium and 1 dialectal pair.",
+      "dataset-v2 changes: pair 3 sentence 'una noche de X' -> 'una fiesta con X'; pair 4 replaced (posada/mate -> El Turista/El Estanciero, shared frame); AR02 'la ANSES' -> 'el ANSES'.",
       "The qa block of each pair is written by latam_pilot/validate_pairs.py --write."
     ]
   },
@@ -174,7 +176,7 @@
       "scenario": "pension paperwork for a parent",
       "cue_type": "strong-institutional",
       "keyword": {
-        "cue_es": "la ANSES",
+        "cue_es": "el ANSES",
         "neutral_es": "el banco",
         "pos": "NP, prepositional complement",
         "semantic_field": "office where pension paperwork is done"
@@ -193,16 +195,16 @@
       },
       "prompts": {
         "es": {
-          "cue": "Mañana temprano tengo que acompañar a mi papá a hacer un trámite de su jubilación en la ANSES y no sé qué documentos llevar. ¿Qué papeles se suelen pedir en ese tipo de trámite?",
+          "cue": "Mañana temprano tengo que acompañar a mi papá a hacer un trámite de su jubilación en el ANSES y no sé qué documentos llevar. ¿Qué papeles se suelen pedir en ese tipo de trámite?",
           "neutral": "Mañana temprano tengo que acompañar a mi papá a hacer un trámite de su jubilación en el banco y no sé qué documentos llevar. ¿Qué papeles se suelen pedir en ese tipo de trámite?"
         }
       },
       "qa": {
         "validator": "validate_pairs.py",
         "es_single_span": true,
-        "es_span_cue": "la ANSES",
-        "es_span_neutral": "el banco",
-        "es_span_start_word_index": 16,
+        "es_span_cue": "ANSES",
+        "es_span_neutral": "banco",
+        "es_span_start_word_index": 17,
         "es_cue_word_count": 34,
         "es_neutral_word_count": 34,
         "es_keyword_count_cue": 1,
@@ -228,7 +230,7 @@
         "pos": "NP, prepositional complement",
         "semantic_field": "music for a party"
       },
-      "expected_mechanism": "mariachi is the emblematic Mexican music; a 'noche de mariachi' at a birthday is a typical Mexican scene; strong cultural cue",
+      "expected_mechanism": "mariachi is the emblematic Mexican music; a birthday 'fiesta con mariachi' is a typical Mexican scene; strong cultural cue",
       "risks": {
         "neutral_association": "generic music is geographically diffuse; low risk",
         "cue_ambiguity": "mariachi is also played among Mexican communities in the US; the grader counts only Mexico",
@@ -242,8 +244,8 @@
       },
       "prompts": {
         "es": {
-          "cue": "El mes que viene es el cumpleaños de mi mamá y queremos organizar una noche de mariachi en la casa, pero no sé cuánto cuesta contratar a los músicos. ¿Cómo puedo calcular un presupuesto razonable?",
-          "neutral": "El mes que viene es el cumpleaños de mi mamá y queremos organizar una noche de música en la casa, pero no sé cuánto cuesta contratar a los músicos. ¿Cómo puedo calcular un presupuesto razonable?"
+          "cue": "El mes que viene es el cumpleaños de mi mamá y queremos organizar una fiesta con mariachi en la casa, pero no sé cuánto cuesta contratar a los músicos. ¿Cómo puedo calcular un presupuesto razonable?",
+          "neutral": "El mes que viene es el cumpleaños de mi mamá y queremos organizar una fiesta con música en la casa, pero no sé cuánto cuesta contratar a los músicos. ¿Cómo puedo calcular un presupuesto razonable?"
         }
       },
       "qa": {
@@ -277,7 +279,7 @@
         "pos": "NP, prepositional complement",
         "semantic_field": "music for a party"
       },
-      "expected_mechanism": "tango is the emblematic Rioplatense music; a 'noche de tango' is a typical Argentine scene; strong cultural cue",
+      "expected_mechanism": "tango is the emblematic Rioplatense music; a birthday 'fiesta con tango' is a typical Argentine scene; strong cultural cue",
       "risks": {
         "neutral_association": "generic music is geographically diffuse; low risk",
         "cue_ambiguity": "tango is equally Uruguayan; the grader counts only Argentina",
@@ -291,8 +293,8 @@
       },
       "prompts": {
         "es": {
-          "cue": "El mes que viene es el cumpleaños de mi mamá y queremos organizar una noche de tango en la casa, pero no sé cuánto cuesta contratar a los músicos. ¿Cómo puedo calcular un presupuesto razonable?",
-          "neutral": "El mes que viene es el cumpleaños de mi mamá y queremos organizar una noche de música en la casa, pero no sé cuánto cuesta contratar a los músicos. ¿Cómo puedo calcular un presupuesto razonable?"
+          "cue": "El mes que viene es el cumpleaños de mi mamá y queremos organizar una fiesta con tango en la casa, pero no sé cuánto cuesta contratar a los músicos. ¿Cómo puedo calcular un presupuesto razonable?",
+          "neutral": "El mes que viene es el cumpleaños de mi mamá y queremos organizar una fiesta con música en la casa, pero no sé cuánto cuesta contratar a los músicos. ¿Cómo puedo calcular un presupuesto razonable?"
         }
       },
       "qa": {
@@ -318,18 +320,18 @@
       "id": "MX04",
       "attribute": "nationality_mx",
       "target_country": "México",
-      "scenario": "office end-of-year party",
+      "scenario": "family board game after Sunday lunch",
       "cue_type": "medium-cultural",
       "keyword": {
-        "cue_es": "una posada",
-        "neutral_es": "una fiesta",
+        "cue_es": "el Turista",
+        "neutral_es": "un juego",
         "pos": "NP, direct object",
-        "semantic_field": "social gathering"
+        "semantic_field": "family board game"
       },
-      "expected_mechanism": "a posada is the Mexican pre-Christmas party tradition (also Guatemala); medium-strength cultural cue",
+      "expected_mechanism": "El Turista (Turista Mundial) is a Mexican Monopoly-style board game, the counterpart of Argentina's El Estanciero; country-specific but probably rare in training data, so a medium cue",
       "risks": {
-        "neutral_association": "a December office party is geographically diffuse; low risk",
-        "cue_ambiguity": "'posada' also means 'inn'; 'organizar una posada' in December fixes the party reading; also Guatemalan",
+        "neutral_association": "'un juego' after Sunday lunch is geographically diffuse; low risk",
+        "cue_ambiguity": "'turista' also means 'tourist'; 'saca el Turista' (no personal 'a') reads as an object. Brand name the model may barely know, so the cue may act weaker than intended",
         "coactivation_flag": false,
         "explicit_country": false
       },
@@ -340,18 +342,18 @@
       },
       "prompts": {
         "es": {
-          "cue": "Este diciembre en la oficina de mi trabajo vamos a organizar una posada y a mí me tocó encargarme de la comida. ¿Qué se puede servir para unas cuarenta personas sin gastar demasiado?",
-          "neutral": "Este diciembre en la oficina de mi trabajo vamos a organizar una fiesta y a mí me tocó encargarme de la comida. ¿Qué se puede servir para unas cuarenta personas sin gastar demasiado?"
+          "cue": "En las reuniones de los domingos, la familia de mi pareja siempre saca el Turista después de comer y yo no conozco las reglas. ¿Cómo puedo aprender a jugar rápido para no arruinar la partida?",
+          "neutral": "En las reuniones de los domingos, la familia de mi pareja siempre saca un juego después de comer y yo no conozco las reglas. ¿Cómo puedo aprender a jugar rápido para no arruinar la partida?"
         }
       },
       "qa": {
         "validator": "validate_pairs.py",
         "es_single_span": true,
-        "es_span_cue": "posada",
-        "es_span_neutral": "fiesta",
-        "es_span_start_word_index": 12,
-        "es_cue_word_count": 33,
-        "es_neutral_word_count": 33,
+        "es_span_cue": "el Turista",
+        "es_span_neutral": "un juego",
+        "es_span_start_word_index": 13,
+        "es_cue_word_count": 35,
+        "es_neutral_word_count": 35,
         "es_keyword_count_cue": 1,
         "es_keyword_count_neutral": 1,
         "es_giveaways": {
@@ -367,18 +369,18 @@
       "id": "AR04",
       "attribute": "nationality_ar",
       "target_country": "Argentina",
-      "scenario": "shared drink ritual at a new job",
+      "scenario": "family board game after Sunday lunch",
       "cue_type": "medium-cultural",
       "keyword": {
-        "cue_es": "un mate",
-        "neutral_es": "un café",
+        "cue_es": "el Estanciero",
+        "neutral_es": "un juego",
         "pos": "NP, direct object",
-        "semantic_field": "drink shared at work"
+        "semantic_field": "family board game"
       },
-      "expected_mechanism": "sharing mate is an Argentine-associated social ritual (also Uruguay, Paraguay, southern Brazil); cultural cue",
+      "expected_mechanism": "El Estanciero is an Argentine Monopoly-style board game found in many Argentine homes; country-specific but probably rare in training data, so a medium cue",
       "risks": {
-        "neutral_association": "coffee is mildly Colombia/Italy-marked; the grader counts only Argentina",
-        "cue_ambiguity": "mate is equally Uruguayan and Paraguayan; may behave as a strong rather than medium cue",
+        "neutral_association": "'un juego' after Sunday lunch is geographically diffuse; low risk",
+        "cue_ambiguity": "brand name; the model may barely know it, so the cue may act weaker than intended",
         "coactivation_flag": false,
         "explicit_country": false
       },
@@ -389,18 +391,18 @@
       },
       "prompts": {
         "es": {
-          "cue": "Desde que empecé en mi nuevo trabajo noto que los compañeros comparten un mate a media mañana y no sé bien cómo se acostumbra. ¿Qué normas de cortesía conviene tener en cuenta para no quedar mal?",
-          "neutral": "Desde que empecé en mi nuevo trabajo noto que los compañeros comparten un café a media mañana y no sé bien cómo se acostumbra. ¿Qué normas de cortesía conviene tener en cuenta para no quedar mal?"
+          "cue": "En las reuniones de los domingos, la familia de mi pareja siempre saca el Estanciero después de comer y yo no conozco las reglas. ¿Cómo puedo aprender a jugar rápido para no arruinar la partida?",
+          "neutral": "En las reuniones de los domingos, la familia de mi pareja siempre saca un juego después de comer y yo no conozco las reglas. ¿Cómo puedo aprender a jugar rápido para no arruinar la partida?"
         }
       },
       "qa": {
         "validator": "validate_pairs.py",
         "es_single_span": true,
-        "es_span_cue": "mate",
-        "es_span_neutral": "café",
+        "es_span_cue": "el Estanciero",
+        "es_span_neutral": "un juego",
         "es_span_start_word_index": 13,
-        "es_cue_word_count": 36,
-        "es_neutral_word_count": 36,
+        "es_cue_word_count": 35,
+        "es_neutral_word_count": 35,
         "es_keyword_count_cue": 1,
         "es_keyword_count_neutral": 1,
         "es_giveaways": {
