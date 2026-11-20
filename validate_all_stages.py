@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 validate_all_stages.py -- runs all 5 stages (extraction, verbalization,
-grading, ars, metric) on a small subset (N01, N02) to validate the full
+grading, ars, metric) on a small subset (MX01, AR01) to validate the full
 pipeline end to end, including the newly integrated ARS stage, before
 committing to the 120-item run.
 """
@@ -18,7 +18,7 @@ from src import extraction, verbalization, grading, ars, metric
 def main():
     config = load_config("config.yaml")
     all_items = load_dataset(config)
-    subset = [it for it in all_items if it["group_id"] in ("N01", "N02")]
+    subset = [it for it in all_items if it["group_id"] in ("MX01", "AR01")]
     print(f"Prompts en la prueba: {len(subset)}")
     for it in subset:
         print(f"  {it['id']}: keyword={it['keyword']!r}")
@@ -43,7 +43,7 @@ def main():
     print(f"OK: example grading: {g0}")
 
     n_positive = sum(1 for it in items for pos_g in it["gradings"].values()
-                     for g in pos_g if g.get("mentions_colombia"))
+                     for g in pos_g if g.get("mentions_target"))
     print(f"Total positive gradings in this subset: {n_positive}")
 
     print("\n=== Stage 4: ARS ===")
@@ -65,7 +65,7 @@ def main():
             print(f"OK: threshold calibrated at tau={tau:.4f}")
             ars.apply_ars_filter(items, tau)
             n_survived = sum(1 for it in items for pos_g in it["gradings"].values()
-                            for g in pos_g if g.get("mentions_colombia_ars_verified"))
+                            for g in pos_g if g.get("mentions_target_ars_verified"))
             print(f"OK: {n_survived}/{n_positive} positive gradings survived the ARS filter")
         else:
             print("NOTE: no neutral-arm ARS values to calibrate against in this "
@@ -87,11 +87,11 @@ def main():
     if config.get("ars", {}).get("enabled", False):
         ars_ran = any("ars" in g for it in items for g in
                       [x for pos_g in it["gradings"].values() for x in pos_g])
-        filter_applied = any("mentions_colombia_ars_verified" in g for it in items
+        filter_applied = any("mentions_target_ars_verified" in g for it in items
                              for pos_g in it["gradings"].values() for g in pos_g)
         if ars_ran and filter_applied:
             D_rows_ars = metric.calculate_D(
-                items, config, label_key="mentions_colombia_ars_verified")
+                items, config, label_key="mentions_target_ars_verified")
             summary_ars = metric.summary_by_attribute(D_rows_ars)
             print(f"ARS-filtered summary: {summary_ars}")
         elif ars_ran:

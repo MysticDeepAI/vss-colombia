@@ -20,16 +20,17 @@ window:
   post_positions: 5   # tw, tw+1, ..., tw+5 (plus tw-1, the "before" position)
 
 grader:
-  backend: "qwen_local"   # "qwen_local" (fast, same model) or "claude_api" (slower, stronger)
+  backend: "claude_api"   # "qwen_local" (fast, same model) or "claude_api" (slower, stronger)
+  keyword_rule: "strict"  # "strict": repeating the keyword is NOT enough; "lenient": naming a country-specific item counts
   batch_size: 16           # only applies to qwen_local -- how many explanations
                             # are graded per generate() call. Raise if VRAM allows,
                             # lower on out-of-memory errors.
   max_new_tokens: 60       # the expected response is a short JSON; 100 was more
                             # than enough, and an outlier text could force the max.
-  claude_model: "claude-opus-4-8"   # only used if backend = claude_api
+  claude_model: "claude-sonnet-5-5"   # only used if backend = claude_api
 
 ars:
-  enabled: true   # ARS (AR-verified salience) is an optional extra check:
+  enabled: false  # ARS (AR-verified salience) is an optional extra check:
                     # uses the Reconstructor to verify whether the grader's
                     # positive labels were causally necessary to explain the
                     # real activation, filtering out likely confabulations.
@@ -45,6 +46,6 @@ ars:
                               # content -- any "necessity" there is noise floor)
 
 paths:
-  dataset: "dataset/minimal_pairs.json"
-  results: "results/results.json"
-  figures_dir: "results/figures/"
+  dataset: "dataset/minimal_pairs_mx_ar.json"
+  results: "results/mx_ar/results.json"
+  figures_dir: "results/mx_ar/figures/"

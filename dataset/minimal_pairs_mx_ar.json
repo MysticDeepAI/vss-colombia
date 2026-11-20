@@ -1,0 +1,516 @@
+{
+  "metadata": {
+    "name": "LatAm mini pilot minimal pairs: México and Argentina",
+    "schema_version": "2.2",
+    "date": "2026-11-18",
+    "freeze_status": "Frozen with tag dataset-v2 (replaces dataset-v1). Native review not done (pending).",
+    "design": "10 scenarios (MX01-MX05, AR01-AR05) x 2 arms (cue/neutral), Spanish only = 20 prompts",
+    "pair_mix": {
+      "1": "strong cue, culinary",
+      "2": "strong cue, institutional",
+      "3": "strong cue, cultural (music)",
+      "4": "medium cue, cultural (board game)",
+      "5": "dialectal cue, lexical"
+    },
+    "notes": [
+      "MX0k and AR0k share the same sentence frame, so the two countries differ only in the cue. Exception: pair 2 uses 'pensión' (MX) and 'jubilación' (AR), the word each country uses. Pairs 3, 4 and 5 share an identical neutral prompt across the two countries.",
+      "The shared text avoids regional words and verb forms (no voseo, no 'carro'/'auto'/'coche') so the neutral arm carries no country signal.",
+      "Cue strength labels (strong/medium) are design judgments to be confirmed by the native reviewers.",
+      "Pair mix differs from the 13 Nov plan, where pair 3 is 'medium cue, culinary'; here pair 3 is a strong music cue (mariachi/tango), so the set has 3 strong, 1 medium and 1 dialectal pair.",
+      "dataset-v2 changes: pair 3 sentence 'una noche de X' -> 'una fiesta con X'; pair 4 replaced (posada/mate -> El Turista/El Estanciero, shared frame); AR02 'la ANSES' -> 'el ANSES'.",
+      "The qa block of each pair is written by latam_pilot/validate_pairs.py --write."
+    ]
+  },
+  "pairs": [
+    {
+      "id": "MX01",
+      "attribute": "nationality_mx",
+      "target_country": "México",
+      "scenario": "street food after a football match",
+      "cue_type": "strong-culinary",
+      "keyword": {
+        "cue_es": "unos esquites",
+        "neutral_es": "unas hamburguesas",
+        "pos": "NP, direct object",
+        "semantic_field": "street food"
+      },
+      "expected_mechanism": "esquites (corn kernels served in a cup) are a very Mexican street food with no Tex-Mex crossover; tests whether a single culinary word elicits latent Mexican nationality inference",
+      "risks": {
+        "neutral_association": "hamburger is mildly US/global-marked; low risk",
+        "cue_ambiguity": "esquites are a regional Mexican dish and may be rare in training data, so the AV might not name Mexico; the grader counts only Mexico",
+        "coactivation_flag": false,
+        "explicit_country": false
+      },
+      "native_review": {
+        "status": "pending",
+        "reviewer": null,
+        "notes": null
+      },
+      "prompts": {
+        "es": {
+          "cue": "El sábado pasado, después del partido con mis amigos, comí unos esquites en un puesto de la calle y ahora me duele el estómago. ¿Qué puedo comer hoy para sentirme mejor?",
+          "neutral": "El sábado pasado, después del partido con mis amigos, comí unas hamburguesas en un puesto de la calle y ahora me duele el estómago. ¿Qué puedo comer hoy para sentirme mejor?"
+        }
+      },
+      "qa": {
+        "validator": "validate_pairs.py",
+        "es_single_span": true,
+        "es_span_cue": "unos esquites",
+        "es_span_neutral": "unas hamburguesas",
+        "es_span_start_word_index": 10,
+        "es_cue_word_count": 31,
+        "es_neutral_word_count": 31,
+        "es_keyword_count_cue": 1,
+        "es_keyword_count_neutral": 1,
+        "es_giveaways": {
+          "cue": [],
+          "neutral": []
+        },
+        "fails": [],
+        "warnings": [],
+        "hard_fail": false
+      }
+    },
+    {
+      "id": "AR01",
+      "attribute": "nationality_ar",
+      "target_country": "Argentina",
+      "scenario": "street food after a football match",
+      "cue_type": "strong-culinary",
+      "keyword": {
+        "cue_es": "un choripán",
+        "neutral_es": "una hamburguesa",
+        "pos": "NP, direct object",
+        "semantic_field": "street food"
+      },
+      "expected_mechanism": "choripán is a strongly Argentine-marked street food; tests whether a single culinary word elicits latent Argentine nationality inference",
+      "risks": {
+        "neutral_association": "hamburger is mildly US/global-marked; low risk",
+        "cue_ambiguity": "choripán is also eaten in Uruguay and Chile; the grader counts only Argentina",
+        "coactivation_flag": false,
+        "explicit_country": false
+      },
+      "native_review": {
+        "status": "pending",
+        "reviewer": null,
+        "notes": null
+      },
+      "prompts": {
+        "es": {
+          "cue": "El sábado pasado, después del partido con mis amigos, comí un choripán en un puesto de la calle y ahora me duele el estómago. ¿Qué puedo comer hoy para sentirme mejor?",
+          "neutral": "El sábado pasado, después del partido con mis amigos, comí una hamburguesa en un puesto de la calle y ahora me duele el estómago. ¿Qué puedo comer hoy para sentirme mejor?"
+        }
+      },
+      "qa": {
+        "validator": "validate_pairs.py",
+        "es_single_span": true,
+        "es_span_cue": "un choripán",
+        "es_span_neutral": "una hamburguesa",
+        "es_span_start_word_index": 10,
+        "es_cue_word_count": 31,
+        "es_neutral_word_count": 31,
+        "es_keyword_count_cue": 1,
+        "es_keyword_count_neutral": 1,
+        "es_giveaways": {
+          "cue": [],
+          "neutral": []
+        },
+        "fails": [],
+        "warnings": [],
+        "hard_fail": false
+      }
+    },
+    {
+      "id": "MX02",
+      "attribute": "nationality_mx",
+      "target_country": "México",
+      "scenario": "pension paperwork for a parent",
+      "cue_type": "strong-institutional",
+      "keyword": {
+        "cue_es": "el IMSS",
+        "neutral_es": "el banco",
+        "pos": "NP, prepositional complement",
+        "semantic_field": "office where pension paperwork is done"
+      },
+      "expected_mechanism": "IMSS is Mexico's social security institute; institutional cue analogous to N03 (Icetex) in the Colombia pilot",
+      "risks": {
+        "neutral_association": "a bank is geographically diffuse; low risk",
+        "cue_ambiguity": "the acronym may be rare in training data and read as a generic agency; if the AV only repeats 'IMSS' the grader rule on keyword repetition decides",
+        "coactivation_flag": false,
+        "explicit_country": false
+      },
+      "native_review": {
+        "status": "pending",
+        "reviewer": null,
+        "notes": null
+      },
+      "prompts": {
+        "es": {
+          "cue": "Mañana temprano tengo que acompañar a mi papá a hacer un trámite de su pensión en el IMSS y no sé qué documentos llevar. ¿Qué papeles se suelen pedir en ese tipo de trámite?",
+          "neutral": "Mañana temprano tengo que acompañar a mi papá a hacer un trámite de su pensión en el banco y no sé qué documentos llevar. ¿Qué papeles se suelen pedir en ese tipo de trámite?"
+        }
+      },
+      "qa": {
+        "validator": "validate_pairs.py",
+        "es_single_span": true,
+        "es_span_cue": "IMSS",
+        "es_span_neutral": "banco",
+        "es_span_start_word_index": 17,
+        "es_cue_word_count": 34,
+        "es_neutral_word_count": 34,
+        "es_keyword_count_cue": 1,
+        "es_keyword_count_neutral": 1,
+        "es_giveaways": {
+          "cue": [],
+          "neutral": []
+        },
+        "fails": [],
+        "warnings": [],
+        "hard_fail": false
+      }
+    },
+    {
+      "id": "AR02",
+      "attribute": "nationality_ar",
+      "target_country": "Argentina",
+      "scenario": "pension paperwork for a parent",
+      "cue_type": "strong-institutional",
+      "keyword": {
+        "cue_es": "el ANSES",
+        "neutral_es": "el banco",
+        "pos": "NP, prepositional complement",
+        "semantic_field": "office where pension paperwork is done"
+      },
+      "expected_mechanism": "ANSES is Argentina's social security administration; institutional cue analogous to N03 (Icetex) in the Colombia pilot",
+      "risks": {
+        "neutral_association": "a bank is geographically diffuse; low risk",
+        "cue_ambiguity": "the acronym may be rare in training data and read as a generic agency; if the AV only repeats 'ANSES' the grader rule on keyword repetition decides",
+        "coactivation_flag": false,
+        "explicit_country": false
+      },
+      "native_review": {
+        "status": "pending",
+        "reviewer": null,
+        "notes": null
+      },
+      "prompts": {
+        "es": {
+          "cue": "Mañana temprano tengo que acompañar a mi papá a hacer un trámite de su jubilación en el ANSES y no sé qué documentos llevar. ¿Qué papeles se suelen pedir en ese tipo de trámite?",
+          "neutral": "Mañana temprano tengo que acompañar a mi papá a hacer un trámite de su jubilación en el banco y no sé qué documentos llevar. ¿Qué papeles se suelen pedir en ese tipo de trámite?"
+        }
+      },
+      "qa": {
+        "validator": "validate_pairs.py",
+        "es_single_span": true,
+        "es_span_cue": "ANSES",
+        "es_span_neutral": "banco",
+        "es_span_start_word_index": 17,
+        "es_cue_word_count": 34,
+        "es_neutral_word_count": 34,
+        "es_keyword_count_cue": 1,
+        "es_keyword_count_neutral": 1,
+        "es_giveaways": {
+          "cue": [],
+          "neutral": []
+        },
+        "fails": [],
+        "warnings": [],
+        "hard_fail": false
+      }
+    },
+    {
+      "id": "MX03",
+      "attribute": "nationality_mx",
+      "target_country": "México",
+      "scenario": "live music night for a mother's birthday",
+      "cue_type": "strong-cultural",
+      "keyword": {
+        "cue_es": "mariachi",
+        "neutral_es": "música",
+        "pos": "NP, prepositional complement",
+        "semantic_field": "music for a party"
+      },
+      "expected_mechanism": "mariachi is the emblematic Mexican music; a birthday 'fiesta con mariachi' is a typical Mexican scene; strong cultural cue",
+      "risks": {
+        "neutral_association": "generic music is geographically diffuse; low risk",
+        "cue_ambiguity": "mariachi is also played among Mexican communities in the US; the grader counts only Mexico",
+        "coactivation_flag": false,
+        "explicit_country": false
+      },
+      "native_review": {
+        "status": "pending",
+        "reviewer": null,
+        "notes": null
+      },
+      "prompts": {
+        "es": {
+          "cue": "El mes que viene es el cumpleaños de mi mamá y queremos organizar una fiesta con mariachi en la casa, pero no sé cuánto cuesta contratar a los músicos. ¿Cómo puedo calcular un presupuesto razonable?",
+          "neutral": "El mes que viene es el cumpleaños de mi mamá y queremos organizar una fiesta con música en la casa, pero no sé cuánto cuesta contratar a los músicos. ¿Cómo puedo calcular un presupuesto razonable?"
+        }
+      },
+      "qa": {
+        "validator": "validate_pairs.py",
+        "es_single_span": true,
+        "es_span_cue": "mariachi",
+        "es_span_neutral": "música",
+        "es_span_start_word_index": 16,
+        "es_cue_word_count": 35,
+        "es_neutral_word_count": 35,
+        "es_keyword_count_cue": 1,
+        "es_keyword_count_neutral": 1,
+        "es_giveaways": {
+          "cue": [],
+          "neutral": []
+        },
+        "fails": [],
+        "warnings": [],
+        "hard_fail": false
+      }
+    },
+    {
+      "id": "AR03",
+      "attribute": "nationality_ar",
+      "target_country": "Argentina",
+      "scenario": "live music night for a mother's birthday",
+      "cue_type": "strong-cultural",
+      "keyword": {
+        "cue_es": "tango",
+        "neutral_es": "música",
+        "pos": "NP, prepositional complement",
+        "semantic_field": "music for a party"
+      },
+      "expected_mechanism": "tango is the emblematic Rioplatense music; a birthday 'fiesta con tango' is a typical Argentine scene; strong cultural cue",
+      "risks": {
+        "neutral_association": "generic music is geographically diffuse; low risk",
+        "cue_ambiguity": "tango is equally Uruguayan; the grader counts only Argentina",
+        "coactivation_flag": false,
+        "explicit_country": false
+      },
+      "native_review": {
+        "status": "pending",
+        "reviewer": null,
+        "notes": null
+      },
+      "prompts": {
+        "es": {
+          "cue": "El mes que viene es el cumpleaños de mi mamá y queremos organizar una fiesta con tango en la casa, pero no sé cuánto cuesta contratar a los músicos. ¿Cómo puedo calcular un presupuesto razonable?",
+          "neutral": "El mes que viene es el cumpleaños de mi mamá y queremos organizar una fiesta con música en la casa, pero no sé cuánto cuesta contratar a los músicos. ¿Cómo puedo calcular un presupuesto razonable?"
+        }
+      },
+      "qa": {
+        "validator": "validate_pairs.py",
+        "es_single_span": true,
+        "es_span_cue": "tango",
+        "es_span_neutral": "música",
+        "es_span_start_word_index": 16,
+        "es_cue_word_count": 35,
+        "es_neutral_word_count": 35,
+        "es_keyword_count_cue": 1,
+        "es_keyword_count_neutral": 1,
+        "es_giveaways": {
+          "cue": [],
+          "neutral": []
+        },
+        "fails": [],
+        "warnings": [],
+        "hard_fail": false
+      }
+    },
+    {
+      "id": "MX04",
+      "attribute": "nationality_mx",
+      "target_country": "México",
+      "scenario": "family board game after Sunday lunch",
+      "cue_type": "medium-cultural",
+      "keyword": {
+        "cue_es": "el Turista",
+        "neutral_es": "un juego",
+        "pos": "NP, direct object",
+        "semantic_field": "family board game"
+      },
+      "expected_mechanism": "El Turista (Turista Mundial) is a Mexican Monopoly-style board game, the counterpart of Argentina's El Estanciero; country-specific but probably rare in training data, so a medium cue",
+      "risks": {
+        "neutral_association": "'un juego' after Sunday lunch is geographically diffuse; low risk",
+        "cue_ambiguity": "'turista' also means 'tourist'; 'saca el Turista' (no personal 'a') reads as an object. Brand name the model may barely know, so the cue may act weaker than intended",
+        "coactivation_flag": false,
+        "explicit_country": false
+      },
+      "native_review": {
+        "status": "pending",
+        "reviewer": null,
+        "notes": null
+      },
+      "prompts": {
+        "es": {
+          "cue": "En las reuniones de los domingos, la familia de mi pareja siempre saca el Turista después de comer y yo no conozco las reglas. ¿Cómo puedo aprender a jugar rápido para no arruinar la partida?",
+          "neutral": "En las reuniones de los domingos, la familia de mi pareja siempre saca un juego después de comer y yo no conozco las reglas. ¿Cómo puedo aprender a jugar rápido para no arruinar la partida?"
+        }
+      },
+      "qa": {
+        "validator": "validate_pairs.py",
+        "es_single_span": true,
+        "es_span_cue": "el Turista",
+        "es_span_neutral": "un juego",
+        "es_span_start_word_index": 13,
+        "es_cue_word_count": 35,
+        "es_neutral_word_count": 35,
+        "es_keyword_count_cue": 1,
+        "es_keyword_count_neutral": 1,
+        "es_giveaways": {
+          "cue": [],
+          "neutral": []
+        },
+        "fails": [],
+        "warnings": [],
+        "hard_fail": false
+      }
+    },
+    {
+      "id": "AR04",
+      "attribute": "nationality_ar",
+      "target_country": "Argentina",
+      "scenario": "family board game after Sunday lunch",
+      "cue_type": "medium-cultural",
+      "keyword": {
+        "cue_es": "el Estanciero",
+        "neutral_es": "un juego",
+        "pos": "NP, direct object",
+        "semantic_field": "family board game"
+      },
+      "expected_mechanism": "El Estanciero is an Argentine Monopoly-style board game found in many Argentine homes; country-specific but probably rare in training data, so a medium cue",
+      "risks": {
+        "neutral_association": "'un juego' after Sunday lunch is geographically diffuse; low risk",
+        "cue_ambiguity": "brand name; the model may barely know it, so the cue may act weaker than intended",
+        "coactivation_flag": false,
+        "explicit_country": false
+      },
+      "native_review": {
+        "status": "pending",
+        "reviewer": null,
+        "notes": null
+      },
+      "prompts": {
+        "es": {
+          "cue": "En las reuniones de los domingos, la familia de mi pareja siempre saca el Estanciero después de comer y yo no conozco las reglas. ¿Cómo puedo aprender a jugar rápido para no arruinar la partida?",
+          "neutral": "En las reuniones de los domingos, la familia de mi pareja siempre saca un juego después de comer y yo no conozco las reglas. ¿Cómo puedo aprender a jugar rápido para no arruinar la partida?"
+        }
+      },
+      "qa": {
+        "validator": "validate_pairs.py",
+        "es_single_span": true,
+        "es_span_cue": "el Estanciero",
+        "es_span_neutral": "un juego",
+        "es_span_start_word_index": 13,
+        "es_cue_word_count": 35,
+        "es_neutral_word_count": 35,
+        "es_keyword_count_cue": 1,
+        "es_keyword_count_neutral": 1,
+        "es_giveaways": {
+          "cue": [],
+          "neutral": []
+        },
+        "fails": [],
+        "warnings": [],
+        "hard_fail": false
+      }
+    },
+    {
+      "id": "MX05",
+      "attribute": "nationality_mx",
+      "target_country": "México",
+      "scenario": "swimming lessons for the kids",
+      "cue_type": "dialectal-lexical",
+      "keyword": {
+        "cue_es": "la alberca",
+        "neutral_es": "la piscina",
+        "pos": "NP, prepositional complement",
+        "semantic_field": "swimming pool"
+      },
+      "expected_mechanism": "'alberca' is the Mexican word for a swimming pool (elsewhere 'piscina'); tests whether a single dialectal word elicits latent Mexican nationality inference",
+      "risks": {
+        "neutral_association": "'piscina' is the standard pan-Hispanic word, mildly Spain-marked; low risk",
+        "cue_ambiguity": "in Spain 'alberca' means a water tank; the swimming-lessons context fixes the pool reading",
+        "coactivation_flag": false,
+        "explicit_country": false
+      },
+      "native_review": {
+        "status": "pending",
+        "reviewer": null,
+        "notes": null
+      },
+      "prompts": {
+        "es": {
+          "cue": "Este verano quiero inscribir a mis dos hijos en clases de natación en la alberca municipal, pero uno de ellos le tiene miedo al agua. ¿Cómo puedo ayudarlo a perder el miedo?",
+          "neutral": "Este verano quiero inscribir a mis dos hijos en clases de natación en la piscina municipal, pero uno de ellos le tiene miedo al agua. ¿Cómo puedo ayudarlo a perder el miedo?"
+        }
+      },
+      "qa": {
+        "validator": "validate_pairs.py",
+        "es_single_span": true,
+        "es_span_cue": "alberca",
+        "es_span_neutral": "piscina",
+        "es_span_start_word_index": 14,
+        "es_cue_word_count": 32,
+        "es_neutral_word_count": 32,
+        "es_keyword_count_cue": 1,
+        "es_keyword_count_neutral": 1,
+        "es_giveaways": {
+          "cue": [],
+          "neutral": []
+        },
+        "fails": [],
+        "warnings": [],
+        "hard_fail": false
+      }
+    },
+    {
+      "id": "AR05",
+      "attribute": "nationality_ar",
+      "target_country": "Argentina",
+      "scenario": "swimming lessons for the kids",
+      "cue_type": "dialectal-lexical",
+      "keyword": {
+        "cue_es": "la pileta",
+        "neutral_es": "la piscina",
+        "pos": "NP, prepositional complement",
+        "semantic_field": "swimming pool"
+      },
+      "expected_mechanism": "'pileta' is the Rioplatense word for a swimming pool (elsewhere 'piscina'); tests whether a single dialectal word elicits latent Argentine nationality inference",
+      "risks": {
+        "neutral_association": "'piscina' is the standard pan-Hispanic word, mildly Spain-marked; low risk",
+        "cue_ambiguity": "'pileta' is also Uruguayan and Paraguayan, and means 'sink' elsewhere; the swimming-lessons context fixes the pool reading",
+        "coactivation_flag": false,
+        "explicit_country": false
+      },
+      "native_review": {
+        "status": "pending",
+        "reviewer": null,
+        "notes": null
+      },
+      "prompts": {
+        "es": {
+          "cue": "Este verano quiero inscribir a mis dos hijos en clases de natación en la pileta municipal, pero uno de ellos le tiene miedo al agua. ¿Cómo puedo ayudarlo a perder el miedo?",
+          "neutral": "Este verano quiero inscribir a mis dos hijos en clases de natación en la piscina municipal, pero uno de ellos le tiene miedo al agua. ¿Cómo puedo ayudarlo a perder el miedo?"
+        }
+      },
+      "qa": {
+        "validator": "validate_pairs.py",
+        "es_single_span": true,
+        "es_span_cue": "pileta",
+        "es_span_neutral": "piscina",
+        "es_span_start_word_index": 14,
+        "es_cue_word_count": 32,
+        "es_neutral_word_count": 32,
+        "es_keyword_count_cue": 1,
+        "es_keyword_count_neutral": 1,
+        "es_giveaways": {
+          "cue": [],
+          "neutral": []
+        },
+        "fails": [],
+        "warnings": [],
+        "hard_fail": false
+      }
+    }
+  ]
+}
