@@ -20,9 +20,9 @@ values by scenario -- see the docstring of `exact_permutation_test` for
 the full explanation of why this test and not a classic t-test.
 
 LABEL_KEY: every function here takes an optional `label_key` parameter
-(default "mentions_colombia", the raw grader label). This lets the exact
+(default "mentions_target", the raw grader label). This lets the exact
 same pipeline compute D and the summary using a DIFFERENT label, such as
-"mentions_colombia_ars_verified" (Stage 4's ARS filter) -- so the primary
+"mentions_target_ars_verified" (Stage 4's ARS filter) -- so the primary
 result and the ARS-filtered sensitivity check both come from one code
 path, not two.
 """
@@ -31,7 +31,7 @@ import itertools
 
 import numpy as np
 
-DEFAULT_LABEL_KEY = "mentions_colombia"
+DEFAULT_LABEL_KEY = "mentions_target"  # older Colombia results use "mentions_colombia" (see _mention_rate)
 
 
 def _mention_rate(position_gradings, label_key=DEFAULT_LABEL_KEY):
@@ -39,7 +39,9 @@ def _mention_rate(position_gradings, label_key=DEFAULT_LABEL_KEY):
     came back True. None/missing counts as no mention (failed grading,
     or -- for the ARS label -- a mention that was never ARS-checked
     because it wasn't positive in the first place)."""
-    positives = sum(1 for g in position_gradings if g.get(label_key))
+    positives = sum(
+        1 for g in position_gradings
+        if g.get(label_key) or (label_key == DEFAULT_LABEL_KEY and g.get("mentions_colombia")))
     return positives / len(position_gradings)
 
 
