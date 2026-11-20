@@ -3,7 +3,7 @@
 Stage 4 (optional): ARS -- AR-verified salience.
 
 Uses the Reconstructor (AR) as a causal verifier of the grader's positive
-labels. For every explanation the grader flagged as "mentions_colombia"
+labels. For every explanation the grader flagged as "mentions_target"
 with a valid quote, removes just that claim and asks the AR to reconstruct
 the activation from both versions. If removing the claim hurts
 reconstruction (higher MSE against the REAL activation from Stage 1),
@@ -108,14 +108,14 @@ def _reconstruct(ar_model, tokenizer, explanation_text, critic_suffix_ids, layer
 
 
 def compute_ars_for_item(item, ar_model, tokenizer, critic_suffix_ids):
-    """Adds an 'ars' field to every grading that has mentions_colombia=True
+    """Adds an 'ars' field to every grading that has mentions_target=True
     and a verified quote. Mutates `item` in place."""
     for pos, gradings in item["gradings"].items():
         real_vector = np.asarray(item["vectors"][pos])
         for j, g in enumerate(gradings):
             # Defensive check: requires a truthy quote, guarding against
             # already-generated Stage 3 data with quote=None + quote_verified=True.
-            if not (g.get("mentions_colombia") and g.get("quote_verified") and g.get("quote")):
+            if not (g.get("mentions_target") and g.get("quote_verified") and g.get("quote")):
                 continue
             text = item["explanations"][pos][j]
             quote = g["quote"]
@@ -146,11 +146,11 @@ def calibrate_threshold(items, percentile=90):
 
 
 def apply_ars_filter(items, tau):
-    """Adds 'mentions_colombia_ars_verified': label survives only if
+    """Adds 'mentions_target_ars_verified': label survives only if
     ars > tau. Leaves the original grader label untouched (both are kept
     for the sensitivity analysis)."""
     for item in items:
         for gradings in item["gradings"].values():
             for g in gradings:
                 if "ars" in g:
-                    g["mentions_colombia_ars_verified"] = g["ars"] > tau
+                    g["mentions_target_ars_verified"] = g["ars"] > tau

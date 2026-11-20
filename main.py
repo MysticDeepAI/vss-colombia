@@ -33,6 +33,10 @@ from src import ars, extraction, grading, metric, verbalization
 
 STAGES = ["extraction", "verbalization", "grading", "ars", "metric"]
 
+# country the grader looks for, from the pair's `attribute` field
+# (anything else, e.g. the Colombia pilot's "nationality", means Colombia)
+TARGET_BY_ATTRIBUTE = {"nationality_mx": "México", "nationality_ar": "Argentina"}
+
 
 def load_config(path="config.yaml"):
     with open(path, encoding="utf-8") as f:
@@ -48,7 +52,10 @@ def load_dataset(config):
 
     items = []
     for pair in data["pairs"]:
-        for language in ("es", "en"):
+        # only the languages this pair actually has (the Colombia pilot has es + en,
+        # the MX/AR mini-pilot pairs are Spanish only)
+        languages = [lang for lang in ("es", "en") if lang in pair["prompts"]]
+        for language in languages:
             for arm in ("cue", "neutral"):
                 items.append({
                     "id": f"{pair['id']}_{arm}_{language}",
@@ -56,6 +63,7 @@ def load_dataset(config):
                     "arm": arm,
                     "language": language,
                     "attribute": pair["attribute"],
+                    "target": TARGET_BY_ATTRIBUTE.get(pair["attribute"], "Colombia"),
                     "keyword": pair["keyword"][f"{arm}_{language}"],
                     "prompt": pair["prompts"][language][arm],
                 })
@@ -171,13 +179,13 @@ def main():
     ars_was_run = any("ars" in g for it in items
                       for position_gradings in it["gradings"].values()
                       for g in position_gradings)
-    ars_filter_applied = any("mentions_colombia_ars_verified" in g for it in items
+    ars_filter_applied = any("mentions_target_ars_verified" in g for it in items
                              for position_gradings in it["gradings"].values()
                              for g in position_gradings)
     if ars_was_run and ars_filter_applied:
         print("\n--- ARS-filtered sensitivity check ---")
         D_rows_ars = metric.calculate_D(
-            items, config, label_key="mentions_colombia_ars_verified")
+            items, config, label_key="mentions_target_ars_verified")
         summary_ars = metric.summary_by_attribute(D_rows_ars)
         final_result["results_D_ars_filtered"] = D_rows_ars
         final_result["summary_by_attribute_ars_filtered"] = summary_ars
