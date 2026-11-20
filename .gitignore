@@ -1,0 +1,17 @@
+# Python / Jupyter
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+
+# Secrets
+.env
+.env.*
+
+# Outputs of new runs (large JSON). Colombia results/ already tracked stay tracked.
+results/mx_ar*/
+*.tgz
+
+# Blind human-check sheets and answer key: keep out of git until annotation is done
+human_check/
+key.csv
+key_meta.json

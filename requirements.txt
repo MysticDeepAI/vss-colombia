@@ -1,0 +1,18 @@
+# requirements.txt — pip dependencies for the pipeline (cloud pod or any venv).
+# torch is NOT listed: install the build that matches your CUDA, or use a
+# PyTorch pod template that already ships it. Then:
+#   pip install -r requirements.txt
+# environment.yml (conda) installs this same list through its pip section.
+
+transformers==4.57.6      # pinned: 5.x clashes with the code; needs huggingface_hub<1.0
+huggingface_hub<1.0       # 1.x breaks transformers 4.57 (ImportError: is_offline_mode)
+accelerate>=0.30          # required by transformers for device_map="cuda"
+safetensors>=0.4
+anthropic>=0.40           # grader.backend = claude_api
+jinja2                    # tokenizer.apply_chat_template (check_tokens.py, extraction)
+httpx                     # imported by kitft/natural_language_autoencoders nla_inference.py (layer_test.py)
+orjson                    # imported by kitft/natural_language_autoencoders nla_inference.py (layer_test.py)
+pyyaml>=6.0
+numpy>=1.24
+pandas>=2.0
+matplotlib>=3.7
