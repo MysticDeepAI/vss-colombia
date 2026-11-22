@@ -5,7 +5,9 @@
 model:
   qwen_path: "Qwen/Qwen2.5-7B-Instruct"
   av_checkpoint: "kitft/nla-qwen2.5-7b-L20-av"   # or a local path if already downloaded
-  layer: 20   # extraction layer (fixed by the AV checkpoint's training)
+  layer: 21   # hidden_states index read at extraction. 21 = output of block 20, the
+              # convention of the official NLA examples; confirmed by
+              # latam_pilot/layer_test.py on 2026-11-22 (see run2_layer21_results).
 
 sampling:
   k_samples: 5           # how many times the AV is queried per position
@@ -28,6 +30,7 @@ grader:
   max_new_tokens: 60       # the expected response is a short JSON; 100 was more
                             # than enough, and an outlier text could force the max.
   claude_model: "claude-sonnet-5-5"   # only used if backend = claude_api
+  max_workers: 8           # parallel API calls for claude_api (1 = sequential)
 
 ars:
   enabled: false  # ARS (AR-verified salience) is an optional extra check:
@@ -38,8 +41,9 @@ ars:
                     # real runtime. Turn on for the "official" numbers going
                     # into the paper, once Stages 1-4 already look sane.
   ar_checkpoint: "kitft/nla-qwen2.5-7b-L20-ar"
-  layer_index: 20            # must match model.layer (the AR was trained
-                              # to reconstruct THIS layer's raw activations)
+  nla_repo: "/workspace/natural_language_autoencoders"   # clone of
+                              # github.com/kitft/natural_language_autoencoders;
+                              # ARS scores with its official NLACritic
   neutral_percentile: 90     # the ARS threshold is calibrated as this
                               # percentile of ARS values on the NEUTRAL arm
                               # (where, by design, there's no real Colombian
@@ -47,5 +51,5 @@ ars:
 
 paths:
   dataset: "dataset/minimal_pairs_mx_ar.json"
-  results: "results/mx_ar/results.json"
-  figures_dir: "results/mx_ar/figures/"
+  results: "results/mx_ar_L21/results.json"
+  figures_dir: "results/mx_ar_L21/figures/"

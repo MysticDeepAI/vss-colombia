@@ -140,15 +140,15 @@ def main():
         if config.get("ars", {}).get("enabled", False):
             print("\n=== Stage 4/5: ARS (AR-verified salience) ===")
             ar_checkpoint_id = config["ars"]["ar_checkpoint"]
-            layer_index = config["ars"]["layer_index"]
-            print(f"[ars] loading AR from {ar_checkpoint_id} ...")
-            ar_model, ar_tokenizer = ars._load_ar(ar_checkpoint_id)
+            print(f"[ars] loading the official critic from {ar_checkpoint_id} ...")
+            critic = ars.load_critic(ar_checkpoint_id, config["ars"]["nla_repo"])
+            score_fn = lambda text, vec: critic.score(text, vec)[0]
 
+            n_scored = 0
             for i, item in enumerate(items, 1):
-                ars.compute_ars_for_item(item, ar_model, ar_tokenizer,
-                                         ars.CRITIC_SUFFIX_IDS)
+                n_scored += ars.compute_ars_for_item(item, score_fn)
                 if i % 20 == 0 or i == len(items):
-                    print(f"  [{i}/{len(items)}] items ARS-checked")
+                    print(f"  [{i}/{len(items)}] items ARS-checked ({n_scored} positive labels scored)")
 
             tau = ars.calibrate_threshold(
                 items, percentile=config["ars"]["neutral_percentile"])

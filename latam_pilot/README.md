@@ -81,6 +81,11 @@ CHOCLO) was removed on 2026-11-16; the old version is in tag `countries-v1`.
 - In both layers the entity cues (IMSS, ANSES, mariachi, choripán) give large positive D; the weak pairs
   change by one or two samples out of five. Everything still depends on the human check of the grader.
 
+- `exploratory_runs_plan_2026-11-22.md`: exploratory runs on layer 21, written before running them, with
+  what each result would change in the paper and the sha256 of each config: noise (2 full repeats + a
+  regrade, `noise_report.py`), our ARS on the official critic with a length control and a percentile sweep
+  (`ars_report.py`), and Colombia split into grader and layer effects. None changes the main verdict.
+
 ## Next steps
 
 1. Jhoan (pipeline): `load_dataset` in `main.py` loops over `("es", "en")`; the MX/AR pairs are Spanish-only, so
