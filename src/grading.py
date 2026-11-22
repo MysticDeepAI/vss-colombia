@@ -108,7 +108,18 @@ def _parse_response(response_text, source_explanation):
     try:
         data = json.loads(cleaned)
     except json.JSONDecodeError:
-        return {"mentions_target": None, "quote": None, "error": "not_parseable"}
+        # Sometimes the grader writes a short justification before the JSON
+        # (9 of 700 answers in the first MX/AR run). Fall back to the LAST
+        # {...} object in the answer, which is where the verdict goes.
+        data = None
+        for match in reversed(re.findall(r"\{[^{}]*\}", cleaned)):
+            try:
+                data = json.loads(match)
+                break
+            except json.JSONDecodeError:
+                continue
+        if data is None:
+            return {"mentions_target": None, "quote": None, "error": "not_parseable"}
     if not isinstance(data, dict):
         return {"mentions_target": None, "quote": None, "error": "not_parseable"}
 
