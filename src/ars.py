@@ -77,13 +77,52 @@ def load_critic(checkpoint_id, nla_repo):
     return NLACritic(path, device="cuda", dtype=torch.bfloat16)
 
 
-def compute_ars_for_item(item, score_fn):
-    """Adds an 'ars' field to every grading that has mentions_target=True
-    and a verified quote. Mutates `item` in place.
+def _control_removal(explanation, quote, seed):
+    """Length control: removes a span of the same length as `quote` that does
+    NOT overlap the quote, starting at a word boundary, chosen with a fixed
+    seed. Returns None if the text has no such span.
 
-    score_fn(text, real_vector) -> direction MSE (NLACritic.score(...)[0]).
-    ARS = MSE(without the claim) - MSE(with it): positive means the claim
-    helped reconstruct the real activation."""
+    Removing the quoted claim shortens the text; part of any change in MSE
+    could come from removing content at all, not from removing that claim.
+    The control removes the same amount of other text, so
+    ARS - ARS_control isolates the claim."""
+    import random
+
+    L = len(quote)
+    q0 = explanation.find(quote)
+    if q0 < 0 or L == 0:
+        return None
+    q1 = q0 + L
+    starts = [k for k in range(len(explanation) - L + 1)
+              if (k == 0 or explanation[k - 1] == " ")
+              and (k + L <= q0 or k >= q1)]
+    if not starts:
+        return None
+    k = random.Random(seed).choice(starts)
+    edited = explanation[:k] + explanation[k + L:]
+    edited = re.sub(r"\s{2,}", " ", edited)
+    edited = re.sub(r"\s+([.,;:])", r"\1", edited)
+    return edited.strip()
+
+
+def compute_ars_for_item(item, score_fn):
+    """Adds ARS fields to every grading that has mentions_target=True and a
+    verified quote. Mutates `item` in place. Returns how many were scored.
+
+    score_fn(text, real_vector) -> direction MSE (NLACritic.score(...)[0]);
+    real_vector is the stored extraction vector (hidden_states[21] with the
+    current config, the reconstructor's target space).
+
+      ars          = MSE(without the quote)        - MSE(original)
+      ars_control  = MSE(without a same-length span elsewhere) - MSE(original)
+      ars_net      = ars - ars_control
+
+    Positive ars means the quoted claim helped reconstruct the activation;
+    positive ars_net means it helped more than removing the same amount of
+    other text. This is our own version built on the official critic, not an
+    ARS defined by the NLA authors."""
+    import zlib
+
     n = 0
     for pos, gradings in item["gradings"].items():
         real_vector = np.asarray(item["vectors"][pos], dtype=np.float32)
@@ -93,12 +132,20 @@ def compute_ars_for_item(item, score_fn):
             if not (g.get("mentions_target") and g.get("quote_verified") and g.get("quote")):
                 continue
             text = item["explanations"][pos][j]
-            edited_text = _remove_claim(text, g["quote"])
+            quote = g["quote"]
             mse_original = float(score_fn(text, real_vector))
-            mse_edited = float(score_fn(edited_text, real_vector))
+            mse_edited = float(score_fn(_remove_claim(text, quote), real_vector))
             g["ars_mse_original"] = mse_original
             g["ars_mse_edited"] = mse_edited
             g["ars"] = mse_edited - mse_original
+
+            seed = zlib.crc32(f"{item.get('id', '')}|{pos}|{j}".encode())
+            control_text = _control_removal(text, quote, seed)
+            if control_text is not None:
+                mse_control = float(score_fn(control_text, real_vector))
+                g["ars_mse_control"] = mse_control
+                g["ars_control"] = mse_control - mse_original
+                g["ars_net"] = g["ars"] - g["ars_control"]
             n += 1
     return n
 

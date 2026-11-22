@@ -152,18 +152,31 @@ def test_ars_uses_score_fn_on_verified_positives_only():
         return 0.2 if "Mexican" in text else 0.5  # claim present -> better reconstruction
 
     item = {"vectors": {"tw": [1.0, 0.0]},
-            "explanations": {"tw": ["A Mexican speaker eats esquites.", "Food.", "Nothing here."]},
+            "explanations": {"tw": ["A Mexican speaker eats esquites at a stall after the game.", "Food.", "Nothing here."]},
             "gradings": {"tw": [
                 {"mentions_target": True, "quote_verified": True, "quote": "A Mexican speaker"},
                 {"mentions_target": False, "quote_verified": True, "quote": None},
                 {"mentions_target": True, "quote_verified": False, "quote": "invented"}]}}
     n = ars.compute_ars_for_item(item, score_fn)
     g = item["gradings"]["tw"]
-    assert n == 1 and len(seen) == 2
+    assert n == 1 and len(seen) == 3  # original, without the quote, length control
     assert abs(g[0]["ars"] - 0.3) < 1e-9 and "ars" not in g[1] and "ars" not in g[2]
+    # the control removes other text of the same length, keeps the quote -> no change in this fake
+    assert "Mexican" in seen[2] and len(seen[2]) < len(seen[0])
+    assert abs(g[0]["ars_control"]) < 1e-9 and abs(g[0]["ars_net"] - 0.3) < 1e-9
     tau = ars.calibrate_threshold([{"arm": "neutral", "gradings": {"tw": [{"ars": 0.1}, {"ars": 0.2}]}}], 90)
     ars.apply_ars_filter([{"arm": "cue", "gradings": item["gradings"]}], tau)
     assert g[0]["mentions_target_ars_verified"] is True
+
+
+def test_ars_control_span_never_touches_the_quote():
+    from src.ars import _control_removal
+    t = "Spanish context with a Mexican speaker who eats esquites at a stall today."
+    for seed in range(50):
+        out = _control_removal(t, "a Mexican speaker", seed)
+        assert "a Mexican speaker" in out
+    assert _control_removal("a Mexican speaker", "a Mexican speaker", 0) is None
+    assert _control_removal("text", "not there", 0) is None
 
 
 def _stub_heavy_imports():
