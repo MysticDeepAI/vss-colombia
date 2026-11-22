@@ -49,10 +49,10 @@ def main():
     print("\n=== Stage 4: ARS ===")
     if config.get("ars", {}).get("enabled", False):
         print(f"[ars] loading AR from {config['ars']['ar_checkpoint']} ...")
-        ar_model, ar_tokenizer = ars._load_ar(config["ars"]["ar_checkpoint"])
+        critic = ars.load_critic(config["ars"]["ar_checkpoint"], config["ars"]["nla_repo"])
 
         for item in items:
-            ars.compute_ars_for_item(item, ar_model, ar_tokenizer, ars.CRITIC_SUFFIX_IDS)
+            ars.compute_ars_for_item(item, lambda text, vec: critic.score(text, vec)[0])
 
         n_with_ars = sum(1 for it in items for pos_g in it["gradings"].values()
                          for g in pos_g if "ars" in g)

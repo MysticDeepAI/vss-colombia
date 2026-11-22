@@ -15,9 +15,8 @@ Per the NLA paper's own finding: "removing true claims from AV
 explanations hurts reconstruction more than removing false claims."
 A large positive ARS is evidence the mention was real.
 
-Empirically validated against a real Stage-1 vector (smoke_test_ar.py):
-the matching explanation reconstructs ~2.8x closer to the real vector
-than an unrelated one, confirming the loading approach below is sound.
+Scoring goes through the official NLACritic (see load_critic), so the
+MSE is the direction-only 2(1 - cos) the reconstructor was trained on.
 """
 
 import re
@@ -52,6 +51,60 @@ def _remove_claim(explanation, quote):
     edited = re.sub(r"\s+([.,;:])", r"\1", edited)   # fix " ," -> ","
     return edited.strip()
 
+
+def load_critic(checkpoint_id, nla_repo):
+    """Loads the official reconstructor wrapper (NLACritic from the NLA repo's
+    nla_inference.py), the same one latam_pilot/layer_test.py uses.
+
+    The first version of this module loaded the AR as a plain causal LM and
+    read hidden_states[20] at the last token. That skipped two parts of the
+    trained reconstructor: the value head (value_head.safetensors, a d x d
+    linear map on top of the last block) and the direction-only distance
+    (both vectors scaled to L2 = sqrt(d) before the MSE, so MSE = 2(1 - cos)).
+    NLACritic does both, so ARS now uses it.
+    """
+    import os
+    import sys
+    from pathlib import Path
+
+    import torch
+    from huggingface_hub import snapshot_download
+
+    sys.path.insert(0, str(Path(nla_repo).expanduser()))
+    from nla_inference import NLACritic
+
+    path = checkpoint_id if os.path.isdir(checkpoint_id) else snapshot_download(repo_id=checkpoint_id)
+    return NLACritic(path, device="cuda", dtype=torch.bfloat16)
+
+
+def compute_ars_for_item(item, score_fn):
+    """Adds an 'ars' field to every grading that has mentions_target=True
+    and a verified quote. Mutates `item` in place.
+
+    score_fn(text, real_vector) -> direction MSE (NLACritic.score(...)[0]).
+    ARS = MSE(without the claim) - MSE(with it): positive means the claim
+    helped reconstruct the real activation."""
+    n = 0
+    for pos, gradings in item["gradings"].items():
+        real_vector = np.asarray(item["vectors"][pos], dtype=np.float32)
+        for j, g in enumerate(gradings):
+            # Defensive check: requires a truthy quote, guarding against
+            # already-generated Stage 3 data with quote=None + quote_verified=True.
+            if not (g.get("mentions_target") and g.get("quote_verified") and g.get("quote")):
+                continue
+            text = item["explanations"][pos][j]
+            edited_text = _remove_claim(text, g["quote"])
+            mse_original = float(score_fn(text, real_vector))
+            mse_edited = float(score_fn(edited_text, real_vector))
+            g["ars_mse_original"] = mse_original
+            g["ars_mse_edited"] = mse_edited
+            g["ars"] = mse_edited - mse_original
+            n += 1
+    return n
+
+
+# --- Legacy loader, kept only for smoke_test_ar.py and diagnose_ar_suffix.py -----
+# It skips the value head and the direction-only MSE; the pipeline no longer uses it.
 
 def _load_ar(checkpoint_id):
     """Loads the AR (Reconstructor).
@@ -105,28 +158,6 @@ def _reconstruct(ar_model, tokenizer, explanation_text, critic_suffix_ids, layer
         out = ar_model(input_ids=ids, output_hidden_states=True)
     last_token_hidden = out.hidden_states[layer_index][0, -1]  # raw layer output, last token
     return last_token_hidden.float().cpu().numpy()
-
-
-def compute_ars_for_item(item, ar_model, tokenizer, critic_suffix_ids):
-    """Adds an 'ars' field to every grading that has mentions_target=True
-    and a verified quote. Mutates `item` in place."""
-    for pos, gradings in item["gradings"].items():
-        real_vector = np.asarray(item["vectors"][pos])
-        for j, g in enumerate(gradings):
-            # Defensive check: requires a truthy quote, guarding against
-            # already-generated Stage 3 data with quote=None + quote_verified=True.
-            if not (g.get("mentions_target") and g.get("quote_verified") and g.get("quote")):
-                continue
-            text = item["explanations"][pos][j]
-            quote = g["quote"]
-            edited_text = _remove_claim(text, quote)
-
-            h_hat_original = _reconstruct(ar_model, tokenizer, text, critic_suffix_ids)
-            h_hat_edited = _reconstruct(ar_model, tokenizer, edited_text, critic_suffix_ids)
-
-            mse_original = float(np.mean((real_vector - h_hat_original) ** 2))
-            mse_edited = float(np.mean((real_vector - h_hat_edited) ** 2))
-            g["ars"] = mse_edited - mse_original
 
 
 def calibrate_threshold(items, percentile=90):

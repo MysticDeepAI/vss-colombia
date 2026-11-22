@@ -271,11 +271,23 @@ def grade(items_with_explanations, config):
         import anthropic
         client = anthropic.Anthropic(max_retries=5)
         model_name = config["grader"]["claude_model"]
-        for n, (item, pos, i, text) in enumerate(flat, 1):
-            item["gradings"][pos][i] = _grade_with_claude(
-                prompt_for(item, text), text[:MAX_CHARS], client, model_name)
-            if n % 50 == 0 or n == total:
-                print(f"  [{n}/{total}] explanations graded")
+        # Calls are independent, so they run in a small thread pool (the client is
+        # thread-safe). 1 worker reproduces the original sequential behaviour.
+        from concurrent.futures import ThreadPoolExecutor, as_completed
+        workers = max(1, int(config["grader"].get("max_workers", 1)))
+
+        def _one(entry):
+            item, pos, i, text = entry
+            return entry, _grade_with_claude(prompt_for(item, text), text[:MAX_CHARS],
+                                             client, model_name)
+
+        with ThreadPoolExecutor(max_workers=workers) as pool:
+            futures = [pool.submit(_one, entry) for entry in flat]
+            for n, fut in enumerate(as_completed(futures), 1):
+                (item, pos, i, _), result = fut.result()
+                item["gradings"][pos][i] = result
+                if n % 50 == 0 or n == total:
+                    print(f"  [{n}/{total}] explanations graded")
 
         # one more try for calls that failed (network, overload)
         failed = [(item, pos, i, text) for (item, pos, i, text) in flat

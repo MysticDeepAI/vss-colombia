@@ -122,6 +122,50 @@ def test_api_error_is_retried_then_recorded():
     assert out[0]["gradings"]["tw"][0]["error"].startswith("api_error")
 
 
+def test_parallel_grading_keeps_each_label_in_place():
+    import src.grading as G
+    import json as _json
+
+    def responder(kw):
+        text = kw["messages"][0]["content"]
+        # answer yes only for the explanation that names the country
+        yes = "a Mexican speaker" in text
+        body = {"mentions_target": yes, "quote": "a Mexican speaker" if yes else None}
+        return types.SimpleNamespace(content=[types.SimpleNamespace(type="text", text=_json.dumps(body))])
+
+    sys.modules["anthropic"] = _fake_anthropic(responder)
+    texts = ["plain text %d" % k for k in range(30)]
+    texts[17] = "This is a Mexican speaker."
+    items = [{"id": "a", "group_id": "MX01", "arm": "cue", "language": "es", "attribute": "nationality_mx",
+              "target": "México", "explanations": {"tw": texts}}]
+    out = G.grade(items, {"grader": {"backend": "claude_api", "claude_model": "m", "max_workers": 8}})
+    labels = [g["mentions_target"] for g in out[0]["gradings"]["tw"]]
+    assert labels[17] is True and sum(labels) == 1
+
+
+def test_ars_uses_score_fn_on_verified_positives_only():
+    from src import ars
+    seen = []
+
+    def score_fn(text, vec):
+        seen.append(text)
+        return 0.2 if "Mexican" in text else 0.5  # claim present -> better reconstruction
+
+    item = {"vectors": {"tw": [1.0, 0.0]},
+            "explanations": {"tw": ["A Mexican speaker eats esquites.", "Food.", "Nothing here."]},
+            "gradings": {"tw": [
+                {"mentions_target": True, "quote_verified": True, "quote": "A Mexican speaker"},
+                {"mentions_target": False, "quote_verified": True, "quote": None},
+                {"mentions_target": True, "quote_verified": False, "quote": "invented"}]}}
+    n = ars.compute_ars_for_item(item, score_fn)
+    g = item["gradings"]["tw"]
+    assert n == 1 and len(seen) == 2
+    assert abs(g[0]["ars"] - 0.3) < 1e-9 and "ars" not in g[1] and "ars" not in g[2]
+    tau = ars.calibrate_threshold([{"arm": "neutral", "gradings": {"tw": [{"ars": 0.1}, {"ars": 0.2}]}}], 90)
+    ars.apply_ars_filter([{"arm": "cue", "gradings": item["gradings"]}], tau)
+    assert g[0]["mentions_target_ars_verified"] is True
+
+
 def _stub_heavy_imports():
     """main.py imports the stage modules, which import torch/transformers. On a machine without
     them (a laptop) the dataset test only needs the import to succeed, so stub them."""
