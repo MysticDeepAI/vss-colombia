@@ -26,10 +26,10 @@ tokenizer: Qwen/Qwen2.5-7B-Instruct   dataset: dataset/minimal_pairs_mx_ar.json 
    before keyword: ' con'   after keyword (tw+1..tw+5): [' en', ' la', ' casa', ',', ' pero']
    keyword token gap (cue - neutral): +1
 == AR03  OK
-   cue      'tango'                  2 tok [' t', 'ango']  | total 84
+   cue      'cuarteto'               3 tok [' cu', 'art', 'eto']  | total 85
    neutral  'música'                 1 tok [' música']  | total 83
    before keyword: ' con'   after keyword (tw+1..tw+5): [' en', ' la', ' casa', ',', ' pero']
-   keyword token gap (cue - neutral): +1
+   keyword token gap (cue - neutral): +2
 == MX04  OK
    cue      'el Turista'             3 tok [' el', ' Tur', 'ista']  | total 78
    neutral  'un juego'               2 tok [' un', ' juego']  | total 77

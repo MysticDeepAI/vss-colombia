@@ -47,16 +47,16 @@ CHOCLO) was removed on 2026-11-16; the old version is in tag `countries-v1`.
 - Native review was skipped for now, so every pair's `native_review.status` stays `pending`. If it is done later,
   record the answers and tag `dataset-v3`.
 
-## dataset-v3 candidate (2026-11-22)
+## dataset-v3 (2026-11-22)
 
 - AR03 cue changed from "tango" to "cuarteto". The native AR reviewer (2026-11-18) said a house
   party with tango is not common and suggested cumbia; cumbia was tried, but LatamGPT read it as Colombian in a
   blind check, so the team chose cuarteto; the native reviewer approved it on 2026-11-22. "en la casa" kept as is.
   AR02 already said "el ANSES". Grader refs for Argentina now also list "cuarteto".
-- `validate_pairs.py --write`: 10/10 pairs pass. `check_tokens_mx_ar.txt` is from dataset-v2 and is now out of
-  date for AR03.
-- Pending: re-run the token check (`check_tokens.py`, needs the Qwen tokenizer), then tag `dataset-v3` and set
-  `freeze_status` to frozen.
+- `validate_pairs.py --write`: 10/10 pairs pass. Token check (2026-11-22, Python 3.13.11, transformers 4.57.6):
+  10/10 OK, keyword found in all 20 prompts, window tokens identical within every pair; cue - neutral keyword
+  gap 0 to +2 tokens (AR03 and AR04 +2). Output in `check_tokens_mx_ar.txt`.
+- Frozen with tag `dataset-v3` (2026-11-22). Any later change becomes `dataset-v4`.
 - `latamgpt_check_2026-11-22.md`: LatamGPT (Copuchat) check of the 10 pairs and the grader prompt, verbatim.
   Blind country guess: 9/10 cue prompts right; AR03 "cumbia" read as Colombia; neutral prompts also get a
   country. Grader lists and rule judged fine.

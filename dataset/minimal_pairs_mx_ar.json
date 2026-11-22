@@ -3,7 +3,7 @@
     "name": "LatAm mini pilot minimal pairs: México and Argentina",
     "schema_version": "2.2",
     "date": "2026-11-22",
-    "freeze_status": "dataset-v3 candidate (2026-11-22), replaces dataset-v2 once merged and tagged. AR03 cue changed from 'tango' to 'cuarteto', approved by the native AR reviewer on 2026-11-22; token re-check pending. Native review of the MX pairs still pending.",
+    "freeze_status": "Frozen with tag dataset-v3 (2026-11-22, replaces dataset-v2). AR03 cue 'cuarteto' approved by the native AR reviewer. Token check passed on all 10 pairs (latam_pilot/check_tokens_mx_ar.txt; Python 3.13.11, transformers 4.57.6). Native review of the MX pairs still pending.",
     "design": "10 scenarios (MX01-MX05, AR01-AR05) x 2 arms (cue/neutral), Spanish only = 20 prompts",
     "pair_mix": {
       "1": "strong cue, culinary",
