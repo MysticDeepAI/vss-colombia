@@ -71,12 +71,15 @@ CHOCLO) was removed on 2026-11-16; the old version is in tag `countries-v1`.
 - `choclo_cue_candidates.md`: short list of food and tradition cue candidates for MX and AR taken from the CHOCLO
   benchmark, for a later version. Not in the dataset.
 
-## First run (2026-11-22)
+## Runs (2026-11-22)
 
-`run1_results_2026-11-22.md`: full run on dataset-v3 (A40, claude_api grader, strict rule). Pre-registered
-decision (`decide.py`): **SUCCESS**, pooled exact p = 0.031, median D = +0.20 in both countries. Entity cues
-(IMSS, ANSES, mariachi, choripán) light up at the cue position; dialect cues (alberca, pileta) and cuarteto
-give 0. The result still depends on the human check of the grader.
+- `run2_layer21_results_2026-11-22.md` (**primary**): layer test (`layer_test.py`) says use hidden_states[21]
+  (layer 20 wins 7/10 prompts but by 0.002 cosine, under the 0.05 bar). Full run at layer 21: decision
+  **PARTIAL**, pooled exact p = 0.031; Argentina 4 of 5 pairs positive, México 2 of 5 (the rule needs 3).
+- `run1_results_2026-11-22.md` (sensitivity): same run at hidden_states[20], done before the layer test.
+  Decision SUCCESS with the same pooled p.
+- In both layers the entity cues (IMSS, ANSES, mariachi, choripán) give large positive D; the weak pairs
+  change by one or two samples out of five. Everything still depends on the human check of the grader.
 
 ## Next steps
 
