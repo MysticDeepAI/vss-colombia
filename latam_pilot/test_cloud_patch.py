@@ -54,6 +54,12 @@ def test_parse_and_quote_audit():
     legacy = _parse_response('{"mentions_colombia": true, "quote": "Mexican"}', src)
     assert legacy["mentions_target"] is True and "mentions_colombia" not in legacy
     assert _parse_response("[1, 2]", src)["error"] == "not_parseable"
+    # justification before the JSON (seen in 9 of 700 answers of the first MX/AR run)
+    prefixed = _parse_response(
+        'It says "a Mexican speaker", so it counts.\n\n{"mentions_target": true, "quote": "a Mexican speaker"}', src)
+    assert prefixed["mentions_target"] is True and prefixed["quote_verified"] is True
+    prefixed_no = _parse_response('Only repeats {the word}.\n{"mentions_target": false, "quote": null}', src)
+    assert prefixed_no["mentions_target"] is False
 
 
 def _fake_anthropic(responder):

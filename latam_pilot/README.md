@@ -71,6 +71,13 @@ CHOCLO) was removed on 2026-11-16; the old version is in tag `countries-v1`.
 - `choclo_cue_candidates.md`: short list of food and tradition cue candidates for MX and AR taken from the CHOCLO
   benchmark, for a later version. Not in the dataset.
 
+## First run (2026-11-22)
+
+`run1_results_2026-11-22.md`: full run on dataset-v3 (A40, claude_api grader, strict rule). Pre-registered
+decision (`decide.py`): **SUCCESS**, pooled exact p = 0.031, median D = +0.20 in both countries. Entity cues
+(IMSS, ANSES, mariachi, choripán) light up at the cue position; dialect cues (alberca, pileta) and cuarteto
+give 0. The result still depends on the human check of the grader.
+
 ## Next steps
 
 1. Jhoan (pipeline): `load_dataset` in `main.py` loops over `("es", "en")`; the MX/AR pairs are Spanish-only, so
