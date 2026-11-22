@@ -1,5 +1,9 @@
 # Piloto MX/AR: primera corrida (2026-11-22)
 
+> **Nota:** esta corrida leyó `hidden_states[20]` y se hizo antes de la prueba de capa. La prueba indicó
+> capa 21, y el resultado principal es el de `run2_layer21_results_2026-11-22.md` (PARTIAL). Esta queda
+> como análisis de sensibilidad.
+
 Corrida completa del pipeline sobre `dataset-v3` (commit af4c4e5). Los archivos crudos (`results/mx_ar/`) no
 están en el repo por `.gitignore`; una copia está guardada fuera del repo junto con el log.
 
