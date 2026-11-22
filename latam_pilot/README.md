@@ -47,6 +47,30 @@ CHOCLO) was removed on 2026-11-16; the old version is in tag `countries-v1`.
 - Native review was skipped for now, so every pair's `native_review.status` stays `pending`. If it is done later,
   record the answers and tag `dataset-v3`.
 
+## dataset-v3 (2026-11-22)
+
+- AR03 cue changed from "tango" to "cuarteto". The native AR reviewer (2026-11-18) said a house
+  party with tango is not common and suggested cumbia; cumbia was tried, but LatamGPT read it as Colombian in a
+  blind check, so the team chose cuarteto; the native reviewer approved it on 2026-11-22. "en la casa" kept as is.
+  AR02 already said "el ANSES". Grader refs for Argentina now also list "cuarteto".
+- `validate_pairs.py --write`: 10/10 pairs pass. Token check (2026-11-22, Python 3.13.11, transformers 4.57.6):
+  10/10 OK, keyword found in all 20 prompts, window tokens identical within every pair; cue - neutral keyword
+  gap 0 to +2 tokens (AR03 and AR04 +2). Output in `check_tokens_mx_ar.txt`.
+- Frozen with tag `dataset-v3` (2026-11-22). Any later change becomes `dataset-v4`.
+- `latamgpt_check_2026-11-22.md`: LatamGPT (Copuchat) check of the 10 pairs and the grader prompt, verbatim.
+  Blind country guess: 9/10 cue prompts right; AR03 "cumbia" read as Colombia; neutral prompts also get a
+  country. Grader lists and rule judged fine.
+- `latamgpt_check_round2_2026-11-22.md`: second round (suggested improvements, neutral prompts, AR03
+  alternatives, grader lists). Points to check with a native reader: "en la casa" in the pair 3 frame, and
+  "jubilación" in the AR02 neutral arm.
+- `annotation_guide.md`: rule for the human check (same strict rule as the grader), examples and edge cases.
+- `human_check_process.md`: the human check step by step (700 explanations, 100-row sheet, 2 annotators,
+  thresholds) plus an optional LatamGPT third rater on the 40 shared rows (needs a new OK before sending).
+- `latamgpt_summary.md`: write-up of both LatamGPT rounds for the paper (what was done, facts, interpretation,
+  limitations).
+- `choclo_cue_candidates.md`: short list of food and tradition cue candidates for MX and AR taken from the CHOCLO
+  benchmark, for a later version. Not in the dataset.
+
 ## Next steps
 
 1. Jhoan (pipeline): `load_dataset` in `main.py` loops over `("es", "en")`; the MX/AR pairs are Spanish-only, so
@@ -55,4 +79,4 @@ CHOCLO) was removed on 2026-11-16; the old version is in tag `countries-v1`.
    country, and write that rule into the per-country grader prompts.
 3. Nicolás: blind sheet and scoring scripts are ready (tested on the Colombia pilot). After the run: build the
    sheet from the claude_api results, label the 100 rows, send the first 40 to the second person, then score.
-   Still needed: a short annotation guide with the same rule as the grader prompt (depends on step 2).
+   Annotation guide: `annotation_guide.md` (2026-11-22).

@@ -2,8 +2,8 @@
   "metadata": {
     "name": "LatAm mini pilot minimal pairs: México and Argentina",
     "schema_version": "2.2",
-    "date": "2026-11-18",
-    "freeze_status": "Frozen with tag dataset-v2 (replaces dataset-v1). Native review not done (pending).",
+    "date": "2026-11-22",
+    "freeze_status": "Frozen with tag dataset-v3 (2026-11-22, replaces dataset-v2). AR03 cue 'cuarteto' approved by the native AR reviewer. Token check passed on all 10 pairs (latam_pilot/check_tokens_mx_ar.txt; Python 3.13.11, transformers 4.57.6). Native review of the MX pairs still pending.",
     "design": "10 scenarios (MX01-MX05, AR01-AR05) x 2 arms (cue/neutral), Spanish only = 20 prompts",
     "pair_mix": {
       "1": "strong cue, culinary",
@@ -18,7 +18,8 @@
       "Cue strength labels (strong/medium) are design judgments to be confirmed by the native reviewers.",
       "Pair mix differs from the 13 Nov plan, where pair 3 is 'medium cue, culinary'; here pair 3 is a strong music cue (mariachi/tango), so the set has 3 strong, 1 medium and 1 dialectal pair.",
       "dataset-v2 changes: pair 3 sentence 'una noche de X' -> 'una fiesta con X'; pair 4 replaced (posada/mate -> El Turista/El Estanciero, shared frame); AR02 'la ANSES' -> 'el ANSES'.",
-      "The qa block of each pair is written by latam_pilot/validate_pairs.py --write."
+      "The qa block of each pair is written by latam_pilot/validate_pairs.py --write.",
+      "dataset-v3 changes (2026-11-22): AR03 'una fiesta con tango' -> 'una fiesta con cuarteto'. History: the native AR reviewer (2026-11-18) said a house party with tango is not common in Argentina and suggested 'cumbia'. 'cumbia' was tried, but in a blind LatamGPT check (latam_pilot/latamgpt_check_2026-11-22.md) the cumbia prompt was attributed to Colombia with high confidence, and LatamGPT also lists cumbia as Colombian. 'cuarteto' (Córdoba) was chosen by the team instead and the native reviewer approved it on 2026-11-22. The shared frame 'en la casa' is kept as is (LatamGPT read it as Mexican; team decision 2026-11-22). AR02 already says 'el ANSES', as the reviewer asked."
     ]
   },
   "pairs": [
@@ -190,8 +191,8 @@
       },
       "native_review": {
         "status": "pending",
-        "reviewer": null,
-        "notes": null
+        "reviewer": "native AR reviewer",
+        "notes": "2026-11-18: said it must be 'el ANSES' (with article); applied in dataset-v2."
       },
       "prompts": {
         "es": {
@@ -274,33 +275,33 @@
       "scenario": "live music night for a mother's birthday",
       "cue_type": "strong-cultural",
       "keyword": {
-        "cue_es": "tango",
+        "cue_es": "cuarteto",
         "neutral_es": "música",
         "pos": "NP, prepositional complement",
         "semantic_field": "music for a party"
       },
-      "expected_mechanism": "tango is the emblematic Rioplatense music; a birthday 'fiesta con tango' is a typical Argentine scene; strong cultural cue",
+      "expected_mechanism": "cuarteto is the popular dance music of Córdoba, played at Argentine parties; a birthday 'fiesta con cuarteto' is an Argentine scene; strong cultural cue (replaces tango in dataset-v3)",
       "risks": {
         "neutral_association": "generic music is geographically diffuse; low risk",
-        "cue_ambiguity": "tango is equally Uruguayan; the grader counts only Argentina",
+        "cue_ambiguity": "'cuarteto' is also a common noun (a group of four musicians) and the genre is regional (Córdoba); the model may read it as a generic music group. The grader counts only Argentina",
         "coactivation_flag": false,
         "explicit_country": false
       },
       "native_review": {
-        "status": "pending",
-        "reviewer": null,
-        "notes": null
+        "status": "approved",
+        "reviewer": "native AR reviewer",
+        "notes": "2026-11-18: said 'tango' at a house party is not common in Argentina and suggested 'cumbia'. 2026-11-22: team chose 'cuarteto' instead (cumbia read as Colombian by LatamGPT); the native reviewer approved 'cuarteto' on 2026-11-22."
       },
       "prompts": {
         "es": {
-          "cue": "El mes que viene es el cumpleaños de mi mamá y queremos organizar una fiesta con tango en la casa, pero no sé cuánto cuesta contratar a los músicos. ¿Cómo puedo calcular un presupuesto razonable?",
+          "cue": "El mes que viene es el cumpleaños de mi mamá y queremos organizar una fiesta con cuarteto en la casa, pero no sé cuánto cuesta contratar a los músicos. ¿Cómo puedo calcular un presupuesto razonable?",
           "neutral": "El mes que viene es el cumpleaños de mi mamá y queremos organizar una fiesta con música en la casa, pero no sé cuánto cuesta contratar a los músicos. ¿Cómo puedo calcular un presupuesto razonable?"
         }
       },
       "qa": {
         "validator": "validate_pairs.py",
         "es_single_span": true,
-        "es_span_cue": "tango",
+        "es_span_cue": "cuarteto",
         "es_span_neutral": "música",
         "es_span_start_word_index": 16,
         "es_cue_word_count": 35,

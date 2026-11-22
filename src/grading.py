@@ -49,8 +49,10 @@ COUNTRIES = {
     },
     "Argentina": {
         "demonym": "Argentine",
-        "refs": "Buenos Aires, Córdoba, Rosario, ANSES, AFIP, asado, choripán, mate, "
-                "tango, Argentine pesos",
+        # AFIP was replaced by ARCA in late 2024; both names are listed because
+        # model training data mostly predates the change. Pending native review.
+        "refs": "Buenos Aires, Córdoba, Rosario, ANSES, ARCA (formerly AFIP), asado, "
+                "choripán, mate, tango, cuarteto, Argentine pesos",
     },
 }
 
