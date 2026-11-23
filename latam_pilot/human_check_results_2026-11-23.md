@@ -1,6 +1,7 @@
 # Chequeo humano del grader, MX/AR capa 21: resultados (2026-11-23)
 
-Chequeo fijado en `human_check_process.md` y `annotation_guide.md` (versión 1). Hoja ciega de 100 explicaciones de
+Chequeo fijado en `human_check_process.md` y `annotation_guide.md` (versión 1). El caso "tema del país" se
+resolvió después en `annotation_guide_v2_2026-11-23.md` (salvedad 3). Hoja ciega de 100 explicaciones de
 `results/mx_ar_L21/results_stage3.json` (sha256 `6eb6fb49…`, semilla 2026, grader `claude_api`, regla `strict`).
 La anotadora 1 anotó las 100 filas; la segunda anotadora anotó sola las primeras 40. La clave se abrió después de
 recibir las dos hojas completas.
@@ -42,14 +43,15 @@ reportar junto al veredicto.
    atribuciones, pero la hoja no alcanza para afirmarlo con un 95%. Es una lectura secundaria; no cambia el
    veredicto fijado.
 
-3. **Tres filas con label 1 llevan una nota que argumenta por el 0.** En U001 ("a Mexican/festive culinary
-   theme"), U005 ("a Mexican-themed festival") y U007 ("a dog … from a Mexican restaurant") la anotadora 1 puso 1
-   pero escribió que la explicación describe el tema de la fiesta o el restaurante y no ubica la escena en México.
-   La guía dice que ante la duda va 0. La segunda anotadora también puso 1 en las tres. Si se cuentan como 0
-   (`human_check_report_sensitivity_notes.md`): kappa 0.798 (cumple), precisión 0.880 [0.762, 0.944] (**no
-   cumple**), recall 1.000. La guía v1 no resuelve "comida o fiesta de tema mexicano": el ejemplo del mariachi
-   ("a typical Mexican celebration") va a 1, y estas notas lo leen como 0. Conviene decidirlo en una v2 de la guía
-   antes de usar el grader en otra corrida, sin cambiar los labels de esta.
+3. **Regla del "tema del país" (guía v2, fijada después de ver los resultados).** En U001 ("a Mexican/festive
+   culinary theme"), U005 ("a Mexican-themed festival") y U007 ("a dog … from a Mexican restaurant") las dos
+   personas pusieron 1, pero la anotadora 1 dejó una nota diciendo que la explicación describe el tema de la fiesta
+   o el restaurante y no ubica la escena en México. La guía v1 no resolvía ese caso. Después de ver los resultados
+   se decidió que el país usado como atributo del tema o de la escena cuenta como 1, y se escribió en
+   `annotation_guide_v2_2026-11-23.md`. Los labels de la anotación no se cambiaron: coinciden con esa regla.
+   El veredicto de arriba usa esta regla. **Sensibilidad, con esas tres filas como 0** (lectura estricta de la v1,
+   `human_check_report_sensitivity_notes.md`): kappa 0.798 (cumple), precisión 0.880 [0.762, 0.944] (**no
+   cumple**), recall 1.000. Como la regla se fijó con los datos a la vista, las dos lecturas se reportan juntas.
 
 4. **Todos los errores son de México y del brazo cue.** Precisión por país: México 33/36 = 0.917 [0.782, 0.971],
    Argentina 14/14 = 1.000 [0.785, 1.000]. Las dos submuestras tienen más de 30 filas (MX 55, AR 45), pero los
@@ -79,7 +81,7 @@ Anotadora 1 vs segunda anotadora (1 de 40):
 Bajo la regla de "repetir una palabra del texto sin ligarla al país", el 0 de la segunda anotadora parece el más
 fiel a la guía. Si se usara, sería un cuarto falso positivo del grader.
 
-Filas con nota en las que todos coinciden en 1: U001, U005, U007 (salvedad 3).
+Filas con nota en las que todos coinciden en 1: U001, U005, U007 (salvedad 3; cuentan como 1 por la guía v2).
 
 ## Revisión opcional de explicaciones con label 1
 
@@ -122,6 +124,6 @@ línea base, así que estos errores tienden a subestimar D.
 - El veredicto principal de la corrida de capa 21 (`run2_layer21_results_2026-11-22.md`, PARTIAL) se puede
   reportar con el grader validado según los criterios fijados.
 - Junto al veredicto hay que reportar el intervalo de recall de `human_check_bayes.py` y la sensibilidad de la
-  salvedad 3, porque con ella la precisión queda bajo 0.90.
-- Para la próxima corrida: guía v2 que decida "tema mexicano" y "frase copiada del prompt", y una hoja con más
-  filas "no" si se quiere acotar el recall.
+  salvedad 3 (precisión 0.880 con esas filas como 0), aclarando que la regla v2 se fijó después de ver los datos.
+- Para la próxima corrida: anotar con la guía v2. Queda por decidir el caso "frase del prompt copiada por el AV"
+  (U033 y los errores de Colombia), y conviene una hoja con más filas "no" si se quiere acotar el recall.

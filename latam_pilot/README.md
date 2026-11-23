@@ -64,6 +64,8 @@ CHOCLO) was removed on 2026-11-16; the old version is in tag `countries-v1`.
   alternatives, grader lists). Points to check with a native reader: "en la casa" in the pair 3 frame, and
   "jubilación" in the AR02 neutral arm.
 - `annotation_guide.md`: rule for the human check (same strict rule as the grader), examples and edge cases.
+- `annotation_guide_v2_2026-11-23.md`: version 2 of the guide, fixed after the layer-21 human check: the country
+  used as an attribute of the theme or scene ("a Mexican-themed festival") counts as 1. Use it for new sheets.
 - `human_check_process.md`: the human check step by step (700 explanations, 100-row sheet, 2 annotators,
   thresholds) plus an optional LatamGPT third rater on the 40 shared rows (needs a new OK before sending).
 - `latamgpt_summary.md`: write-up of both LatamGPT rounds for the paper (what was done, facts, interpretation,
@@ -92,7 +94,8 @@ CHOCLO) was removed on 2026-11-16; the old version is in tag `countries-v1`.
 - `human_check_results_2026-11-23.md` (reports in `human_check_reports/`): human check of the layer-21 grader.
   Kappa between annotators 0.948 on 40 rows; grader precision 0.940 [0.838, 0.979], recall 1.000 (0 misses in 50
   "no" rows). All pre-registered thresholds met. Caveats: `human_check_bayes.py` gives a wider recall interval
-  [0.62, 1.00]; three rows labelled 1 carry notes arguing for 0, and counting them as 0 drops precision to 0.880.
+  [0.62, 1.00]; three "Mexican-themed" rows count as 1 under guide v2 (`annotation_guide_v2_2026-11-23.md`,
+  fixed after seeing the results); counting them as 0 drops precision to 0.880, reported as sensitivity.
   Also summarises the optional non-blind review of label-1 rows (MX/AR 7.9% grader errors, Colombia 14.3%).
 
 ## Next steps
