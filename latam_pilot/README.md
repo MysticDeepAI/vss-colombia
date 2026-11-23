@@ -89,6 +89,11 @@ CHOCLO) was removed on 2026-11-16; the old version is in tag `countries-v1`.
   criterion, grader noise near zero (699/700 labels equal), and the same decision rule gives FAILURE, PARTIAL or
   SUCCESS across the three MX/AR runs; our ARS does not separate quoted claims from same-length text; the Colombia
   result holds in all three cells (nationality +0.15, +0.55, +0.65), and the old grader undercounted mentions.
+- `human_check_results_2026-11-23.md` (reports in `human_check_reports/`): human check of the layer-21 grader.
+  Kappa between annotators 0.948 on 40 rows; grader precision 0.940 [0.838, 0.979], recall 1.000 (0 misses in 50
+  "no" rows). All pre-registered thresholds met. Caveats: `human_check_bayes.py` gives a wider recall interval
+  [0.62, 1.00]; three rows labelled 1 carry notes arguing for 0, and counting them as 0 drops precision to 0.880.
+  Also summarises the optional non-blind review of label-1 rows (MX/AR 7.9% grader errors, Colombia 14.3%).
 
 ## Next steps
 

@@ -1,0 +1,118 @@
+{
+  "key_meta": {
+    "created": "2026-11-23",
+    "results_file": "tar/results/mx_ar_L21/results_stage3.json",
+    "results_sha256": "6eb6fb491d91b41024533d4aaad202e3758b8aab7fda58b17a74d3e79b0b5efa",
+    "grader_name": "claude_api",
+    "label_field": "mentions_target",
+    "seed": 2026,
+    "n": 100,
+    "max_pos": 50,
+    "n_second": 40,
+    "langs": "all",
+    "units_in_run": 700,
+    "pool_sizes": {
+      "pos": 77,
+      "neg_cue_window": 245,
+      "neg_other": 378
+    },
+    "sampled": {
+      "pos": 50,
+      "neg_cue_window": 25,
+      "neg_other": 25
+    }
+  },
+  "n_units": 100,
+  "thresholds": {
+    "kappa": 0.7,
+    "precision": 0.9,
+    "recall": 0.8
+  },
+  "graders": {
+    "claude_api": {
+      "confusion": {
+        "tp": 47,
+        "fp": 3,
+        "fn": 0,
+        "tn": 50
+      },
+      "precision": {
+        "raw": 0.94,
+        "raw_k": 47,
+        "raw_n": 50,
+        "weighted": 0.94,
+        "ci": [
+          0.8378290831116182,
+          0.979385029651026
+        ],
+        "ci_method": "Wilson",
+        "meets_threshold": true
+      },
+      "recall": {
+        "raw": 1.0,
+        "raw_k": 47,
+        "raw_n": 47,
+        "weighted": 1.0,
+        "ci": [
+          0.9244423958360037,
+          1.0
+        ],
+        "ci_method": "Wilson",
+        "meets_threshold": true
+      },
+      "n_disagreements": 3,
+      "top_disagreements": [
+        {
+          "unit_id": "U009",
+          "item_id": "MX02_cue_es",
+          "arm": "cue",
+          "position": "tw+4",
+          "sample": 4,
+          "stratum": "pos",
+          "pred": 1,
+          "truth": 0,
+          "grader_quote": "likely a Mexican or Latinx cultural context",
+          "text": "Formal Spanish language context with greeting structure \"Mi padre va al hospital y no sé qué\" implies a question about travel preparation for a job interview, likely a Mexican or Latinx cultural context.\n\nThe phrase \"Digo que voy al hospital para la entrevista y no sé qué\" strongly suggests a list or itemized checklist item expected next, likely asking about required documents or items for the appointment.\n\nFinal token \"qué\" is mid-clause (\"No sé qué\"), part of an incomplete clause describing uncertainty (\"Ya que, qué...\"), immediately expecting noun phrases like \"documentos necesito\" or \"things I should bring\" or \"tipo de rutina incluye.\""
+        },
+        {
+          "unit_id": "U030",
+          "item_id": "MX01_cue_es",
+          "arm": "cue",
+          "position": "tw",
+          "sample": 2,
+          "stratum": "pos",
+          "pred": 1,
+          "truth": 0,
+          "grader_quote": "involving a Mexican dish or Latin culture",
+          "text": "Spanish-language grammar format with \"Sobre mi\" structure suggests a casual, informal context probably describing a personal experience or food situation involving a Mexican dish or Latin culture.\n\nThe sentence \"Un día tuve que consumir someotes\" strongly implies a specific event or food item name, likely a meal or dish, expecting continuation describing taste, ingredients, or experience of corn kernels from a vendor.\n\nFinal token \"esquites\" is mid-phrase (\"Comí some quites\"), part of an incomplete noun phrase introducing a food experience, immediately expecting a noun continuation like \"y\" or \"de cebolla\" or \"que resultaron muy picosos,\" describing the purchased corn dish."
+        },
+        {
+          "unit_id": "U049",
+          "item_id": "MX02_neutral_es",
+          "arm": "neutral",
+          "position": "tw+3",
+          "sample": 3,
+          "stratum": "pos",
+          "pred": 1,
+          "truth": 0,
+          "grader_quote": "scheduling an appointment at a shopping place like Mexico",
+          "text": "Formal Spanish language structure with informal tone, implying a written or spoken context about scheduling an appointment at a shopping place like Mexico.\n\nThe phrase \"Mi madre me tiene que ir a trabajar a la universidad y no sé\" sets up an incomplete clause suggesting the speaker has a question or uncertainty about a schedule or preparation task, likely continuing with \"what to bring\" or similar uncertainty about the event.\n\nFinal token \"sé\" ends an incomplete clause (\"No sé... y no sé\"), part of a list of limitations (\"Ya no sé... y no sé\"), strongly expecting a noun phrase like \"cuánto tiempo\" or \"si tengo que preparar nada.\""
+        }
+      ]
+    }
+  },
+  "kappa": {
+    "value": 0.9484536082474226,
+    "n_shared": 40,
+    "agreements": 39,
+    "meets_threshold": true
+  },
+  "human_disagreements": [
+    {
+      "unit_id": "U033",
+      "annotator1": 1,
+      "annotator2": 0,
+      "text": "Formal Spanish language context with a bilingual, casual tone suggesting a personal narrative about social gatherings where someone finds party conversations tedious.\n\nThe sentence structure \"Siempre me siento excluida en las fiestas mexicanas y yo\" implies a personal situation or dilemma, strongly implying a clause describing the speaker's inability to participate or enjoy activities, likely contrasting their own preference or discomfort.\n\nFinal token \"yo\" ends mid-clause (\"y yo\"), part of an incomplete contrast clause (\"Cuando otros disfrutan las charlas y yo\"), expecting a verb phrase like \"no puedo\" or \"always feel uncomfortable\" or \"am excluded from the topic,\" completing the personal perspective."
+    }
+  ]
+}
