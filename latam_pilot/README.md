@@ -85,6 +85,10 @@ CHOCLO) was removed on 2026-11-16; the old version is in tag `countries-v1`.
   what each result would change in the paper and the sha256 of each config: noise (2 full repeats + a
   regrade, `noise_report.py`), our ARS on the official critic with a length control and a percentile sweep
   (`ars_report.py`), and Colombia split into grader and layer effects. None changes the main verdict.
+- `exploratory_results_2026-11-22.md` (reports in `exploratory_reports/`): noise test inconclusive by the fixed
+  criterion, grader noise near zero (699/700 labels equal), and the same decision rule gives FAILURE, PARTIAL or
+  SUCCESS across the three MX/AR runs; our ARS does not separate quoted claims from same-length text; the Colombia
+  result holds in all three cells (nationality +0.15, +0.55, +0.65), and the old grader undercounted mentions.
 
 ## Next steps
 
