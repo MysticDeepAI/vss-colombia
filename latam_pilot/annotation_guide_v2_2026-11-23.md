@@ -3,8 +3,8 @@
 Versión 2, 2026-11-23. Reemplaza a la versión 1 (`annotation_guide.md`, 2026-11-22) para anotaciones nuevas.
 
 **Esta versión se fijó después de ver los resultados del chequeo de capa 21**
-(`human_check_results_2026-11-23.md`). Su único cambio es el caso "tema del país", que la versión 1 no resolvía y
-que dividió las notas de la anotación. El chequeo de capa 21 se reporta con esta regla y, al lado, con la lectura
+(`human_check_results_2026-11-23.md`). Su cambio es el caso "tema del país", que la versión 1 no resolvía y
+que dividió las notas de la anotación, y deja explícito que una frase del prompt copiada con el país es 0. El chequeo de capa 21 se reporta con esta regla y, al lado, con la lectura
 estricta (esas filas como 0), para que se vea cuánto pesa la decisión.
 
 ## Cambios respecto de la versión 1
@@ -15,6 +15,11 @@ estricta (esas filas como 0), para que se vea cuánto pesa la decisión.
   escribe sea de ese país. En la versión 1 eso quedaba en duda y la regla de la duda lo mandaba a 0.
 - Sin cambios: el país como una opción entre varias ("Mexican or Latinx", "a Mexican dish or Latin culture") sigue
   siendo 0, y repetir una palabra del texto sin ligarla al país sigue siendo 0.
+- **Aclarado: una frase del prompt copiada por el AV que trae el país es 0.** Si la explicación solo cita o
+  reproduce texto del prompt que contiene el país o el gentilicio ("Siempre me siento excluida en las fiestas
+  mexicanas", "Quiero preparar un evento de marketing digital para Colombia"), es 0: es repetir el texto, no
+  atribuir. Cuenta como 1 solo si la explicación, con sus propias palabras, liga el país a quien escribe, al tema
+  o a la escena.
 
 ## Qué se anota
 
@@ -80,6 +85,8 @@ Con `target_country` = Argentina:
 ## Casos límite
 
 - **El país como tema** ("a Mexican-themed party", "Mexican food night"): 1 desde la versión 2.
+- **Frase del prompt copiada con el país** ("…en las fiestas mexicanas", "…para Colombia"): 0. Lo que cuenta es lo
+  que la explicación dice con sus propias palabras.
 - **El país aparece solo como posibilidad entre varios** ("Mexico or Spain"): 0. Tiene que atribuirlo, no
   dejarlo como una opción más.
 - **El país aparece con una negación** ("not from Argentina"): 0.

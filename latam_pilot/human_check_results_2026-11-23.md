@@ -125,5 +125,5 @@ línea base, así que estos errores tienden a subestimar D.
   reportar con el grader validado según los criterios fijados.
 - Junto al veredicto hay que reportar el intervalo de recall de `human_check_bayes.py` y la sensibilidad de la
   salvedad 3 (precisión 0.880 con esas filas como 0), aclarando que la regla v2 se fijó después de ver los datos.
-- Para la próxima corrida: anotar con la guía v2. Queda por decidir el caso "frase del prompt copiada por el AV"
-  (U033 y los errores de Colombia), y conviene una hoja con más filas "no" si se quiere acotar el recall.
+- Para la próxima corrida: anotar con la guía v2, que deja la frase del prompt copiada por el AV como 0 (el caso
+  de U033 y de los errores de Colombia). Conviene una hoja con más filas "no" si se quiere acotar el recall.
